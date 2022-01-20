@@ -1,5 +1,5 @@
 const express = require('express')
-const adminController = require('./controllers/admin')
+const adminStoreOwner = require('./StoreOwner/admin')
 
 const app = express()
 
@@ -8,7 +8,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 
 //cac request co chua /admin se di den controller admin
-app.use('/admin', adminController)
+app.use('/admin', adminStoreOwner)
 
 const { ObjectId } = require('mongodb')
 
