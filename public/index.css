@@ -1,0 +1,20 @@
+.product {
+    margin: 40px;
+    font-size: 20px;
+    font-weight: bold;
+   
+    
+}
+
+.Display_product:hover{
+    color: red;
+    text-decoration: underline;
+    
+}
+
+/* #index {
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+} */
