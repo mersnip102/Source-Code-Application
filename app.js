@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 //     extended: true
 // }))
 
-app.get('/', async (_req, res) => {
+app.get('/', async (req, res) => {
 
     const collectionName = 'Products'
     const products = await getAllDocumentsFromCollection(collectionName)
@@ -36,9 +36,15 @@ app.get('/', async (_req, res) => {
 
 })
 
-app.get('/login', async (_req, res) => {
+app.get('/login', async (req, res) => {
    
     res.render('login')
+
+})
+
+app.get('/register', async (req, res) => {
+   
+    res.render('register')
 
 })
 
