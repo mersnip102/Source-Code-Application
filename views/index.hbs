@@ -32,8 +32,6 @@
     {{> header}}
     <br>
     <div>
-        {{!-- <img style="width: 100%;" src="backgroundImage.jpg" alt="ImageIndex"> --}}
-
         {{!-- IMAGE SLIDER --}}
         <div class="container">
             <div id="mycarousel" class="carousel slide" data-ride="carousel">
@@ -44,7 +42,7 @@
                     <li data-target="#mycarousel" data-slide-to="3"></li>
                     <li data-target="#mycarousel" data-slide-to="4"></li>
                 </ol>
-                <div class="carousel-inner" style="max-width:400px; position: relative; margin: auto">
+                <div class="carousel-inner" style="max-width:200px; position: relative; margin: auto">
                     <div class="carousel-item active">
                         <img style="width: 100%;" src="Slide1.jpg" alt="ImageIndex">
                         
@@ -66,23 +64,30 @@
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next" style="cursor:pointer";
-">
+<<<<<<< HEAD
+                <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next" style="cursor:pointer";>
+=======
+                <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next" style="cursor:pointer">
+>>>>>>> e2f1428f6de0dde2a164bdc9c60ace9ea0afa57a
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
                 <script>$('.carousel').carousel({
-                        interval: 40
+                        interval: 20
                     })</script>
             </div>
         </div>
         <span style="color: red;">{{showErr}}</span>
-        <center>
+<<<<<<< HEAD
+        {{!-- <center>
             <button style="font-weight: bold; position: absolute; top: 800px;
                     width: 200px; height: 50px;" type="button" class="btn btn-outline-primary">SHOP NOW <i
                     class="fas fa-shopping-cart"></i>
             </button>
-        </center>
+        </center> --}}
+=======
+        
+>>>>>>> e2f1428f6de0dde2a164bdc9c60ace9ea0afa57a
     </div>
     {{> footer}}
 </body>
