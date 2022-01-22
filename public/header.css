@@ -142,7 +142,7 @@ header [type="radio"]:not(:checked) + label {
 
 
 /* Responsive CSS */
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
     header .cart a img {
         width: 30px;
         margin-left: 10px;
