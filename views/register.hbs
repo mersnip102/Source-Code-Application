@@ -41,30 +41,30 @@
                 <p class="divider-text">
                     <span class="bg-light">OR</span>
                 </p>
-                <form>
+                <form method="post" action="/register">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Full name" type="text">
+                        <input name="txtName" class="form-control" placeholder="Full name" type="text">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Email address" type="email">
+                        <input name="txtEmail" class="form-control" placeholder="Email address" type="email">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" placeholder="Create password" type="password">
+                        <input name="txtPassword" class="form-control" placeholder="Create password" type="password">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" placeholder="Repeat password" type="password">
+                        <input name="txtRePassword" class="form-control" placeholder="Repeat password" type="password">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -77,7 +77,7 @@
                             <option value="3">+198</option>
                             <option value="4">+701</option>
                         </select>
-                        <input name="" class="form-control" placeholder="Phone number" type="text">
+                        <input name="txtPhone" class="form-control" placeholder="Phone number" type="text">
                     </div> <!-- form-group// -->
                     {{!-- <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -95,7 +95,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fas fa-calendar-alt"></i></i> </span>
                         </div>
-                        <input name="" placeholder="Date of Birth*" id="birthDate" class="form-control" type="date">
+                        <input name="txtDate" placeholder="Date of Birth*" id="birthDate" class="form-control" type="date">
                         <span style="color: red; font-weight: bold">(Date of Birth*)</span>
                     </div> <!-- form-group// -->
 
@@ -103,7 +103,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Address" type="text">
+                        <input name="txtAddress" class="form-control" placeholder="Address" type="text">
 
                     </div> <!-- form-group// -->
                     <div class="form-group">

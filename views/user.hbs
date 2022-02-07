@@ -8,11 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    {{!--
-    <link rel="stylesheet" href="footer.css"> --}}
+    <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="mystyle.css">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -33,7 +30,7 @@
 </head>
 
 <body>
-    {{> header}}
+    {{> headerUser}}
 
     <div>
         {{!-- IMAGE SLIDER --}}
@@ -86,69 +83,20 @@
                                 interval: 20
                             })</script>
             </div>
-
+             
         </div>
-        <br><br><br><br>
-        <div>
-            <div>
-                <center>
-                    <h2 style="font-weight: bold;">Hot book, best seller</h2>
-                    <br>
-                    <a href="/product">See all</a>
-                </center>
+        
+        {{!-- <span style="color: red;">{{showErr}}</span> --}}
 
-            </div>
-            <br><br>
-            <div>
-                <div>
-                    <div>
-                        <div class="product">
-                            <!-- <h3>Class</h3> -->
-                            <ul>
-                                {{#each book}}
-                                <li style="display: inline-block; margin: 40px 80px" class="Display_product">
-                                    <a href="#" style="text-decoration: none;" id="name">
-                                        <div>
-                                            <img src='{{imgURL}}' width="180" height="180">
-                                            <div>
-                                                <center>
-                                                    <div class="stars" style="color: #ff9f1a;">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-
-                                                    </div>
-                                                </center>
-                                                <center>{{name}}</center>
-                                            </div>
-                                            <center>
-                                                {{price}} VND
-                                            </center>
-                                        </div>
-                                    </a>
-                                </li> {{/each}}
-
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            {{!-- <span style="color: red;">{{showErr}}</span> --}}
-
-            {{!-- <center>
-                <button style="font-weight: bold; position: absolute; top: 800px;
+        {{!-- <center>
+            <button style="font-weight: bold; position: absolute; top: 800px;
                     width: 200px; height: 50px;" type="button" class="btn btn-outline-primary">SHOP NOW <i
-                        class="fas fa-shopping-cart"></i>
-                </button>
-            </center> --}}
-            <br><br><br><br><br><br><br><br><br><br>
-            {{> footer}}
-        </div>
-
+                    class="fas fa-shopping-cart"></i>
+            </button>
+        </center> --}}
+        {{> footer}}
+    </div>
+   
 
 </body>
 
@@ -156,6 +104,7 @@
 </html>
 
 {{!-- su dung tac vu next/pre voi slider --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
