@@ -9,6 +9,9 @@ router.get('/',(req,res)=>{
 router.get('/addUser',(req,res)=>{
     res.render('addUser')
 })
+router.get('/managerCustomer', (req,res)=>{
+    res.render("admin/managerCustomer")
+})
 
 router.post('/add',(req,res)=>{
     const name = req.body.txtName
