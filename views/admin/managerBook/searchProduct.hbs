@@ -19,5 +19,25 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Document</title>
+    <title>Search</title>
 </head>
+<body>
+    <h2 class="alert alert-primary"><center>Search</center>  </h2>
+    <div class="container">
+         <form action="/doSearch" method="post">
+        <div class="mb-3">
+            <label for=""> Name</label>
+            <input type="text" name="txtName" id="" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="Search" class="btn btn-primary">
+        </div>
+
+
+    </form>
+    </div>
+   
+    {{> footer}}
+</body>
+
+</html>

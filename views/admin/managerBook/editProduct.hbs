@@ -19,5 +19,29 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Document</title>
+    <title>New product</title>
 </head>
+<body>
+    <h1 class="alert alert-primary">Edit product</h1>
+    <form action="/doEdit" method="post">
+        <div class="container">
+            <div class="mb-3">
+                Name: <input type="text" name="txtName" value="{{model.productName}}" class="form-control">
+            </div>
+            <div class="mb-3">
+                Price: <input type="text" name="txtPrice" value="{{model.price}}" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Update" class="form-control">
+            </div>
+            <input type="hidden" name="id" value="{{model._id}}">
+            {{> footer}}
+        </div>
+
+
+
+    </form>
+
+</body>
+
+</html>

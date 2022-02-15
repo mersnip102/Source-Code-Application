@@ -19,10 +19,42 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
-    
+    <h1 class="alert alert-secondary"><center>All Products</center>  </h1>
+    <div class="container">
+        <form action="/search" method="POST">
+            Enter value <input type="text" name="txtSearch">
+            <input type="submit" value="Search">
+        </form>
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Delete</td>
+                <td>Edit Price</td>
+            </tr>
+            {{#each model}}
+            <tr>
+                <td>{{productName}}</td>
+                <td>{{price}}</td>
+                <td><a href="/delete?id={{_id}}" onclick="return confirmXoa('{{productName}}')">Delete</a></td>
+                <td><a href="/Edit?id={{_id}}">Edit</a></td>
+            </tr>
+            {{/each}}
+        </table>
+         {{> footer}}
+    </div>
 
+
+    <script>
+        function confirmXoa(name) {
+            let r = confirm('Ban co muon xoa ' + name + '?');
+            return r;
+        }
+    </script>
 </body>
+
 </html>
