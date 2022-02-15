@@ -3,7 +3,7 @@ const { insertObject } = require('../databaseHandler')
 const router = express.Router()
 
 router.get('/',(req,res)=>{
-    res.render('adminIndex')
+    res.render('admin/adminIndex')
 })
 
 router.get('/addUser',(req,res)=>{
@@ -21,6 +21,6 @@ router.post('/add',(req,res)=>{
     }
 
     insertObject("User",objectToInsert)
-    res.render('adminIndex')
+    res.render('admin/adminIndex')
 })
 module.exports = router;

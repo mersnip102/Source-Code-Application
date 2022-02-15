@@ -47,7 +47,7 @@ async function getDocumentById(collectionName, id) {
 async function insertObjectToCollection(collectionName, newP) {
     const dbo = await getDatabase();
     const result = await dbo.collection(collectionName).insertOne(newP);
-    console.log("The newly product inserted id value is: ", result.insertedId.toHexString());
+    console.log("The newly user inserted id value is: ", result.insertedId.toHexString());
 }
 
 async function updateCollection(id, collectionName, newvalues) {

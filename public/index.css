@@ -1,12 +1,18 @@
 .product {
     margin: 40px;
+    margin-left: 120px;
     font-size: 20px;
     font-weight: bold;
    
     
 }
 
-.Display_product:hover{
+.Display_product:hover {
+    text-decoration: underline;
+    
+}
+
+#name:hover {
     color: red;
     text-decoration: underline;
     

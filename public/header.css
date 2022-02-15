@@ -140,9 +140,8 @@ header [type="radio"]:not(:checked) + label {
     font-size: 14px;
 }
 
-
 /* Responsive CSS */
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
     header .cart a img {
         width: 30px;
         margin-left: 10px;
@@ -162,4 +161,46 @@ header [type="radio"]:not(:checked) + label {
     header .navbar-brand {
         max-width: 150px;
     }
+}
+
+
+
+html,body{
+    height: 100%;
+}
+.container{
+   height: 100%;
+   align-content: center;
+}
+
+.image_outer_container{
+   margin-top: auto;
+   margin-bottom: auto;
+   border-radius: 50%;
+   position: relative;
+}
+
+.image_inner_container{
+   border-radius: 50%;
+   padding: 5px;
+background: #833ab4; 
+background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4); 
+background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
+}
+.image_inner_container img{
+   height: 40px;
+   width: 40px;
+   border-radius: 50%;
+   border: 5px solid white;
+}
+
+.image_outer_container .green_icon{
+ background-color: #4cd137;
+ position: absolute;
+ right: 15px;
+ bottom: 5px;
+ height: 15px;
+ width: 15px;
+ border:5px solid white;
+ border-radius: 50%;
 }

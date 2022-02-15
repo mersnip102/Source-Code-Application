@@ -17,11 +17,15 @@ const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
 
 const path = require('path');
 const hbs = require('hbs');
+const async = require('hbs/lib/async')
+const { redirect } = require('express/lib/response')
 
 const partialsPath = path.join(__dirname, "/views/partials");
 hbs.registerPartials(partialsPath);
 
 app.set('view engine', 'hbs')
+app.set('views', './views');
+
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 // app.use(bodyParser.urlencoded({
@@ -30,21 +34,68 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get('/', async (req, res) => {
 
-    const collectionName = 'Products'
-    const products = await getAllDocumentsFromCollection(collectionName)
-    res.render('index', { products: products })
+    const category = await categories()
+
+    const collectionName = 'Book'
+    const book = await getAllDocumentsFromCollection(collectionName)
+    
+    res.render('index', { category: category, book:book })
 
 })
 
 app.get('/login', async (req, res) => {
+
+
+    const category = await categories()
    
-    res.render('login')
+    res.render('login', { category: category })
 
 })
 
+app.post('/login', async(req,res)=>{
+    const email = req.body.txtEmail
+    
+    const password = req.body.password
+    
+    const dbo = await getDatabase();
+    const user = await dbo.collection('Customer').findOne({$and: [{email: email}, {password: password}]});
+    
+    if(!user){
+        res.render('login', {err: "User dose not exist or wrong password."})
+        return
+    }
+    else {
+        res.cookie('userId', user._id)
+        res.redirect('/user')
+    }
+    
+})
+
+// async function requiresLogin(req,res,next){
+//     console.log(req.cookies)
+//     if(req.cookies.userId){
+//         return next()
+//     }else{
+//         res.redirect('/login')
+//     }
+
+//     var dbo = await getDatabase();
+//     const user = await dbo.collection('Customer').findOne({_id: ObjectId(req.cookies.userId)});
+
+//     if(!user){
+        
+//         res.redirect('/login')
+//         return;
+//     }
+
+//     next();
+    
+// }
+
 app.get('/register', async (req, res) => {
+    const category = await categories()
    
-    res.render('register')
+    res.render('register', { category: category })
 
 })
 
@@ -62,9 +113,63 @@ app.get('/category', async (_req, res) => {
 
     const collectionName = 'Category'
 
-    const categories = await getAllDocumentsFromCollection(collectionName);
+    const category = await getAllDocumentsFromCollection(collectionName);
 
-    res.render('category', { categories: categories })
+    res.render('category', { category: category })
+})
+
+app.post('/register', async(req,res)=> {
+    const fullName = req.body.txtName
+    const email = req.body.txtEmail
+    const password = req.body.txtPassword
+    const rePassword = req.body.txtRePassword
+    const phone = req.body.txtPhone
+    const address = req.body.txtAddress
+    const date = req.body.txtDate.toString()
+
+    const newUser = {fullName: fullName, email: email, password:password, phoneNumber: phone,
+    dateOfBirth: date, address:address}
+
+    var collectionName = 'Customer'
+    await insertObjectToCollection(collectionName, newUser)
+
+    res.redirect('/')
+
+})
+
+app.get('/cart', async (req, res) => {
+    const category = await categories()
+    
+
+    res.render('cart', { category: category })
+
+})
+
+
+app.get('/user', async (req, res) => {
+
+    res.render('user')
+
+})
+
+app.get('/shoppingCart', async (req, res) => {
+    const category = await categories()
+
+    res.render('shoppingCart', {category: category})
+
+})
+
+app.get('/proDetail', async (req, res) => {
+    
+    const category = await categories()
+    res.render('proDetail', {category: category})
+
+})
+
+app.get('/search', async (req, res) => {
+
+    res.render('search')
+
 })
 
 app.get('/delete', async (req, res) => {
@@ -217,32 +322,32 @@ app.post('/insertCategory', async (req, res) => {
 
 })
 
-app.post('/search', async (req, res) => {
+// app.post('/search', async (req, res) => {
 
-    const searchInput = req.body.txtSearch;
-    const searchPrice = Number.parseFloat(searchInput);
+//     const searchInput = req.body.txtSearch;
+//     const searchPrice = Number.parseFloat(searchInput);
 
 
-    const collectionName = 'Products'
-    const dbo = await getDatabase();
-    // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
+//     const collectionName = 'Products'
+//     const dbo = await getDatabase();
+//     // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
 
-    const products = await dbo.collection(collectionName).find(
-        {
-            $or: [
-                { _id: { $regex: searchInput, $options: "$i" } },
-                { name: { $regex: searchInput, $options: "$i" } },
-                { price: { $regex: searchInput, $options: "$i" } },
-                { price: searchPrice },
+//     const products = await dbo.collection(collectionName).find(
+//         {
+//             $or: [
+//                 { _id: { $regex: searchInput, $options: "$i" } },
+//                 { name: { $regex: searchInput, $options: "$i" } },
+//                 { price: { $regex: searchInput, $options: "$i" } },
+//                 { price: searchPrice },
 
-            ]
-        }
+//             ]
+//         }
 
-    ).toArray();
-    await changeIdToCategoryName(products, dbo);
-    res.render('search', { products: products })
+//     ).toArray();
+//     await changeIdToCategoryName(products, dbo);
+//     res.render('search', { products: products })
 
-})
+// })
 
 app.post('/searchProductIndex', async (req, res) => {
 
@@ -271,10 +376,6 @@ app.post('/searchProductIndex', async (req, res) => {
 
 })
 
-app.get('/search', async (_req, res) => {
-
-    res.render('search')
-})
 
 app.post('/searchCat', async (req, res) => {
 
@@ -390,6 +491,12 @@ app.get('/editCategory', async (req, res) => {
 })
 
 
+async function categories() {
+    const collectionName = 'Category'
+    const category = await getAllDocumentsFromCollection(collectionName)
+    return category
+}
+
 async function changeIdToCategoryName(products, dbo) {
     const count = products.length;
 
@@ -401,7 +508,7 @@ async function changeIdToCategoryName(products, dbo) {
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
-console.log("Server is running! " + PORT)
+console.log("Server is running! PORT: " + PORT)
 
 
 
