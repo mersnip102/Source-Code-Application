@@ -80,9 +80,9 @@ ul.dropdown-navbar-right ul li:hover{
  clear:both;
 }
 .left_sidebar{
- width:25%;
+ width:280.5px;
  float:left;
- background:rgba(250, 250, 250,0.7);
+ background-color: #990808fd;
  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
 }
 .left_sidebar_box{
@@ -90,8 +90,11 @@ ul.dropdown-navbar-right ul li:hover{
 }
 
 .content{
- width:75%;
+ width:1200px;
+ height: 655px;
  float:left;
+ background-image: url(https://media.nbcbayarea.com/2022/01/FKdhsqNXIAg_t18.jpg?quality=85&strip=all&fit=1200%2C675&w=1375&h=773&crop=1);
+ background-attachment: fill;
 }
 .content_box{
  padding:15px;
@@ -115,7 +118,7 @@ ul.dropdown-navbar-right ul li:hover{
 }
 .left_sidebar_box ul a{
   padding:5px 15px;
-  color:rgba(2, 133, 173, 1);
+  color:rgb(255, 206, 101);
   text-decoration:none;
   font-weight:bold;
 }
@@ -190,7 +193,7 @@ ul.dropdown-navbar-right ul li:hover{
 }
 
 footer{
-  background-color: #fdfefffd;
+  background-color: #990808fd;
 
 }
 .li_footer {
