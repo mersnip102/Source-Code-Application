@@ -17,7 +17,7 @@ const {MongoClient,ObjectId} = require('mongodb');
 
 // module.exports = {insertObject}
 
-const DATABASE_URL = 'mongodb://localhost:27017';
+const DATABASE_URL = 'mongodb+srv://quyennxgch190732:quyen692001@cluster0.76ku8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const DATABASE_NAME = 'ApplicationDev';
 
 async function getDatabase() {
@@ -47,7 +47,7 @@ async function getDocumentById(collectionName, id) {
 async function insertObjectToCollection(collectionName, newP) {
     const dbo = await getDatabase();
     const result = await dbo.collection(collectionName).insertOne(newP);
-    console.log("The newly product inserted id value is: ", result.insertedId.toHexString());
+    console.log("The newly user inserted id value is: ", result.insertedId.toHexString());
 }
 
 async function updateCollection(id, collectionName, newvalues) {

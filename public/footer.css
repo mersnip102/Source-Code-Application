@@ -1,3 +1,11 @@
+#main{
+    position: relative;
+    width: 100%;
+    /* bottom: 0; */
+    
+}
+
+
 .footer_top{
     width: 33%;
     display: inline-block;
@@ -9,6 +17,7 @@
 
 footer{
     background-color: #2196F3;
+  
 }
 .li_footer {
     display: block;

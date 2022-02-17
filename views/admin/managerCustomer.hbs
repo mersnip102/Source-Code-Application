@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin home</title>
+<title>Admin system</title>
+<!-- <script type="text/javascript">
+		alert("Welcome To Admin System!");
+	</script> -->
+<link rel="stylesheet" href="/style_manager_customer.css">
+<link rel="stylesheet" href="/style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="../js/jquery-3.4.1.js"></script>
+<head>
+
+<body>
+ <div class="container">
+   <div class="header">
+     <div class="navbar-header">
+	  <h3><a class="admin_name">Admin Area</a></h3>
+	 </div><!-- /.navbar-header -->
+	 
+	 <div class="navbar-right-header">
+	 
+	 <ul class="dropdown-navbar-right">
+	   <li>
+	     <a><i class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i></a>
+		 
+		 <ul class="subnavbar-right">
+		   <li><a>User Account</a></li>
+		   <li><a href="">Logout</a></li>
+		 </ul>
+	   </li>
+	 </ul>
+	 
+	 <ul class="dropdown-navbar-right">
+	   <li>
+	     <a><i class="fa fa-bell"></i>&nbsp;<i class="fa fa-caret-down"></i></a>
+		 
+		 <ul class="subnavbar-right">
+		   <li><a>Notification </a></li>
+		   
+		 </ul>
+	   </li>
+	 </ul>
+	 
+	 </div><!-- /.navbar-right-header -->
+	 
+   </div><!-- /.header -->
+   
+   <div class="body_container">
+     <div class="left_sidebar">
+	   <div class="left_sidebar_box">
+	   
+	   <ul class="left_sidebar_first_level">
+
+         <li><a href="/#" target="_blank" ><i class="fa fa-dashboard"></i> My Site</a></li>	   
+	     
+		 <li>
+		  <a href="#"><i class="fa fa-plus"></i>&nbsp;Books <i class="arrow fa fa-angle-left"></i></a>
+		 
+		   <ul class="left_sidebar_second_level">
+		     <li><a href="">Add Books</a></li>
+			 <li><a href="">Edit Books</a></li>
+			 <li><a href="">View Books</a></li>
+		   </ul><!-- /.left_sidebar_second_level -->
+		 </li>
+		 
+		 <li>
+		  <a href="#"><i class="fa fa-plus"></i>&nbsp;Categories <i class="arrow fa fa-angle-left"></i></a>
+		 
+		   <ul class="left_sidebar_second_level">
+		     <li><a href="">Add Category</a></li>
+			 <li><a href="">Edit Category</a></li>
+			 <li><a href="">View Categories</a></li>
+		   </ul><!-- /.left_sidebar_second_level -->
+		 </li>
+		 
+		 <li>
+		  <a href="#"><i class="fa fa-plus"></i>&nbsp;Order <i class="arrow fa fa-angle-left"></i></a>
+		 
+		   <ul class="left_sidebar_second_level">
+		     <li><a href="/admin/managerCustomer">Manager Customer Order</a></li>
+			 <li><a href="/admin/statusOrder">Status Order</a></li>
+		   </ul><!-- /.left_sidebar_second_level -->
+		 </li>
+		 
+		 <li>
+		  <a href="#"><i class="fa fa-gift"></i>&nbsp;Admin <i class="arrow fa fa-angle-left"></i></a>
+		 
+		   <ul class="left_sidebar_second_level">
+		     <li><a href="">Add User</a></li>
+			 <li><a href="">List Users</a></li>
+		   </ul><!-- /.left_sidebar_second_level -->
+		 </li>
+		 
+		 </ul><!-- /.left_sidebar_first_level -->
+	   </div><!-- /.left_sidebar_box -->
+   </div><!-- /.body_container -->
+ </div>
+
+	<div id="content_area">	
+	  
+	  <div class="shopping_cart_container">
+	  
+	  
+	  <div id="shopping_cart" align="right" style="padding:15px">
+	   
+	   </div><!-- /.shopping_cart --> 
+	   
+	   <form action="" method="post" enctype="multipart/form-data">
+	   <table align="center" width="100%">
+	   
+	     <tr align="center">
+		   <th>Remove</th>
+		   <th>Product</th>
+		   <th>Quality</th>
+		   <th>Price</th>
+		 </tr>
+		 
+	
+		 <tr align="center">
+		   <td></td>
+		   <td>
+		   <br />
+		   <img src="" />
+		   </td>
+		   <td><input type="text" size="4" name="qty" value="" /></td>
+		   <td></td>
+		 </tr>
+	
+	    <tr  >
+		   <td colspan="2"><input type="submit" name="update_cart" value="Update Cart" /></td>
+		</tr>
+	   </table>
+	   </form>
+	   
+	   
+	   </div><!-- /.shopping_cart_container-->
+	  
+	  <div id="products_box">   
+	  
+	   
+	  </div><!-- /#products_box -->
+	</div><!-- /#content_area -->
+	
+  </div><!-- /.content_wrapper-->
+	 </div><!-- /.left_sidebar -->
+	  <div>   
+        <footer>           
+            <div class="footer_top">
+                <p style="font-weight: bold; font-size:20px; color:black">About us</p>
+                <p style="margin-bottom: 30px;">Official and unique website of FPT Book. <br>
+                    Currently, we only accept orders on the website but do not accept orders anywhere else!<br><br><br><br><br>
+                </p>
+            </div>
+            <div class="footer_top">
+                <p style="font-weight: bold; font-size:20px; color:black">Support</p>
+                <p>For any questions and suggestions, please contact Facebook, Instagram and Twitter.</p>
+                <a href="https://www.facebook.com/Quangnhgch190628/" style="color: rgb(47, 0, 255);"><i class="fab fa-facebook"> Facebook</i></a> <br>
+                <a href="https://www.instagram.com/rino_1409/" style="color: rgb(255, 0, 221);"><i class="fab fa-instagram"> Instagram</i></a> <br>
+                <a href="#"><i class="fab fa-twitter-square" style="color: rgb(0, 119, 255);"> Twitter</i></a> <br><br><br>
+            </div>
+            <div class="footer_top">
+                <p style="font-weight: bold; font-size:20px; color:black">Information</p>
+                FPT Book <br>
+                Address: 46/180/63 Phu My, My Dinh II, Nam Tu Liem, Hanoi<br>
+                Phone number: +84358253536<br>
+                Email: quangnhgch190628@fpt.edu.vn<br>
+                Open: 8AM to 10PM<br>
+
+                WE ACCEPT
+                <i class="fa fa-cc-visa" style="font-size:38px;color:red"></i>
+                <i class="fa fa-cc-mastercard" style="font-size:38px;color:red"></i>
+                <i class="fa fa-paypal" style="font-size:38px;color:blue"></i>
+
+            </div>
+        </footer>
+        
+    </div>
+  </body>
+</html>
+
+  
+  
