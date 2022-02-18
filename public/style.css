@@ -20,7 +20,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 body{
-  background-image: url(https://hinhanhdep.net/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-14.jpg);
+  background-image: url(https://hinhanhdep.net/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-18.jpg);
 }
 
 .container{
@@ -97,10 +97,11 @@ ul.dropdown-navbar-right ul li:hover{
 }
 
 .content{
- width:1200px;
- height: 655px;
- float:left;
- background-attachment: fill;
+  float: left;
+	height: 655px;
+  float: top;
+  width: 1241px;
+	background: rgba(250, 250, 250, 0.205);
 }
 .content_box{
  padding:15px;
@@ -221,5 +222,35 @@ hr{
   font-weight: normal;
   color: rgb(0, 0, 0);
 }
+#slideshow {
+  overflow: hidden;
+  height: 610px;
+  width: 728px;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  width: max-content;
+  -webkit-animation: slide 10s ease infinite;
+
+}
+
+.slide {
+  float: left; 
+  margin-top: 10px;
+  height: 600px;
+  width: 728px;
+}
 
 
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -728px;}
+  50% {margin-left: -728px;}
+  60% {margin-left: -1456px;}
+  80% {margin-left: -1456px;}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

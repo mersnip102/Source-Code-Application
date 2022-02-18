@@ -15,7 +15,6 @@ router.get('/managerCustomer', (req,res)=>{
 router.get('/login', (req,res)=>{
     res.render("admin/login")
 })
-
 // router.post('/add',(req,res)=>{
 //     const name = req.body.txtName
 //     const role = req.body.Role
