@@ -19,6 +19,12 @@ router.get('/login', (req,res)=>{
 router.get('/addproduct', (req,res)=> {
     res.render('admin/managerBook/addProduct')
 })
+router.get('/editproduct', (req,res)=> {
+    res.render('admin/managerBook/editProduct')
+})
+// router.get('/doInsertproduct', (req,res)=> {
+//     res.render('admin/managerBook/doInsert')
+// })
 
 // router.post('/add',(req,res)=>{
 //     const name = req.body.txtName
@@ -36,36 +42,36 @@ router.get('/addproduct', (req,res)=> {
 //     var bodyParser = require("body-parser");
 //     router.use(bodyParser.urlencoded({ extended: false }));
     
-//     router.post('/doInsert',async (req,res)=>{
-//         let nameInput = req.body.txtName;
-//         let priceInput = req.body.txtPrice;
+    // router.post('/doInsert',async (req,res)=>{
+    //     let nameInput = req.body.txtName;
+    //     let priceInput = req.body.txtPrice;
     
     
-//         let error = '';
+    //     let error = '';
     
-//         if (nameInput.length < 6){
-//             error += ' Ten phai dai hon 6 ki tu |';
-//         }
+    //     if (nameInput.length < 6){
+    //         error += ' Ten phai dai hon 6 ki tu |';
+    //     }
     
-//         if (priceInput <100){
-//             error += ' Gia phai lon hon 100 | ';
-//         }
+    //     if (priceInput <100){
+    //         error += ' Gia phai lon hon 100 | ';
+    //     }
     
-//         if (error) {
-//             res.render('newProduct', {error: error});
-//         }
-//         else {
-//             let client= await MongoClient.connect(url);
-//             let dbo = client.db("ProductDB2");
-//             let newProduct = {productName : nameInput, price:priceInput};
-//             await dbo.collection("products").insertOne(newProduct);
-//             console.log(newProduct)
-//             res.redirect('/');
-//         }
+    //     if (error) {
+    //         res.render('newProduct', {error: error});
+    //     }
+    //     else {
+    //         let client= await MongoClient.connect(url);
+    //         let dbo = client.db("ProductDB2");
+    //         let newProduct = {productName : nameInput, price:priceInput};
+    //         await dbo.collection("products").insertOne(newProduct);
+    //         console.log(newProduct)
+    //         res.redirect('/');
+    //     }
     
-//     })
+    // })
     
-// router.get('/search',(req,res)=>{
+//  router.get('/search',(req,res)=>{
 //         res.render('search')
 //     })
 // router.post('/search',async (req,res)=>{
