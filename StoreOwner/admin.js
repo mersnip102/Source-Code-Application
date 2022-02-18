@@ -16,6 +16,10 @@ router.get('/login', (req,res)=>{
     res.render("admin/login")
 })
 
+router.get('/addproduct', (req,res)=> {
+    res.render('admin/managerBook/addProduct')
+})
+
 // router.post('/add',(req,res)=>{
 //     const name = req.body.txtName
 //     const role = req.body.Role
