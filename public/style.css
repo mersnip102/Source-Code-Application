@@ -250,7 +250,7 @@ hr{
   60% {margin-left: -1456px;}
   80% {margin-left: -1456px;}
 }
-@keyframes fade {
+/* @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
-}
+} */

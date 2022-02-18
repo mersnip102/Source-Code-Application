@@ -34,8 +34,9 @@ router.post('/addProduct', async (req,res)=>{
         name: name, price: Number.parseFloat(price)}
         
     await insertObjectToCollection(collectionName, newP);
+    const notify = "Add book successful"
 
-    res.redirect('/admin/addProduct')
+    res.render('admin/managerBook/addProduct', {notify: notify})
     })
 
 router.get('/insert',(req,res)=>{
