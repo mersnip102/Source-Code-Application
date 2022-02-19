@@ -6,6 +6,28 @@ const { ObjectId } = require('mongodb')
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
     getDocumentById, insertObjectToCollection, updateCollection} = require('../databaseHandler')
 
+    // var bodyParser = require("body-parser");
+    // const { Router } = require('express');
+    // router.use(bodyParser.urlencoded({ extended: false }));
+    
+    // var publicDir = require('path').join(__dirname,'/public');
+    // router.use(express.static(publicDir));
+    
+    // //npm i handlebars consolidate --save
+    // router.engine('hbs',engines.handlebars);
+    // router.set('views','./views');
+    // router.set('view engine','hbs');
+    
+    // var MongoClient = require('mongodb').MongoClient;
+    // var url = 'mongodb+srv://quangnhgch190628:quang1409@cluster0.c1irk.mongodb.net/test';
+    
+    // router.get('/admin',async function(req,res){
+    //     let client= await MongoClient.connect(url);
+    //     let dbo = client.db("ASM2");
+    //     let results = await dbo.collection("ASM2").find({}).toArray();
+    //     res.render('index',{products:results});
+    // })
+    
 router.get('/',(req,res)=>{
     res.render('admin/adminIndex')
 })
@@ -56,87 +78,6 @@ router.get('/viewProduct', async (_req, res) => {
 router.get('/addProduct',(req,res)=>{
         res.render('admin/managerBook/addProduct');
     })
-    
-//     var bodyParser = require("body-parser");
-//     router.use(bodyParser.urlencoded({ extended: false }));
-    
-//     router.post('/doInsert',async (req,res)=>{
-//         let nameInput = req.body.txtName;
-//         let priceInput = req.body.txtPrice;
-    
-    
-//         let error = '';
-    
-//         if (nameInput.length < 6){
-//             error += ' Ten phai dai hon 6 ki tu |';
-//         }
-    
-//         if (priceInput <100){
-//             error += ' Gia phai lon hon 100 | ';
-//         }
-    
-//         if (error) {
-//             res.render('newProduct', {error: error});
-//         }
-//         else {
-//             let client= await MongoClient.connect(url);
-//             let dbo = client.db("ProductDB2");
-//             let newProduct = {productName : nameInput, price:priceInput};
-//             await dbo.collection("products").insertOne(newProduct);
-//             console.log(newProduct)
-//             res.redirect('/');
-//         }
-    
-//     })
-    
-// router.get('/search',(req,res)=>{
-//         res.render('search')
-//     })
-// router.post('/search',async (req,res)=>{
-//         let searchText = req.body.txtSearch;
-//         let client= await MongoClient.connect(url);
-//         let dbo = client.db("ProductDB2");
-//         let results = await dbo.collection("products").find({productName: new RegExp(searchText,'i')}).toArray();
-//         res.render('index',{model:results})
-//     })
-    
-// router.get('/delete', async (req,res)=>{
-//         let id = req.query.id;
-//         var ObjectID = require('mongodb').ObjectID;
-//         let condition = {"_id" : ObjectID(id)};
-    
-//         let client= await MongoClient.connect(url);
-//         let dbo = client.db("ProductDB2");
-//         await dbo.collection('products').deleteOne(condition)
-//         res.redirect('/');
-//     })
-// router.get('/Edit',async (req,res)=>{
-//         let id = req.query.id;
-//         var ObjectID = require('mongodb').ObjectID;
-    
-//         let client= await MongoClient.connect(url);
-//         let dbo = client.db("ProductDB2");
-    
-//         let result = await dbo.collection("products").findOne({"_id" : ObjectID(id)});
-//         res.render('editSanPham',{model:result});
-//     })
-// router.post('/doEdit',async (req,res)=>{
-//         let client= await MongoClient.connect(url);
-//         let dbo = client.db("ProductDB2");
-    
-//         let id= req.body.id;
-//         let name = req.body.txtName;
-//         let priceInput = req.body.txtPrice;
-    
-//         var ObjectID = require('mongodb').ObjectID;
-//         let condition = {"_id" : ObjectID(id)};
-    
-//         console.log(condition)
-    
-//         let updateProduct ={$set : {productName : name, price:priceInput}} ;
-//         await dbo.collection("products").updateOne(condition,updateProduct) ;
-//         res.redirect('/');
-//     })
 
 router.get('/editproduct', (req,res)=> {
     res.render('admin/managerBook/editProduct')

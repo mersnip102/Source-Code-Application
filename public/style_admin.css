@@ -19,15 +19,6 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-.column {
-  width: 100%;
-}
-
-@media (min-width: 600px) {
-  .column {
-      width: 50%;
-  }
-}
 body{
   background-image: url(https://hinhanhdep.net/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-18.jpg);
 }
@@ -51,8 +42,12 @@ body{
 }
 /*Header left*/
 .navbar-header{
-  width:15%;
+  width:19.5%;
   float:left;
+  float: top;
+}
+.navbar-brand{
+  margin-left: 25%;
 }
 a.admin_name{
   text-decoration:none;
@@ -63,17 +58,14 @@ a.admin_name{
 
 /* Header Search Bar */
 .header-search input[type="text"] {
+  width: 365px;
   float: left;
-  width: 25%;
   padding: 10px 15px;
   font-size: 12px;
   border: none;
-  margin-left: 33.5%;
-  margin-top: 5px;
 }
 .header-search .input-group-addon button {
   float: left;
-  margin-top: 5px;
   color: rgb(255, 255, 255);
   background: #0000002d;
   padding: 10px 15px;
@@ -103,9 +95,8 @@ a.admin_name{
 /* End Header Search Bar */
 
 .navbar-right-header{
-  width:20%;
-  margin-top: 10px;
-  float:left;
+  width:10%;
+  float:right;
 }
 .navbar-right-header ul{
   list-style:none;
@@ -140,7 +131,7 @@ ul.dropdown-navbar-right ul li:hover{
  clear:both;
 }
 .left_sidebar{
- width:280.5px;
+ width:20%;
  height: 655px;
  float:left;
  background-color: rgba(250, 250, 250, 0.205);
@@ -154,11 +145,22 @@ ul.dropdown-navbar-right ul li:hover{
   float: left;
 	height: 655px;
   float: top;
-  width: 1200px;
+  width: 80%;
 	background: rgba(250, 250, 250, 0.205);
 }
 .content_box{
  padding:15px;
+}
+.containerTB{
+  margin-left: 20%;
+  border-width: 15px;
+}
+h1{
+  margin-left: 40%;
+}
+table{
+  height: inherit;
+  width: 80%;
 }
 
 /* Left Sidebar Here */
@@ -195,47 +197,8 @@ ul.dropdown-navbar-right ul li:hover{
 .left_sidebar_box ul ul li a{
   margin-left:20px;
 }
-/* Left Sidebar Ends */
-
-
-/** Add Product Here */
-.border_bottom{
-  border-bottom:0.01px solid rgba(0,0,0,0.2);
-  margin:10px 0;
-}
-.form_box input[type=text]{
-  padding:3px 10px;
-  margin:5px 0;
-}
-.form_box select{
-  width:40%;
-  padding:3px 10px;
-  margin:5px 0;
-}
-.form_box input[type=file]{
-  margin:5px 0;
-}
-.form_box textarea{
- width:80%;
-}
-.form_box input[type=submit]{
- padding:10px 15px;
- background: rgba(28, 130, 199, 0.9);
- border: 0.01px solid rgba(28, 130, 199,0.8);
- color:white;
-}
-
-/** Add Product Ends */
 
 /** View Product Starts **/
-
-.search_bar{
-  float:right;
-  margin-bottom:15px;
-}
-.search_bar input[type=text]{
-  padding:3px 7px;
-}
 .view_product_box th, .view_product_box td{
   text-align:left;
 }
@@ -249,7 +212,7 @@ ul.dropdown-navbar-right ul li:hover{
 	float: left;
 	height: 655px;
   float: top;
-  width: 1200px;
+  width: 80%;
 	background: rgba(250, 250, 250, 0.205);
 }
 #product_box{
@@ -269,18 +232,18 @@ article{
 	height: 460px; 
 	overflow: auto;
 }
-#check{
-	width: 950px;
-	/* height: 500px; */
-}
 #single_product{
 	float: left;
 	margin-left: 30px;
 	padding: 10px;
-}
+} 
+
 #single_product img{
 	border: 2px solid black;
 }
+/* View product end */
+
+/* Manager Customer */
 .shopping_cart_container{
   border:0.01px solid rgba(0,0,0,0.8px);
   padding:15px;
@@ -303,13 +266,16 @@ article{
 .shopping_cart_container button a{
   text-decoration:none;color:white;
 }
+/*End manager customer*/
 
+/* Footer */
 .footer_top{
   width: 33%;
   display: inline-block;
   color: rgb(10, 8, 8);
   padding-top: 0px;
   text-align: center;
+  height: 160px;
 }
 
 footer{
@@ -335,6 +301,9 @@ hr{
   font-weight: normal;
   color: rgb(0, 0, 0);
 }
+/*End Footer*/
+
+/* Style Slide */
 #slideshow {
   overflow: hidden;
   height: 610px;
@@ -368,35 +337,8 @@ hr{
   .h-custom {
   height: 100vh !important;
   }
-  }
-  
-  .card-registration .select-input.form-control[readonly]:not([disabled]) {
-  font-size: 1rem;
-  line-height: 2.15;
-  padding-left: .75em;
-  padding-right: .75em;
-  }
-  
-  .card-registration .select-arrow {
-  top: 13px;
-  }
-  
-  .bg-grey {
-  background-color: #eae8e8;
-  }
-  
-  @media (min-width: 992px) {
-  .card-registration-2 .bg-grey {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-  }
-  }
-  
-  @media (max-width: 991px) {
-  .card-registration-2 .bg-grey {
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  }
-  }
+}
+/* End Slide*/
+
 
   
