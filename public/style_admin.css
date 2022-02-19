@@ -21,6 +21,7 @@ time, mark, audio, video {
 }
 body{
   background-image: url(https://hinhanhdep.net/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-18.jpg);
+  background-repeat: no-repeat;
 }
 
 .container{
