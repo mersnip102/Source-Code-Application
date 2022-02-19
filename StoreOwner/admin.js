@@ -19,8 +19,8 @@ router.get('/managerCustomer', (req,res)=>{
 router.get('/login', (req,res)=>{
     res.render("admin/login")
 })
-router.get('/managerCustomer', (req,res)=>{
-    res.render("admin/managerCustomer")
+router.get('/statusOrder', (req,res)=>{
+    res.render("admin/statusOrder")
 })
 
 router.post('/addProduct', async (req,res)=>{

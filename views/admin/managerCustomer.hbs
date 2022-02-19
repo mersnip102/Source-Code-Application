@@ -10,13 +10,9 @@
 		alert("Welcome To Admin System!");
 	</script> --}}
 <link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/style_manager_customer.css">
 
  <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
 <script src="../js/jquery-3.4.1.js"></script>
-
-{{!-- <link rel="stylesheet" href="./css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 <head>
 
 <body>
@@ -25,6 +21,23 @@
      <div class="navbar-header">
 	  <h2><a href="/admin/" class="admin_name" >Admin Area</a></h2>
 	 </div><!-- /.navbar-header -->
+
+	 <div class="col-lg-4 col-md-3">
+                    <div class="header-search mt-2">
+                        <div class="search-form">
+                            <form method="get">
+                                <div class="input-group">
+                                    
+                                    <input type="text" name="search" id="search" class="form-control"
+                                        placeholder="Search Here" />
+                                    <div class="input-group-addon">
+                                        <button onclick="search();" type="submit" ><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 	 
 	 <div class="navbar-right-header">
 	 
