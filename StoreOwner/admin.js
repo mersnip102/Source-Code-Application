@@ -5,28 +5,8 @@ const { ObjectId } = require('mongodb')
 
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
     getDocumentById, insertObjectToCollection, updateCollection} = require('../databaseHandler')
-
-    // var bodyParser = require("body-parser");
-    // const { Router } = require('express');
-    // router.use(bodyParser.urlencoded({ extended: false }));
-    
-    // var publicDir = require('path').join(__dirname,'/public');
-    // router.use(express.static(publicDir));
-    
-    // //npm i handlebars consolidate --save
-    // router.engine('hbs',engines.handlebars);
-    // router.set('views','./views');
-    // router.set('view engine','hbs');
-    
-    // var MongoClient = require('mongodb').MongoClient;
-    // var url = 'mongodb+srv://quangnhgch190628:quang1409@cluster0.c1irk.mongodb.net/test';
-    
-    // router.get('/admin',async function(req,res){
-    //     let client= await MongoClient.connect(url);
-    //     let dbo = client.db("ASM2");
-    //     let results = await dbo.collection("ASM2").find({}).toArray();
-    //     res.render('index',{products:results});
-    // })
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb+srv://quangnhgch190628:quang1409@cluster0.c1irk.mongodb.net/test';
     
 router.get('/',(req,res)=>{
     res.render('admin/adminIndex')
@@ -38,11 +18,22 @@ router.get('/addUser',(req,res)=>{
 router.get('/managerCustomer', (req,res)=>{
     res.render("admin/managerCustomer")
 })
-router.get('/login', (req,res)=>{
-    res.render("admin/login")
+router.get('/allOrder', (req,res)=>{
+    res.render("admin/allOrder")
 })
-router.get('/statusOrder', (req,res)=>{
-    res.render("admin/statusOrder")
+router.get('/orderDetail', (req,res)=>{
+    res.render("admin/orderDetail")
+})
+
+router.get('/listUser', (req,res)=>{
+    res.render("admin/listUser")
+})
+
+router.get('/feedbacks', (req, res) =>{
+    res.render('admin/feedbacks')
+})
+router.get('/updateProfile', (req, res) =>{
+    res.render('admin/managerBook/updateProfile')
 })
 
 router.post('/addProduct', async (req,res)=>{
