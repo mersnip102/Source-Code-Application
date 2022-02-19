@@ -47,9 +47,11 @@ router.get('/statusOrder', (req,res)=>{
 
 router.post('/addProduct', async (req,res)=>{
     const name = req.body.txtName
-    
     const price= req.body.txtPrice
-
+    const picture= req.body.txtPicture
+    const category= req.body.txtCategory
+    const author= req.body.txtAuthor
+    const description= req.body.txtDescription
     const collectionName = 'Book'
     
     const newP = {

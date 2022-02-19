@@ -128,7 +128,6 @@
 	 
 	 <div class="content">
 	   <div class="content_box">
-    <h1 style="text-align:center" class="alert alert-primary">New product</h1>
     <div class="container">
         <center><span style="font-weight: bold; color:red">{{notify}}</span></center>
         <form action="/admin/addProduct" method="post">
@@ -136,8 +135,22 @@
             Name: <input type="text" name="txtName" value="" class="form-control">
         </div>
         <div class="mb-3">
-            Price: <input type="text" name="txtPrice" value="" class="form-control">
+            Picture:<input type="text" name="txtPicture" value="" class="form-control">
         </div>
+        <div class="mb-3">
+            Price:<input type="text" name="txtPrice" value="" class="form-control">
+        </div>
+        <div class="mb-3">
+            Category:<input type="text" name="txtCategory" value="" class="form-control">
+        </div>
+        <div class="mb-3">
+            Author:<input type="text" name="txtAuthor" value="" class="form-control">
+        </div>
+        <div class="mb-3">
+            Description:<input type="text" name="txtDescription" value="" class="form-control">
+        </div>
+       
+
         <div class="mb-3">
             <input type="submit" value="add" class="form-control">
         </div>
@@ -146,13 +159,24 @@
 
     <h2 class="alert alert-danger">{{{error}}}</h2>
     <br>
+
     </div><!-- /.content_box -->
+
+
+
+	   </div><!-- /.content_box -->
+
 	 </div><!-- /.content -->
    </div><!-- /.body_container -->
 	 </div><!-- /.left_sidebar -->
  </div><!-- /.container -->
+
  	
  <div>   
+
+  
+    <div>   
+
         <footer>           
             <div class="footer_top">
                 <p style="font-weight: bold; font-size:20px; color:black">About us</p>
@@ -182,6 +206,7 @@
             </div>
         </footer>
     </div>
+
 </body>
 </html>
 
