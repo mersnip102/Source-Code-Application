@@ -22,6 +22,9 @@ router.get('/allOrder', (req,res)=>{
 router.get('/orderDetail', (req,res)=>{
     res.render("admin/orderDetail")
 })
+router.get('/idOrder', (req,res)=>{
+    res.render("admin/idOrder")
+})
 
 router.get('/listUser', (req,res)=>{
     res.render("admin/listUser")
