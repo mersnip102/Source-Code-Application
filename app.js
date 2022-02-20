@@ -10,6 +10,9 @@ app.use(express.urlencoded({extended: true}))
 //cac request co chua /admin se di den controller admin
 app.use('/admin', adminStoreOwner)
 
+const customer = require('./Customer/customer')
+app.use('/user',customer)
+
 const { ObjectId } = require('mongodb')
 
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
@@ -206,12 +209,6 @@ app.get('/cart', async (req, res) => {
 
 })
 
-
-app.get('/user', async (req, res) => {
-
-    res.render('user')
-
-})
 
 app.get('/shoppingCart', async (req, res) => {
     const category = await categories()
