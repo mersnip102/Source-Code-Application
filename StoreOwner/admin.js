@@ -5,8 +5,6 @@ const { ObjectId } = require('mongodb')
 
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
     getDocumentById, insertObjectToCollection, updateCollection} = require('../databaseHandler')
-var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb+srv://quangnhgch190628:quang1409@cluster0.c1irk.mongodb.net/test';
     
 router.get('/',(req,res)=>{
     res.render('admin/adminIndex')
@@ -18,11 +16,22 @@ router.get('/addUser',(req,res)=>{
 router.get('/managerCustomer', (req,res)=>{
     res.render("admin/managerCustomer")
 })
+
+router.get('/orderDetail', (req,res)=>{
+    res.render("admin/orderDetail")
+})
 router.get('/allOrder', (req,res)=>{
     res.render("admin/allOrder")
 })
-router.get('/orderDetail', (req,res)=>{
-    res.render("admin/orderDetail")
+router.get('/allOrder2', (req,res)=>{
+    res.render("admin/allOrder2")
+})
+
+router.get('/idOrder', (req,res)=>{
+    res.render("admin/idOrder")
+})
+router.get('/idOrder2', (req,res)=>{
+    res.render("admin/idOrder2")
 })
 
 router.get('/listUser', (req,res)=>{
@@ -74,5 +83,11 @@ router.get('/addProduct',(req,res)=>{
 
 router.get('/editproduct', (req,res)=> {
     res.render('admin/managerBook/editProduct')
+})
+router.get('/addCategories', (req,res)=> {
+    res.render('admin/managerBook/addCategories')
+})
+router.get('/viewCategories', (req,res)=> {
+    res.render('admin/managerBook/viewCategories')
 })
 module.exports = router;

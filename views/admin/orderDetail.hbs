@@ -44,11 +44,11 @@
                         <div class="search-form">
                             <form method="get">
                                 <div class="input-group">
+                                    <input type="text" name="search" id="search" class="form-control"
+                                        placeholder="Search Here" />
                                     <div class="input-group-addon">
                                         <button onclick="search();" type="submit"><i class="fas fa-search"></i></button>
                                     </div>
-                                    <input type="text" name="search" id="search" class="form-control"
-                                        placeholder="Search Here" />
                                 </div>
                             </form>
                         </div>
@@ -132,26 +132,46 @@
                     </div><!-- /.left_sidebar_box -->
 
                 </div><!-- /.left_sidebar -->
-
-
                 <div id="content_area">
                     <div id="products_box">
                         <div class="wrapper">
-
+                            <nav>
+                                <ul>
+                                    <li><a href="/admin/managerCustomer"><i class="fas fa-reply"
+                                                aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-info-circle" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-trash-alt" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-id-card" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-location-arrow" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-ellipsis-v" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </nav>
+                            <br>
+                            <!--Kết Thúc Navigation -->
                             <div class="table">
-
                                 <div class="row header green">
+                                    <div class="cell">
+                                        Cancel Order
+                                    </div>
                                     <div class="cell">
                                         Product
                                     </div>
                                     <div class="cell">
-                                        Unit Price
+                                        Name
+                                    </div>
+                                    <div class="cell">
+                                        Price
                                     </div>
                                     <div class="cell">
                                         Quantity
                                     </div>
                                     <div class="cell">
-                                        Date Sold
+                                        Date
+                                    </div>
+                                    <div class="cell">
+                                        Total Price
                                     </div>
                                     <div class="cell">
                                         Status
@@ -159,36 +179,39 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="cell" data-title="Product">
-                                        Solid oak work table
+                                    <div class="cell" data-title="Cancel Order">
+                                        <input name="Remove" type="checkbox" value="" />
                                     </div>
-                                    <div class="cell" data-title="Unit Price">
-                                        $800
+                                    <div class="cell" data-title="Product">
+                                        <img src="http://3.bp.blogspot.com/-DB3zM-6DelI/U3sjxcTQahI/AAAAAAAAAWw/FQQyE2quoy8/s1600/doc+gia+thu+7+-+(28-4-204)-02.jpg"
+                                            style="width: 100px; height: 150px">
+                                    </div>
+                                    <div class="cell" data-title="Name">
+                                        Doc Gia Thu 7
+                                    </div>
+                                    <div class="cell" data-title="Price">
+                                        $20
                                     </div>
                                     <div class="cell" data-title="Quantity">
-                                        10
+                                        5
                                     </div>
                                     <div class="cell" data-title="Date Sold">
-                                        03/15/2014
+                                        03/15/2022
+                                    </div>
+                                    <div class="cell" data-title="Price">
+                                        $100
                                     </div>
                                     <div class="cell" data-title="Status">
                                         Waiting for Pickup
                                     </div>
                                 </div>
                             </div>
-                            <tr>
-                                <td>
-                                    <a href="/admin/managerCustomer">Back</a>
-                                </td>
-                            </tr>
                         </div>
-                    </div>
-
-                </div><!-- /#products_box -->
-            </div><!-- /#content_area -->
-
-        </div><!-- /.content_wrapper-->
-        </div><!-- /.left_sidebar -->
+                    </div><!-- /#products_box -->
+                </div><!-- /#content_area -->
+            </div>
+            <!--body container-->
+        </div><!-- /.container-->
         <div>
             <footer>
                 <div class="footer_top">
