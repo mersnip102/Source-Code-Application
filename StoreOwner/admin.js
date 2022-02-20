@@ -76,4 +76,10 @@ router.get('/addProduct',(req,res)=>{
 router.get('/editproduct', (req,res)=> {
     res.render('admin/managerBook/editProduct')
 })
+router.get('/addCategories', (req,res)=> {
+    res.render('admin/managerBook/addCategories')
+})
+router.get('/viewCategories', (req,res)=> {
+    res.render('admin/managerBook/viewCategories')
+})
 module.exports = router;
