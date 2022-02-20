@@ -59,6 +59,8 @@ app.post('/login', async(req,res)=>{
     
     const dbo = await getDatabase();
     const user = await dbo.collection('Customer').findOne({$and: [{email: email}, {password: password}]});
+
+    console.log(user)
     
     if(!user){
         res.render('login', {err: "User dose not exist or wrong password."})
@@ -69,6 +71,33 @@ app.post('/login', async(req,res)=>{
         res.redirect('/user')
     }
     
+})
+
+app.post('/searchBook', async (req, res) => {
+
+    const searchInput = req.body.txtSearch;
+    const searchPrice = Number.parseFloat(searchInput);
+
+
+    const collectionName = 'Products'
+    const dbo = await getDatabase();
+    // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
+
+    const products = await dbo.collection(collectionName).find(
+        {
+            $or: [
+                { _id: { $regex: searchInput, $options: "$i" } },
+                { name: { $regex: searchInput, $options: "$i" } },
+                { price: { $regex: searchInput, $options: "$i" } },
+                { price: searchPrice },
+
+            ]
+        }
+
+    ).toArray();
+    // await changeIdToCategoryName(products, dbo);
+    res.render('index', { products: products })
+
 })
 
 // async function requiresLogin(req,res,next){
@@ -349,32 +378,7 @@ app.post('/insertCategory', async (req, res) => {
 
 // })
 
-app.post('/searchProductIndex', async (req, res) => {
 
-    const searchInput = req.body.txtSearch;
-    const searchPrice = Number.parseFloat(searchInput);
-
-
-    const collectionName = 'Products'
-    const dbo = await getDatabase();
-    // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
-
-    const products = await dbo.collection(collectionName).find(
-        {
-            $or: [
-                { _id: { $regex: searchInput, $options: "$i" } },
-                { name: { $regex: searchInput, $options: "$i" } },
-                { price: { $regex: searchInput, $options: "$i" } },
-                { price: searchPrice },
-
-            ]
-        }
-
-    ).toArray();
-    // await changeIdToCategoryName(products, dbo);
-    res.render('index', { products: products })
-
-})
 
 
 app.post('/searchCat', async (req, res) => {
@@ -508,7 +512,7 @@ async function changeIdToCategoryName(products, dbo) {
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
-console.log("Server is running! PORT: " + PORT)
+console.log("Server is running! " + PORT)
 
 
 
