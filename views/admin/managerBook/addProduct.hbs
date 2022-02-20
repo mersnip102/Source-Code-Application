@@ -160,103 +160,11 @@
                                 <div class="mb-3">
                                     <input type="submit" value="add" class="form-control">
                                 </div>
-                            </form>
-                            <form method="post" action="/register">
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                                    </div>
-                                    <input name="txtName" class="form-control" placeholder="Full name" type="text">
-                                </div> <!-- form-group// -->
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                                    </div>
-                                    <input name="txtEmail" class="form-control" placeholder="Email address"
-                                        type="email">
-                                </div> <!-- form-group// -->
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                                    </div>
-                                    <input name="txtPassword" class="form-control" placeholder="Create password"
-                                        type="password">
-                                </div> <!-- form-group// -->
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                                    </div>
-                                    <input name="txtRePassword" class="form-control" placeholder="Repeat password"
-                                        type="password">
-                                </div> <!-- form-group// -->
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                                    </div>
-                                    <select class="custom-select" style="max-width: 120px;">
-                                        <option selected="">+84</option>
-                                        <option value="1">+971</option>
-                                        <option value="2">+972</option>
-                                        <option value="3">+198</option>
-                                        <option value="4">+701</option>
-                                    </select>
-                                    <input name="txtPhone" class="form-control" placeholder="Phone number" type="text">
-                                </div> <!-- form-group// -->
-                                {{!-- <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-                                    </div>
-                                    <select class="form-control">
-                                        <option selected=""> Select job type</option>
-                                        <option>Designer</option>
-                                        <option>Manager</option>
-                                        <option>Accaunting</option>
-                                    </select>
-                                </div> <!-- form-group end.// --> --}}
+                           
 
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fas fa-calendar-alt"></i></i> </span>
-                                    </div>
-                                    <input name="txtDate" placeholder="Date of Birth*" id="birthDate"
-                                        class="form-control" type="date">
-                                    <span style="color: red; font-weight: bold">(Date of Birth*)</span>
-                                </div> <!-- form-group// -->
+                        </div> <!-- card.// --> 
 
-                                <div class="form-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-                                    </div>
-                                    <input name="txtAddress" class="form-control" placeholder="Address" type="text">
-
-                                </div> <!-- form-group// -->
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
-                                </div> <!-- form-group// -->
-                                <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
-                            </form>
-                            </article>
-
-                        </div> <!-- card.// -->
-
-                        {{!--
-                    </div> --}}
-
-                    <!--container end.//-->
-
-                    {{!-- <br><br>
-                    <article class="bg-secondary mb-3">
-                        <div class="card-body text-center">
-                            <h3 class="text-white mt-3">Bootstrap 4 UI KIT</h3>
-                            <p class="h5 text-white">Components and templates <br> for Ecommerce, marketplace, booking
-                                websites
-                                and product landing pages</p> <br>
-                            <p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/">
-                                    Bootstrap-ecommerce.com
-                                    <i class="fa fa-window-restore "></i></a></p>
-                        </div>
-                        <br><br>
-                    </article> --}}
+                     
                 </div>
 
                 <h2 class="alert alert-danger">{{{error}}}</h2>
