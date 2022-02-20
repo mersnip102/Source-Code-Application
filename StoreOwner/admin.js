@@ -5,8 +5,6 @@ const { ObjectId } = require('mongodb')
 
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
     getDocumentById, insertObjectToCollection, updateCollection} = require('../databaseHandler')
-var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb+srv://quangnhgch190628:quang1409@cluster0.c1irk.mongodb.net/test';
     
 router.get('/',(req,res)=>{
     res.render('admin/adminIndex')
