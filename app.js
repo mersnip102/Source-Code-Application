@@ -37,9 +37,41 @@ app.get('/', async (req, res) => {
     const category = await categories()
 
     const collectionName = 'Book'
-    const book = await getAllDocumentsFromCollection(collectionName)
     
-    res.render('index', { category: category, book:book })
+    const searchInput = req.query.txtSearch;
+    console.log(searchInput)
+    if (searchInput){
+        const searchPrice = Number.parseFloat(searchInput);
+        const dbo = await getDatabase();
+        // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
+
+        const book = await dbo.collection(collectionName).find(
+            {
+                $or: [
+                    { _id: { $regex: searchInput, $options: "$i" } },
+                    { name: { $regex: searchInput, $options: "$i" } },
+                    { price: { $regex: searchInput, $options: "$i" } },
+                    { price: searchPrice },
+
+                ]
+            }
+
+        ).toArray();
+
+        console.log(book)
+        // await changeIdToCategoryName(products, dbo);
+        
+        
+        res.render('index', { category: category, books:book })
+        
+
+    }
+
+    else{
+        const books = await getAllDocumentsFromCollection(collectionName)
+        res.render('index', { category: category, books:books })
+
+    }   
 
 })
 
@@ -73,32 +105,32 @@ app.post('/login', async(req,res)=>{
     
 })
 
-app.post('/searchBook', async (req, res) => {
+// app.get('/search', async (req, res) => {
 
-    const searchInput = req.body.txtSearch;
-    const searchPrice = Number.parseFloat(searchInput);
+//     const searchInput = req.query.txtSearch;
+//     const searchPrice = Number.parseFloat(searchInput);
 
 
-    const collectionName = 'Products'
-    const dbo = await getDatabase();
-    // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
+//     const collectionName = 'Book'
+//     const dbo = await getDatabase();
+//     // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
 
-    const products = await dbo.collection(collectionName).find(
-        {
-            $or: [
-                { _id: { $regex: searchInput, $options: "$i" } },
-                { name: { $regex: searchInput, $options: "$i" } },
-                { price: { $regex: searchInput, $options: "$i" } },
-                { price: searchPrice },
+//     const books = await dbo.collection(collectionName).find(
+//         {
+//             $or: [
+//                 { _id: { $regex: searchInput, $options: "$i" } },
+//                 { name: { $regex: searchInput, $options: "$i" } },
+//                 { price: { $regex: searchInput, $options: "$i" } },
+//                 { price: searchPrice },
 
-            ]
-        }
+//             ]
+//         }
 
-    ).toArray();
-    // await changeIdToCategoryName(products, dbo);
-    res.render('index', { products: products })
+//     ).toArray();
+//     // await changeIdToCategoryName(products, dbo);
+//     res.render('index', { books: books })
 
-})
+// })
 
 // async function requiresLogin(req,res,next){
 //     console.log(req.cookies)
@@ -195,11 +227,11 @@ app.get('/proDetail', async (req, res) => {
 
 })
 
-app.get('/search', async (req, res) => {
+// app.get('/search', async (req, res) => {
 
-    res.render('search')
+//     res.render('search')
 
-})
+// })
 
 app.get('/delete', async (req, res) => {
     const id = req.query.id
