@@ -16,14 +16,22 @@ router.get('/addUser',(req,res)=>{
 router.get('/managerCustomer', (req,res)=>{
     res.render("admin/managerCustomer")
 })
-router.get('/allOrder', (req,res)=>{
-    res.render("admin/allOrder")
-})
+
 router.get('/orderDetail', (req,res)=>{
     res.render("admin/orderDetail")
 })
+router.get('/allOrder', (req,res)=>{
+    res.render("admin/allOrder")
+})
+router.get('/allOrder2', (req,res)=>{
+    res.render("admin/allOrder2")
+})
+
 router.get('/idOrder', (req,res)=>{
     res.render("admin/idOrder")
+})
+router.get('/idOrder2', (req,res)=>{
+    res.render("admin/idOrder2")
 })
 
 router.get('/listUser', (req,res)=>{

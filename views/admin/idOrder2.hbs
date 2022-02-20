@@ -132,82 +132,78 @@
                     </div><!-- /.left_sidebar_box -->
 
                 </div><!-- /.left_sidebar -->
-
-
                 <div id="content_area">
                     <div id="products_box">
                         <div class="wrapper">
                             <nav>
                                 <ul>
+                                    <li><a href="/admin/allOrder2"><i class="fas fa-reply" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li><a href=""><i class="fas fa-info-circle" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-trash-alt" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-id-card" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fa fa-location-arrow" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-ellipsis-v" aria-hidden="true"></i></a></li>
                                 </ul>
                             </nav>
-                        </div>
-                        <div class="table-users">
-                            <div class="header">
-                                <br>
-                                <h1><a style="text-align: center; font-size: 20px; font-weight:bold;">Feedbacks Of
-                                        Customer </a></h1>
-                            </div>
-                            <div class="scrollbar" id="style-1">
-                                <div class="force-overflow">
+                            <br>
+                            <!--Kết Thúc Navigation -->
+                            <div class="table">
+                                <div class="row header green">
+                                    <div class="cell">
+                                        Cancel Order
+                                    </div>
+                                    <div class="cell">
+                                        Product
+                                    </div>
+                                    <div class="cell">
+                                        Name
+                                    </div>
+                                    <div class="cell">
+                                        Price
+                                    </div>
+                                    <div class="cell">
+                                        Quantity
+                                    </div>
+                                    <div class="cell">
+                                        Date
+                                    </div>
+                                    <div class="cell">
+                                        Total Price
+                                    </div>
+                                    <div class="cell">
+                                        Status
+                                    </div>
+                                </div>
 
-                                    <table cellspacing="0">
-                                        <tr>
-                                            <th>Remove</th>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th width="230">Comments</th>
-                                        </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>1
-                                            </td>
-                                            <td>Jane Doe</td>
-                                            <td>
-                                                <a href="/admin/allOrder2"
-                                                    style="text-decoration: none; font-size: 18px">quangnhgch190628@fpt.edu.vn</a>
-                                            </td>
-                                            <td>01 800 2000</td>
-                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>2
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>john.doe@foo.com</td>
-                                            <td>01 800 2000</td>
-                                            <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo
-                                                ducimus
-                                                neque, nesciunt rerum perferendis, inventore.</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>3</td>
-                                            <td>Jane Smith</td>
-                                            <td>jane.smith@foo.com</td>
-                                            <td>01 800 2000</td>
-                                            <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>4
-                                            </td>
-                                            <td>John Smith</td>
-                                            <td>john.smith@foo.com</td>
-                                            <td>01 800 2000</td>
-                                            <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci
-                                                consequatur
-                                                maxime temporibus quas, dolorem impedit.</td>
-                                        </tr>
-                                    </table>
+                                <div class="row">
+                                    <div class="cell" data-title="Cancel Order">
+                                        <input name="Remove" type="checkbox" value="" />
+                                    </div>
+                                    <div class="cell" data-title="Product">
+                                        <img src="http://3.bp.blogspot.com/-DB3zM-6DelI/U3sjxcTQahI/AAAAAAAAAWw/FQQyE2quoy8/s1600/doc+gia+thu+7+-+(28-4-204)-02.jpg"
+                                            style="width: 100px; height: 150px">
+                                    </div>
+                                    <div class="cell" data-title="Name">
+                                        Doc Gia Thu 7
+                                    </div>
+                                    <div class="cell" data-title="Price">
+                                        $20
+                                    </div>
+                                    <div class="cell" data-title="Quantity">
+                                        5
+                                    </div>
+                                    <div class="cell" data-title="Date Sold">
+                                        03/15/2022
+                                    </div>
+                                    <div class="cell" data-title="Price">
+                                        $100
+                                    </div>
+                                    <div class="cell" data-title="Status">
+                                        Waiting for Pickup
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -216,7 +212,6 @@
             </div>
             <!--body container-->
         </div><!-- /.container-->
-
         <div>
             <footer>
                 <div class="footer_top">
@@ -248,19 +243,11 @@
                     <i class="fa fa-cc-visa" style="font-size:38px;color:red"></i>
                     <i class="fa fa-cc-mastercard" style="font-size:38px;color:red"></i>
                     <i class="fa fa-paypal" style="font-size:38px;color:blue"></i>
+
                 </div>
             </footer>
+
         </div>
     </body>
 
 </html>
-
-<script type="text/javascript">
-    function login() {
-        window.location = '/login';
-    }
-
-    function search() {
-        window.location = '/search';
-    }
-</script>
