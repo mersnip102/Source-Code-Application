@@ -31,7 +31,7 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="navbar navbar-expand-xl navbar-light">
                         <div class="container-fluid">
-                            <a href="/" class="navbar-brand" style="color: white; font-weight: bold"><img
+                            <a href="/user" class="navbar-brand" style="color: white; font-weight: bold"><img
                                     src="LogoFpt.png" alt="logo" class="img-fluid" />Book</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -41,16 +41,18 @@
                             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul class="navbar-nav mx-auto navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                        <a class="nav-link active" aria-current="page" href="/user">Home</a>
                                     </li>
                                     <li class="nav-item">
                                         <div class="dropdown">
                                             <a class="nav-link dropbtn dropdown-toggle" href="#">Book List</a>
                                             {{!-- <button class="dropbtn">Dropdown</button> --}}
                                             <div class="dropdown-content">
-                                                <a href="#">Link 1</a>
-                                                <a href="#">Link 2</a>
-                                                <a href="#">Link 3</a>
+                                                {{#each category}}
+                                                <a href="#">{{name}}</a>
+                                                {{/each}}
+                                                {{!-- <a href="#">Link 2</a>
+                                                <a href="#">Link 3</a> --}}
                                             </div>
                                         </div>
                                     </li>
@@ -87,7 +89,7 @@
                             <form method="get">
                                 <div class="input-group">
 
-                                    <input type="text" name="search" id="search" class="form-control"
+                                    <input type="text" name="txtSearch" id="search" class="form-control"
                                         placeholder="Search Here" />
                                     <div class="input-group-addon">
                                         <button onclick="search();" type="submit"><i class="fas fa-search"></i></button>
