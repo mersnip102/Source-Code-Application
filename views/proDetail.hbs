@@ -1,4 +1,5 @@
-{{!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{{!--
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> --}}
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -8,16 +9,23 @@
 
 <head>
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>eCommerce Product Detail</title>
-    {{!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> --}}
+    {{!--
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="proDetail.css">
 
-    
+
 
 </head>
+
+<script src="./src/bootstrap-input-spinner.js"></script>
+<script>
+    $("input[type='number']").inputSpinner()
+</script>
 
 <body>
     {{> header}}
@@ -29,11 +37,14 @@
                     <div class="preview col-md-6">
 
                         <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+
+                            <div class="tab-pane active" id="pic-1"><img src="{{product.imgURL}}" /></div>
+                            
+                            {{!-- <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
                             <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
                             <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
                             <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-                            <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                            <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> --}}
                         </div>
                         {{!-- <ul class="preview-thumbnail nav nav-tabs">
                             <li class="active"><a data-target="#pic-1" data-toggle="tab"><img
@@ -50,7 +61,7 @@
 
                     </div>
                     <div class="details col-md-6">
-                        <h3 class="product-title">men's shoes fashion</h3>
+                        <h3 class="product-title">{{product.name}}</h3>
                         <div class="rating">
                             <div class="stars">
                                 <span class="fa fa-star checked"></span>
@@ -61,9 +72,8 @@
                             </div>
                             <span class="review-no">41 reviews</span>
                         </div>
-                        <p class="product-description"> <span style="font-weight: bold;">Description: </span>Suspendisse quos? Tempus cras iure temporibus? Eu laudantium
-                            cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                        <h4 class="price">current price: <span>$180</span></h4>
+                        <p class="product-description"> <span style="font-weight: bold;">Description: </span>{{product.description}}</p>
+                        <h4 class="price">current price: <span>{{product.price}} VND</span></h4>
                         <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong>
                         </p>
                         {{!-- <h5 class="sizes">sizes:
@@ -78,9 +88,15 @@
                             <span class="color blue"></span>
                         </h5> --}}
                         <div class="action">
-                            <button class="add-to-cart btn btn-default" type="button" style="background-color: aquamarine;">add to cart</button>
-                            <button class="like btn btn-default" type="button"><span
-                                    class="fa fa-heart"></span></button>
+                            <form action="cart">
+                                <input type="number" value="1" min="1" max="1000" step="1" />
+
+                                <button class="add-to-cart btn btn-default" type="submit"
+                                    style="background-color: aquamarine;">add to cart</button>
+                                <button class="like btn btn-default" type="button"><span
+                                        class="fa fa-heart"></span></button>
+                            </form>
+
                         </div>
                     </div>
                 </div>

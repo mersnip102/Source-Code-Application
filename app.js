@@ -218,9 +218,16 @@ app.get('/shoppingCart', async (req, res) => {
 })
 
 app.get('/proDetail', async (req, res) => {
+    const id = req.query.id
+
+    console.log(id)
+
+    const dbo = await getDatabase();
+    const product = await dbo.collection('Book').findOne({_id: ObjectId(id)});
+    console.log(product)
     
     const category = await categories()
-    res.render('proDetail', {category: category})
+    res.render('proDetail', {category: category, product:product})
 
 })
 
