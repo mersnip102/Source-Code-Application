@@ -9,6 +9,9 @@ const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
 router.get('/',(req,res)=>{
     res.render('admin/adminIndex')
 })
+router.get('/infor',(req,res)=>{
+    res.render('admin/infor')
+})
 
 router.get('/addUser',(req,res)=>{
     res.render('addUser')
