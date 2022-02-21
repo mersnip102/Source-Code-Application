@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Admin Home</title>
+    {{!--
+    <script type="text/javascript">
+        alert("Welcome To Admin System!");
+    </script> --}}
     <link rel="stylesheet" href="/style_admin.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -19,7 +23,10 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>View Book</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
 
     <head>
 
@@ -37,11 +44,11 @@
                         <div class="search-form">
                             <form method="get">
                                 <div class="input-group">
+                                    <input type="text" name="search" id="search" class="form-control"
+                                        placeholder="Search Here" />
                                     <div class="input-group-addon">
                                         <button onclick="search();" type="submit"><i class="fas fa-search"></i></button>
                                     </div>
-                                    <input type="text" name="search" id="search" class="form-control"
-                                        placeholder="Search Here" />
                                 </div>
                             </form>
                         </div>
@@ -108,7 +115,7 @@
 
                                 <ul class="left_sidebar_second_level">
                                     <li><a href="/admin/managerCustomer">Manager Customer Order</a></li>
-                                    <li><a href="/admin/statusOrder">Status Order</a></li>
+                                    <li><a href="/admin/feedbacks">Feedbacks Of Customer</a></li>
                                 </ul><!-- /.left_sidebar_second_level -->
                             </li>
                             <li>
@@ -117,7 +124,7 @@
 
                                 <ul class="left_sidebar_second_level">
                                     <li><a href="">Add User</a></li>
-                                    <li><a href="">List Users</a></li>
+                                    <li><a href="/admin/listUser">List Users</a></li>
                                 </ul><!-- /.left_sidebar_second_level -->
                             </li>
 
@@ -125,8 +132,6 @@
                     </div><!-- /.left_sidebar_box -->
 
                 </div><!-- /.left_sidebar -->
-
-
                 <div class="content">
                     <div class="content_box">
                         <div>
