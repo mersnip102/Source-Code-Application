@@ -28,219 +28,217 @@
     <script src="https://kit.fontawesome.com/ad9d9b1f44.js" crossorigin="anonymous"></script>
     <script src="../js/jquery-3.4.1.js"></script>
 
-    <head>
+</head>
 
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="navbar-header">
-                    <a href="/admin/" class="navbar-brand"><img
-                            src="https://greenwich.edu.vn/wp-content/uploads/2021/04/logo-home.png" alt="logo"
-                            class="img-fluid" style="width: 150px; height: 60px" />
-                    </a>
-                </div><!-- /.navbar-header -->
-                <div class="col-lg-4 col-md-3">
-                    <div class="header-search mt-2">
-                        <div class="search-form">
-                            <form method="get">
-                                <div class="input-group">
-                                    <input type="text" name="search" id="search" class="form-control"
-                                        placeholder="Search Here" />
-                                    <div class="input-group-addon">
-                                        <button onclick="search();" type="submit"><i class="fas fa-search"></i></button>
-                                    </div>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar-header">
+                <a href="/admin/" class="navbar-brand"><img
+                        src="https://greenwich.edu.vn/wp-content/uploads/2021/04/logo-home.png" alt="logo"
+                        class="img-fluid" style="width: 150px; height: 60px" />
+                </a>
+            </div><!-- /.navbar-header -->
+            <div class="col-lg-4 col-md-3">
+                <div class="header-search mt-2">
+                    <div class="search-form">
+                        <form method="get">
+                            <div class="input-group">
+                                <input type="text" name="search" id="search" class="form-control"
+                                    placeholder="Search Here" />
+                                <div class="input-group-addon">
+                                    <button onclick="search();" type="submit"><i class="fas fa-search"></i></button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="navbar-right-header">
-                    <ul class="dropdown-navbar-right">
+            </div>
+            <div class="navbar-right-header">
+                <ul class="dropdown-navbar-right">
+                    <li>
+                        <a><i class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i></a>
+
+                        <ul class="subnavbar-right">
+                            <li><a>User Account</a></li>
+                            <li><a href="">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="dropdown-navbar-right">
+                    <li>
+                        <a><i class="fa fa-bell"></i>&nbsp;<i class="fa fa-caret-down"></i></a>
+
+                        <ul class="subnavbar-right">
+                            <li><a>Notification </a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-right-header -->
+
+        </div><!-- /.header -->
+
+        <div class="body_container">
+            <div class="left_sidebar">
+                <div class="left_sidebar_box">
+
+                    <ul class="left_sidebar_first_level">
+
+                        <li><a href="/#" target="_blank"><i class="fa fa-dashboard"></i> My Site</a></li>
+
                         <li>
-                            <a><i class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i></a>
+                            <a href="#"><i class="fa fa-plus"></i>&nbsp;Books <i class="arrow fa fa-angle-left"></i></a>
 
-                            <ul class="subnavbar-right">
-                                <li><a>User Account</a></li>
-                                <li><a href="">Logout</a></li>
-                            </ul>
+                            <ul class="left_sidebar_second_level">
+                                <li><a href="/admin/addProduct">Add Books</a></li>
+                                <li><a href="/admin/viewProduct">View Books</a></li>
+                            </ul><!-- /.left_sidebar_second_level -->
                         </li>
-                    </ul>
 
-                    <ul class="dropdown-navbar-right">
                         <li>
-                            <a><i class="fa fa-bell"></i>&nbsp;<i class="fa fa-caret-down"></i></a>
+                            <a href="#"><i class="fa fa-plus"></i>&nbsp;Categories <i
+                                    class="arrow fa fa-angle-left"></i></a>
 
-                            <ul class="subnavbar-right">
-                                <li><a>Notification </a></li>
-
-                            </ul>
+                            <ul class="left_sidebar_second_level">
+                                <li><a href="/admin/addCategories">Add Category</a></li>
+                                <li><a href="/admin/viewCategories">View Categories</a></li>
+                            </ul><!-- /.left_sidebar_second_level -->
                         </li>
-                    </ul>
 
-                </div><!-- /.navbar-right-header -->
+                        <li>
+                            <a href="#"><i class="fa fa-plus"></i>&nbsp;Order <i class="arrow fa fa-angle-left"></i></a>
 
-            </div><!-- /.header -->
+                            <ul class="left_sidebar_second_level">
+                                <li><a href="/admin/managerCustomer">Manager Customer Order</a></li>
+                                <li><a href="/admin/feedbacks">Feedbacks Of Customer</a></li>
+                            </ul><!-- /.left_sidebar_second_level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gift"></i>&nbsp;Admin <i class="arrow fa fa-angle-left"></i></a>
 
-            <div class="body_container">
-                <div class="left_sidebar">
-                    <div class="left_sidebar_box">
+                            <ul class="left_sidebar_second_level">
+                                <li><a href="">Add User</a></li>
+                                <li><a href="/admin/listUser">List Users</a></li>
+                            </ul><!-- /.left_sidebar_second_level -->
+                        </li>
 
-                        <ul class="left_sidebar_first_level">
+                    </ul><!-- /.left_sidebar_first_level -->
+                </div><!-- /.left_sidebar_box -->
 
-                            <li><a href="/#" target="_blank"><i class="fa fa-dashboard"></i> My Site</a></li>
+            </div><!-- /.left_sidebar -->
+            <div id="content_area">
+                <div id="products_box">
+                    <div class="wrapper">
+                        <nav>
+                            <ul>
+                                <li><a href="/admin/managerCustomer"><i class="fas fa-reply" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
+                                <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
+                                <li><a href="/admin/infor"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <br>
+                        <!--Kết Thúc Navigation -->
+                        <h1><a style="text-align: center; font-size: 20px; font-weight:bold"><i
+                                    class="fas fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Order Of Quang</a>
+                        </h1><br>
 
-                            <li>
-                                <a href="#"><i class="fa fa-plus"></i>&nbsp;Books <i
-                                        class="arrow fa fa-angle-left"></i></a>
-
-                                <ul class="left_sidebar_second_level">
-                                    <li><a href="/admin/addProduct">Add Books</a></li>
-                                    <li><a href="/admin/viewProduct">View Books</a></li>
-                                </ul><!-- /.left_sidebar_second_level -->
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-plus"></i>&nbsp;Categories <i
-                                        class="arrow fa fa-angle-left"></i></a>
-
-                                <ul class="left_sidebar_second_level">
-                                    <li><a href="/admin/addCategories">Add Category</a></li>
-                                    <li><a href="/admin/viewCategories">View Categories</a></li>
-                                </ul><!-- /.left_sidebar_second_level -->
-                            </li>
-
-                            <li>
-                                <a href="#"><i class="fa fa-plus"></i>&nbsp;Order <i
-                                        class="arrow fa fa-angle-left"></i></a>
-
-                                <ul class="left_sidebar_second_level">
-                                    <li><a href="/admin/managerCustomer">Manager Customer Order</a></li>
-                                    <li><a href="/admin/feedbacks">Feedbacks Of Customer</a></li>
-                                </ul><!-- /.left_sidebar_second_level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-gift"></i>&nbsp;Admin <i
-                                        class="arrow fa fa-angle-left"></i></a>
-
-                                <ul class="left_sidebar_second_level">
-                                    <li><a href="">Add User</a></li>
-                                    <li><a href="/admin/listUser">List Users</a></li>
-                                </ul><!-- /.left_sidebar_second_level -->
-                            </li>
-
-                        </ul><!-- /.left_sidebar_first_level -->
-                    </div><!-- /.left_sidebar_box -->
-
-                </div><!-- /.left_sidebar -->
-                <div id="content_area">
-                    <div id="products_box">
-                        <div class="wrapper">
-                            <nav>
-                                <ul>
-                                    <li><a href="/admin/managerCustomer"><i class="fas fa-reply"
-                                                aria-hidden="true"></i></a></li>
-                                    <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
-                                    <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
-                                    <li><a href="/admin/infor"><i class="fa fa-location-arrow" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </nav>
-                            <br>
-                            <!--Kết Thúc Navigation -->
-                            <h1><a style="text-align: center; font-size: 20px; font-weight:bold"><i
-                                        class="fas fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Order Of Quang</a>
-                            </h1><br>
-
-                            <div class="scrollbar" id="style-1">
-                                <div class="force-overflow">
-                                    <div class="table">
-                                        <div class="row header green">
-                                            <div class="cell">
-                                                ID Order
-                                            </div>
-                                            <div class="cell">
-                                                Date
-                                            </div>
-                                            <div class="cell">
-                                                Total Price
-                                            </div>
-                                            <div class="cell">
-                                                Status
-                                            </div>
+                        <div class="scrollbar" id="style-1">
+                            <div class="force-overflow">
+                                <div class="table">
+                                    <div class="row header green">
+                                        <div class="cell">
+                                            ID Order
                                         </div>
-                                        <div class="row">
-                                            <div class="cell" data-title="ID">
-                                                <a href="/admin/idOrder"
-                                                    style="text-decoration: none; font-size: 18px">1</a>
-                                            </div>
-                                            <div class="cell" data-title="Date Sold">
-                                                03/22/2022
-                                            </div>
-                                            <div class="cell" data-title="Total Price">
-                                                $200
-                                            </div>
-                                            <div class="cell" data-title="Status">
-                                                Waiting for Pickup
-                                            </div>
+                                        <div class="cell">
+                                            Date
                                         </div>
-                                        <div class="row">
-                                            <div class="cell" data-title="ID">
-                                                2
-                                            </div>
-                                            <div class="cell" data-title="Date Sold">
-                                                03/15/2022
-                                            </div>
-                                            <div class="cell" data-title="Total Price">
-                                                $100
-                                            </div>
-                                            <div class="cell" data-title="Status">
-                                                Delivery
-                                            </div>
+                                        <div class="cell">
+                                            Total Price
+                                        </div>
+                                        <div class="cell">
+                                            Status
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell" data-title="ID">
+                                            <a href="/admin/idOrder"
+                                                style="text-decoration: none; font-size: 18px">1</a>
+                                        </div>
+                                        <div class="cell" data-title="Date Sold">
+                                            03/22/2022
+                                        </div>
+                                        <div class="cell" data-title="Total Price">
+                                            $200
+                                        </div>
+                                        <div class="cell" data-title="Status">
+                                            Waiting for Pickup
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cell" data-title="ID">
+                                            2
+                                        </div>
+                                        <div class="cell" data-title="Date Sold">
+                                            03/15/2022
+                                        </div>
+                                        <div class="cell" data-title="Total Price">
+                                            $100
+                                        </div>
+                                        <div class="cell" data-title="Status">
+                                            Delivery
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /#products_box -->
-                </div><!-- /#content_area -->
-            </div>
-            <!--body container-->
-        </div><!-- /.container-->
-        <div>
-            <footer>
-                <div class="footer_top">
-                    <p style="font-weight: bold; font-size:20px; color:black">About us</p>
-                    <p style="margin-bottom: 30px;">Official and unique website of FPT Book. <br>
-                        Currently, we only accept orders on the website but do not accept orders anywhere
-                        else!<br><br><br><br><br>
-                    </p>
-                </div>
-                <div class="footer_top">
-                    <p style="font-weight: bold; font-size:20px; color:black">Support</p>
-                    <p>For any questions and suggestions, please contact Facebook, Instagram and Twitter.</p>
-                    <a href="https://www.facebook.com/Quangnhgch190628/" style="color: rgb(47, 0, 255);"><i
-                            class="fab fa-facebook"> Facebook</i></a> <br>
-                    <a href="https://www.instagram.com/rino_1409/" style="color: rgb(255, 0, 221);"><i
-                            class="fab fa-instagram"> Instagram</i></a> <br>
-                    <a href="#"><i class="fab fa-twitter-square" style="color: rgb(0, 119, 255);"> Twitter</i></a>
-                    <br><br><br>
-                </div>
-                <div class="footer_top">
-                    <p style="font-weight: bold; font-size:20px; color:black">Information</p>
-                    FPT Book <br>
-                    Address: 46/180/63 Phu My, My Dinh II, Nam Tu Liem, Hanoi<br>
-                    Phone number: +84358253536<br>
-                    Email: quangnhgch190628@fpt.edu.vn<br>
-                    Open: 8AM to 10PM<br>
-
-                    WE ACCEPT
-                    <i class="fa fa-cc-visa" style="font-size:38px;color:red"></i>
-                    <i class="fa fa-cc-mastercard" style="font-size:38px;color:red"></i>
-                    <i class="fa fa-paypal" style="font-size:38px;color:blue"></i>
-
-                </div>
-            </footer>
-
+                    </div>
+                </div><!-- /#products_box -->
+            </div><!-- /#content_area -->
         </div>
-    </body>
+        <!--body container-->
+    </div><!-- /.container-->
+    <div>
+        <footer>
+            <div class="footer_top">
+                <p style="font-weight: bold; font-size:20px; color:black">About us</p>
+                <p style="margin-bottom: 30px;">Official and unique website of FPT Book. <br>
+                    Currently, we only accept orders on the website but do not accept orders anywhere
+                    else!<br><br><br><br><br>
+                </p>
+            </div>
+            <div class="footer_top">
+                <p style="font-weight: bold; font-size:20px; color:black">Support</p>
+                <p>For any questions and suggestions, please contact Facebook, Instagram and Twitter.</p>
+                <a href="https://www.facebook.com/Quangnhgch190628/" style="color: rgb(47, 0, 255);"><i
+                        class="fab fa-facebook"> Facebook</i></a> <br>
+                <a href="https://www.instagram.com/rino_1409/" style="color: rgb(255, 0, 221);"><i
+                        class="fab fa-instagram"> Instagram</i></a> <br>
+                <a href="#"><i class="fab fa-twitter-square" style="color: rgb(0, 119, 255);"> Twitter</i></a>
+                <br><br><br>
+            </div>
+            <div class="footer_top">
+                <p style="font-weight: bold; font-size:20px; color:black">Information</p>
+                FPT Book <br>
+                Address: 46/180/63 Phu My, My Dinh II, Nam Tu Liem, Hanoi<br>
+                Phone number: +84358253536<br>
+                Email: quangnhgch190628@fpt.edu.vn<br>
+                Open: 8AM to 10PM<br>
+
+                WE ACCEPT
+                <i class="fa fa-cc-visa" style="font-size:38px;color:red"></i>
+                <i class="fa fa-cc-mastercard" style="font-size:38px;color:red"></i>
+                <i class="fa fa-paypal" style="font-size:38px;color:blue"></i>
+
+            </div>
+        </footer>
+
+    </div>
+</body>
 
 </html>
