@@ -43,7 +43,7 @@ body{
 }
 /*Header left*/
 .navbar-header{
-  width:70%;
+  width:75%;
   float:left;
   float: top;
 }
@@ -64,7 +64,7 @@ a.admin_name{
   font-size: 12px;
   border: none;
   margin-top: 12px;
-  margin-left: 4.5%;
+  margin-left: 0%;
 }
 .header-search .input-group-addon button {
   float: left;
