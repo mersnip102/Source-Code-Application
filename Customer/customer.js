@@ -28,6 +28,15 @@ router.get('/proDetail', async (req, res) => {
 
 })
 
+router.get('/shoppingCart', async (req, res) => {
+    const category = await categories()
+
+    
+
+    res.render('shoppingCart', {category: category})
+
+})
+
 async function categories() {
     const collectionName = 'Category'
     const category = await getAllDocumentsFromCollection(collectionName)

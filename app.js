@@ -218,9 +218,9 @@ app.get('/cart', async (req, res) => {
 app.get('/shoppingCart', async (req, res) => {
     const category = await categories()
 
-    
 
     res.render('shoppingCart', {category: category})
+    
 
 })
 
