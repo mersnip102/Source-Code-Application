@@ -36,6 +36,9 @@ app.use(express.urlencoded({ extended: true }))
 //     extended: true
 // }))
 
+const session = require('express-session')
+app.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 60000 }, saveUninitialized: false, resave: false }))
+
 app.get('/', async (req, res) => {
 
     var d = new Date();
@@ -71,16 +74,18 @@ app.get('/', async (req, res) => {
         // await changeIdToCategoryName(products, dbo);
         
         
-        res.render('index', { category: category, books:book })
+        
+        res.render('index', { category: category, books:book, totalProduct:totalProduct })
         
 
     }
 
     else{
         const books = await getAllDocumentsFromCollection(collectionName)
-        res.render('index', { category: category, books:books })
+        res.render('index', { category: category, books:books, totalProduct:totalProduct })
 
-    }   
+    }
+    console.log(req.session["cart"])   
 
 })
 
@@ -89,7 +94,7 @@ app.get('/login', async (req, res) => {
 
     const category = await categories()
    
-    res.render('login', { category: category })
+    res.render('login', { category: category, totalProduct:totalProduct })
 
 })
 
@@ -165,8 +170,7 @@ app.post('/login', async(req,res)=>{
 app.get('/register', async (req, res) => {
     const category = await categories()
    
-    res.render('register', { category: category })
-
+    res.render('register', { category: category, totalProduct:totalProduct })
 })
 
 app.get('/product', async (_req, res) => {
@@ -218,11 +222,53 @@ app.get('/cart', async (req, res) => {
 app.get('/shoppingCart', async (req, res) => {
     const category = await categories()
 
-
     res.render('shoppingCart', {category: category})
     
 
 })
+
+
+var totalProduct = 0;
+app.post('/shoppingCart',async (req, res)=>{
+    const product = req.body.idProduct
+    var quantity = parseInt(req.body.quantity)
+    totalProduct += quantity
+    //lay gio hang trong session
+    
+    let cart = req.session["cart"]
+    
+    //chua co gio hang trong session, day se la sp dau tien
+    if(!cart){
+        let dict = {}
+        dict[product] = quantity
+        req.session["cart"] = dict
+        console.log("Ban da mua:" + product + ", so luong: " + dict[product])
+    }else{
+        dict = req.session["cart"]
+        //co lay product trong dict
+        var oldProduct = dict[product]
+        //kiem tra xem product da co trong Dict
+        if(!oldProduct)
+            dict[product] = quantity
+        else{
+            dict[product] = Number.parseInt(oldProduct) + quantity
+        }
+        req.session["cart"] = dict
+        console.log("Ban da mua:" + product + ", so luong: " + dict[product])
+    }
+    const idProduct = req.body.idProduct
+    
+    // totalProduct = 0;
+    
+    // for (let key in (req.session["cart"])) {
+    //     totalProduct += req.session["cart"][key]
+    // }
+
+
+    res.redirect('/proDetail?id='+idProduct);
+})
+
+
 
 app.get('/proDetail', async (req, res) => {
     const id = req.query.id
@@ -231,9 +277,9 @@ app.get('/proDetail', async (req, res) => {
     const product = await dbo.collection('Book').findOne({_id: ObjectId(id)});
     
     const categoryProduct = await CategoryProduct(product.categoryId);
-    console.log(categoryProduct)
+    
     const category = await categories()
-    res.render('proDetail', {category: category, product:product, categoryProduct: categoryProduct})
+    res.render('proDetail', {category: category, product:product, categoryProduct: categoryProduct, totalProduct:totalProduct})
 
 })
 
