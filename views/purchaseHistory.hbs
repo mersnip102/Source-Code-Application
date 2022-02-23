@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home</title>
+    <title>Purchase History</title>
 
     <link rel="stylesheet" href="/style_admin.css">
 
@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    {{> header}}
     <table class="table table-hover table-bordered">
         <thead style="background-color: yellow; color:black">
             <tr class="table-primary">
@@ -37,15 +38,15 @@
                 <th scope="col">TotalBill</th>
                 <th scope="col">Status</th>
                 <th scope="col">Feedback</th>
-                <th scope="col">Cancel</th>
+                <th scope="col">Cancel </th>
 
 
             </tr>
         </thead>
         <tbody>
             {{#each products}}
-            <tr>
-                {{!-- <td class="items">{{_id}}</td>
+            {{!-- <tr>
+                <td class="items">{{_id}}</td>
                 <td class="items">{{name}}</td>
                 <td class="items">{{category}}</td>
                 <td class="items">{{price}} VND</td>
@@ -58,9 +59,9 @@
                     <a onclick="return confirm('Do you want to delete the product?')" href="/delete?id={{_id}}"
                         class="btn btn-info btn-sm">
                         <i class="fas fa-trash"></i> Trash
-                    </a> --}}
+                    </a>
                 </td>
-            </tr>
+            </tr> --}}
             {{/each}}
         </tbody>
     </table>
@@ -68,5 +69,6 @@
 
 
 </body>
+{{> footer}}
 
 </html>
