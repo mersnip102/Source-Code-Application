@@ -22,6 +22,7 @@ const path = require('path');
 const hbs = require('hbs');
 const async = require('hbs/lib/async')
 const { redirect } = require('express/lib/response')
+const console = require('console')
 
 const partialsPath = path.join(__dirname, "/views/partials");
 hbs.registerPartials(partialsPath);
@@ -37,12 +38,17 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get('/', async (req, res) => {
 
+    var d = new Date();
+    var dformat = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
+    
+    console.log(dformat)
+
     const category = await categories()
 
     const collectionName = 'Book'
     
     const searchInput = req.query.txtSearch;
-    console.log(searchInput)
+    
     if (searchInput){
         const searchPrice = Number.parseFloat(searchInput);
         const dbo = await getDatabase();
@@ -203,7 +209,6 @@ app.post('/register', async(req,res)=> {
 
 app.get('/cart', async (req, res) => {
     const category = await categories()
-    
 
     res.render('cart', { category: category })
 
@@ -213,6 +218,8 @@ app.get('/cart', async (req, res) => {
 app.get('/shoppingCart', async (req, res) => {
     const category = await categories()
 
+    
+
     res.render('shoppingCart', {category: category})
 
 })
@@ -220,14 +227,13 @@ app.get('/shoppingCart', async (req, res) => {
 app.get('/proDetail', async (req, res) => {
     const id = req.query.id
 
-    console.log(id)
-
     const dbo = await getDatabase();
     const product = await dbo.collection('Book').findOne({_id: ObjectId(id)});
-    console.log(product)
     
+    const categoryProduct = await CategoryProduct(product.categoryId);
+    console.log(categoryProduct)
     const category = await categories()
-    res.render('proDetail', {category: category, product:product})
+    res.render('proDetail', {category: category, product:product, categoryProduct: categoryProduct})
 
 })
 
@@ -535,6 +541,15 @@ async function categories() {
     const collectionName = 'Category'
     const category = await getAllDocumentsFromCollection(collectionName)
     return category
+}
+
+async function CategoryProduct(category) {
+    const collectionName = 'Category'
+    const dbo = await getDatabase();
+    
+    const CategoryProduct = await dbo.collection(collectionName).findOne({_id: ObjectId(category)})
+    
+    return CategoryProduct
 }
 
 async function changeIdToCategoryName(products, dbo) {
