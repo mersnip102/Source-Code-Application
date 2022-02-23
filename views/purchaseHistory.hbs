@@ -45,7 +45,7 @@
         <tbody>
             {{#each products}}
             <tr>
-                <td class="items">{{_id}}</td>
+                {{!-- <td class="items">{{_id}}</td>
                 <td class="items">{{name}}</td>
                 <td class="items">{{category}}</td>
                 <td class="items">{{price}} VND</td>
@@ -58,7 +58,7 @@
                     <a onclick="return confirm('Do you want to delete the product?')" href="/delete?id={{_id}}"
                         class="btn btn-info btn-sm">
                         <i class="fas fa-trash"></i> Trash
-                    </a>
+                    </a> --}}
                 </td>
             </tr>
             {{/each}}
