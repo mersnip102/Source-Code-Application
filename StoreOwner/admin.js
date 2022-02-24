@@ -83,7 +83,6 @@ router.get('/viewProduct', async (_req, res) => {
 router.get('/addProduct',(req,res)=>{
         res.render('admin/managerBook/addProduct');
     })
-
 router.get('/editproduct', (req,res)=> {
     res.render('admin/managerBook/editProduct')
 })
@@ -93,4 +92,5 @@ router.get('/addCategories', (req,res)=> {
 router.get('/viewCategories', (req,res)=> {
     res.render('admin/managerBook/viewCategories')
 })
+
 module.exports = router;
