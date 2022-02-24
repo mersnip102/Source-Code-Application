@@ -134,30 +134,19 @@
                 </div><!-- /.left_sidebar -->
                 <div class="content">
                     <div class="content_box">
+                        
                         <div>
-                            
-                            <center>
-                                <form class="d-flex" style="width: 50%;" action="/search" method="post">
-                                    <input class="form-control me-2" name="txtSearch" type="search"
-                                        placeholder="Search Product ..." aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form>
-                            </center>
-                            <br><br>
-                            <h4><span style="color: red;">{{err2}}</span></h4>
-                            <br><br>
-                            <div>
 
+                           
+                            <div>
+                          	<div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
+                            <div class="force-overflow">
                                 <table class="table table-hover table-bordered">
                                     <thead style="background-color: yellow; color:black">
                                         <tr class="table-primary">
 
                                             <th scope="col">ID</th>
-                                            {{!-- <th scope="col">Name</th> --}}
                                             <th scope="col">Category</th>
-                                            {{!-- <th scope="col">Price</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Image</th> --}}
                                             <th scope="col">Options</th>
 
 
@@ -167,11 +156,11 @@
                                         {{#each products}}
                                         <tr>
                                             <td class="items">{{_id}}</td>
-                                            {{!-- <td class="items">{{name}}</td> --}}
+                                            <td class="items">{{name}}</td>
                                             <td class="items">{{category}}</td>
-                                            {{!-- <td class="items">{{price}} VND</td>
+                                            <td class="items">{{price}} VND</td>
                                             <td class="items">{{description}}</td>
-                                            <td class="items"> <img src="{{imgURL}}" width="180px" height="200px"></td> --}}
+                                            <td class="items"> <img src="{{imgURL}}" width="180px" height="200px"></td>
                                             <td>
                                                 <a href="/edit?id={{_id}}" class="btn btn-info btn-sm">
                                                     <i class="fas fa-edit"></i> Edit
@@ -185,8 +174,11 @@
                                         {{/each}}
                                     </tbody>
                                 </table>
+                                </div>
+                              </div>
                             </div>
-                            
+
+
                         </div>
 
                         <script type="text/javascript">
@@ -200,7 +192,7 @@
                     </div><!-- /.content_box -->
                 </div><!-- /.content -->
             </div><!-- /.body_container -->
-        
+
         </div><!-- /.container -->
 
         <div>
