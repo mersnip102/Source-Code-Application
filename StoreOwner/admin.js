@@ -65,6 +65,16 @@ router.post('/addProduct', async (req,res)=>{
 
     res.render('admin/managerBook/addProduct', {notify: notify})
     })
+// router.post('/addCategories',async (req,res)=>{
+//     const name = req.body.txtaddCategory
+//     const newC = {
+//         name: name, description: txt.parseFloat(description)
+
+//     }
+//     await insertObjectToCollection(collectionName, newC);
+// //     res.render('admin/managerBook/addCategories')
+// }
+//      )
 
 router.get('/insert',(req,res)=>{
         res.render('newProduct');
@@ -89,8 +99,14 @@ router.get('/editproduct', (req,res)=> {
 router.get('/addCategories', (req,res)=> {
     res.render('admin/managerBook/addCategories')
 })
-router.get('/viewCategories', (req,res)=> {
-    res.render('admin/managerBook/viewCategories')
+router.get('/viewCategories',async (_req,res)=> {
+    const collectionName = 'Category'
+    const dbo = await getDatabase();
+    const category = await getAllDocumentsFromCollection(collectionName);
+    res.render('admin/managerBook/viewCategories', {category: category })
+
 })
+
+
 
 module.exports = router;
