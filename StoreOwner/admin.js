@@ -14,7 +14,7 @@ router.get('/infor',(req,res)=>{
 })
 
 router.get('/addUser',(req,res)=>{
-    res.render('addUser')
+    res.render('admin/addUser')
 })
 router.get('/managerCustomer', (req,res)=>{
     res.render("admin/managerCustomer")
