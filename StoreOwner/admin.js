@@ -16,12 +16,39 @@ router.get('/infor',(req,res)=>{
 router.get('/addUser',(req,res)=>{
     res.render('admin/addUser')
 })
-router.get('/managerCustomer', (req,res)=>{
-    res.render("admin/managerCustomer")
+router.get('/managerCustomer',async (req,res)=>{
+    const orders = await getAllDocumentsFromCollection('Order')
+    res.render("admin/managerCustomer", {orders:orders})
 })
 
-router.get('/orderDetail', (req,res)=>{
-    res.render("admin/orderDetail")
+router.get('/orderDetail', async (req,res)=>{
+    const idOrder = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    const order = await dbo.collection(collectionName).findOne({_id: ObjectId(idOrder)});
+    
+    const books = order.books
+    const books2 = order.books
+    
+    var arrBook = new Array(books.length)
+    
+    // books.forEach(async (element) => {
+    //     var book = await dbo.collection('Book').findOne({_id: ObjectId(element.productId)})
+    //     await arrBook.push(book)
+        
+    var book
+    // });
+    for(var i =0;i<books.length;i++){
+        book = await dbo.collection('Book').findOne({_id: ObjectId(books[i].productId)});
+        books[i].productId = book;
+        books[i].statusOrder = order.statusOrder
+        books[i].price = books[i].quantity * books[i].price
+        books[i].date = order.date
+
+    }
+    console.log(books)
+    
+    res.render("admin/orderDetail", {books:books, totalBill: order.totalBill})
 })
 router.get('/allOrder', (req,res)=>{
     res.render("admin/allOrder")
