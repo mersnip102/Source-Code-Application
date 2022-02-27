@@ -48,7 +48,7 @@ router.get('/shoppingCart', requireAuth, async (req, res) => {
 
     const dbo = await getDatabase();
     const collectionName = 'Book'
-    
+    let totalBill = 0
     //Mot array chua cac san pham trong gio hang
     let purchasedProduct = []
     //neu khach hang da mua it nhat 1 sp
@@ -56,18 +56,20 @@ router.get('/shoppingCart', requireAuth, async (req, res) => {
         const dict = req.session["cart"]
 
         let totalPro
-        let totalBill
+        
         
         for(var key in dict) {
             let book = await dbo.collection(collectionName).findOne({_id: ObjectId(key)});
             let category = await CategoryProduct(book.categoryId)
-            totalPro= book.price * dict[key]}
-            totalBill += totalBill
-            purchasedProduct.push({name: book.name, category: category.name, img: book.imgURL, price: book.price, quantity: dict[key], totalProduct: totalPro, totalBill: totalBill})
+            totalPro= book.price * dict[key]
+            totalBill += totalPro
+
+            purchasedProduct.push({name: book.name, category: category.name, img: book.imgURL, price: book.price, quantity: dict[key], totalProduct: totalPro})
          }
     
-
-    res.render('shoppingCart', {category: category, totalProduct:totalProduct, purchasedProduct: purchasedProduct})
+    }
+    console.log(totalBill)
+    res.render('shoppingCart', {category: category, totalProduct:totalProduct, purchasedProduct: purchasedProduct, totalBill: totalBill})
     
 
 })
