@@ -139,11 +139,12 @@
                                 <ul>
                                     <li><a href="/admin/managerCustomer"><i class="fas fa-reply"
                                                 aria-hidden="true"></i></a></li>
-                                     <li><a href=""><i class="fas fa-info-circle" aria-hidden="true"></i></a></li>
+                                    <li><a href=""><i class="fas fa-info-circle" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-trash-alt" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
-                                    <li><a href="/admin/infor"><i class="fa fa-location-arrow" aria-hidden="true"></i></a></li>
+                                    <li><a href="/admin/infor"><i class="fa fa-location-arrow"
+                                                aria-hidden="true"></i></a></li>
                                 </ul>
                             </nav>
                             <br>
@@ -151,7 +152,7 @@
                             <div class="table">
                                 <div class="row header green">
                                     <div class="cell">
-                                        Select 
+                                        Select
                                     </div>
                                     <div class="cell">
                                         Product
@@ -181,19 +182,18 @@
                                         <input name="Remove" type="checkbox" value="" />
                                     </div>
                                     <div class="cell" data-title="Product">
-                                        <img src= {{productId.imgURL}}
-                                            style="width: 100px; height: 150px">
+                                        <img src={{productId.imgURL}} style="width: 100px; height: 150px">
                                     </div>
                                     <div class="cell" data-title="Name">
                                         {{productId.name}}
                                     </div>
                                     <div class="cell" data-title="Price">
                                         {{productId.price}}
-                                    </div>                                                                 
+                                    </div>
                                     <div class="cell" data-title="Quantity">
                                         {{quantity}}
                                     </div>
-                                    
+
                                     <div class="cell" data-title="Date Sold">
                                         {{date}}
                                     </div>
@@ -206,13 +206,13 @@
                                 </div>
                                 {{/each}}
                             </div>
-                            <div>
-                                <h1 style="font-weight:bold; font-size: 20px; margin-left: 800px; margin-bottom: 5px ">
-                                    <i>Total Bill: {{totalBill}}</i>
-                                </h1>
-                            </div>
                         </div>
                     </div><!-- /#products_box -->
+                     <div>
+                            <h1 style="font-weight:bold; font-size: 20px; margin-left: 800px; margin-bottom: 0px ">
+                                <i>Total Bill: {{totalBill}}</i>
+                            </h1>
+                        </div>
                 </div><!-- /#content_area -->
             </div>
             <!--body container-->

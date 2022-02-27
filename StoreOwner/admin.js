@@ -5,6 +5,7 @@ const { ObjectId } = require('mongodb')
 
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
     getDocumentById, insertObjectToCollection, updateCollection} = require('../databaseHandler')
+const async = require('hbs/lib/async')
     
 router.get('/',(req,res)=>{
     res.render('admin/adminIndex')
@@ -50,8 +51,9 @@ router.get('/orderDetail', async (req,res)=>{
     
     res.render("admin/orderDetail", {books:books, totalBill: order.totalBill})
 })
-router.get('/allOrder', (req,res)=>{
-    res.render("admin/allOrder")
+router.get('/allOrder', async (req,res)=>{
+    const orders = await getAllDocumentsFromCollection('Order')
+    res.render("admin/allOrder", {orders:orders})
 })
 router.get('/allOrder2', (req,res)=>{
     res.render("admin/allOrder2")
