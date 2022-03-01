@@ -151,64 +151,27 @@
 									</div>
 								</div>
 
+								{{#each orders}}
+
 								<div class="row">
 									<div class="cell" data-title="ID Order">
-										<a href="/admin/orderDetail"
-											style="text-decoration: none; font-size: 18px">1</a>
+										<a href="/admin/orderDetail?id={{_id}}"
+											style="text-decoration: none; font-size: 18px">{{_id}}</a>
 									</div>
 									<div class="cell" data-title="Date">
-										19/2/2022
+										{{date}}
 									</div>
 									<div class="cell" data-title="Email">
 										<a href="/admin/allOrder"
-											style="text-decoration: none; font-size: 18px">quangnhgch190628@fpt.edu.vn</a>
+											style="text-decoration: none; font-size: 18px">{{email}}</a>
 									</div>
 									<div class="cell" data-title="Status">
-										Delivered
+										{{statusOrder}}
 									</div>
 								</div>
-								<div class="row">
-									<div class="cell" data-title="ID Order">
-										<a href="" style="text-decoration: none; font-size: 18px">1</a>
-									</div>
-									<div class="cell" data-title="Date">
-										19/2/2022
-									</div>
-									<div class="cell" data-title="Email">
-										quangnhgch190628@fpt.edu.vn
-									</div>
-									<div class="cell" data-title="Status">
-										Delivered
-									</div>
-								</div>
-								<div class="row">
-									<div class="cell" data-title="ID Order">
-										<a href="" style="text-decoration: none; font-size: 18px">2</a>
-									</div>
-									<div class="cell" data-title="Date">
-										16/2/2022
-									</div>
-									<div class="cell" data-title="Email">
-										quangnhgch190628@fpt.edu.vn
-									</div>
-									<div class="cell" data-title="Status">
-										Delivered
-									</div>
-								</div>
-								<div class="row">
-									<div class="cell" data-title="ID Order">
-										<a href="" style="text-decoration: none; font-size: 18px">1</a>
-									</div>
-									<div class="cell" data-title="Date">
-										19/2/2022
-									</div>
-									<div class="cell" data-title="Email">
-										quangnhgch190628@fpt.edu.vn
-									</div>
-									<div class="cell" data-title="Status">
-										Delivered
-									</div>
-								</div>
+								
+								{{/each}}
+								
 							</div>
 						</div>
 					</div>

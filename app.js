@@ -18,6 +18,10 @@ const { ObjectId } = require('mongodb')
 const {getDatabase, deleteProduct, getAllDocumentsFromCollection,
     getDocumentById, insertObjectToCollection, updateCollection} = require('./databaseHandler')
 
+
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
+
 const path = require('path');
 const hbs = require('hbs');
 const async = require('hbs/lib/async')
@@ -45,8 +49,9 @@ app.get('/', async (req, res) => {
     var dformat = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
     
     console.log(dformat)
-
+    
     const category = await categories()
+    await res.clearCookie('userId');
 
     const collectionName = 'Book'
     
@@ -75,7 +80,7 @@ app.get('/', async (req, res) => {
         
         
         
-        res.render('index', { category: category, books:book, totalProduct:totalProduct })
+        res.render('index', { category: category, books:book})
         
 
     }
@@ -85,7 +90,7 @@ app.get('/', async (req, res) => {
         res.render('index', { category: category, books:books, totalProduct:totalProduct })
 
     }
-    console.log(req.session["cart"])   
+      
 
 })
 
@@ -105,17 +110,22 @@ app.post('/login', async(req,res)=>{
     
     const dbo = await getDatabase();
     const user = await dbo.collection('Customer').findOne({$and: [{email: email}, {password: password}]});
-
-    console.log(user)
+    
     
     if(!user){
         res.render('login', {err: "User dose not exist or wrong password."})
         return
     }
+    
     else {
-        res.cookie('userId', user._id)
+        
+        await res.cookie('userId', user._id)
+        
         res.redirect('/user')
     }
+
+    
+
     
 })
 
@@ -219,17 +229,19 @@ app.get('/cart', async (req, res) => {
 })
 
 
-app.get('/shoppingCart', async (req, res) => {
-    const category = await categories()
+app.get('/shoppingCart', requireAuth, async (req, res) => {
+    const category = await categories();
 
-    res.render('shoppingCart', {category: category})
+    const products = req.session["cart"].toArray();
+
+    res.render('shoppingCart', {category: category, totalProduct:totalProduct, products: products})
     
 
 })
 
 
 var totalProduct = 0;
-app.post('/shoppingCart',async (req, res)=>{
+app.post('/shoppingCart',requireAuth, async (req, res)=>{
     const product = req.body.idProduct
     var quantity = parseInt(req.body.quantity)
     totalProduct += quantity
@@ -605,6 +617,27 @@ async function changeIdToCategoryName(products, dbo) {
         const category = await dbo.collection('Category').findOne({ _id: ObjectId(products[i].category) });
         products[i].category = category.name;
     }
+}
+
+async function requireAuth(req,res,next) {
+    var id = req.cookies.userId
+    console.log(id)
+    if(!req.cookies.userId) {
+        res.redirect('/login');
+        return;
+    }
+    const dbo = await getDatabase();
+
+    var user = await dbo.collection('Customer').findOne({_id: ObjectId(id)});
+    console.log(user)
+
+    if(!user){
+        res.redirect('/login');
+        return;
+    }
+
+    next();
+
 }
 
 const PORT = process.env.PORT || 5000

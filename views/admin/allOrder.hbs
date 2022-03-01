@@ -165,35 +165,23 @@
                                             Status
                                         </div>
                                     </div>
+                                    {{#each orders}}
                                     <div class="row">
                                         <div class="cell" data-title="ID">
-                                            <a href="/admin/idOrder"
-                                                style="text-decoration: none; font-size: 18px">1</a>
+                                            <a href="/admin/idOrder?id={{_id}}"
+                                                style="text-decoration: none; font-size: 18px">{{_id}}</a>
                                         </div>
                                         <div class="cell" data-title="Date Sold">
-                                            03/22/2022
+                                            {{date}}
                                         </div>
                                         <div class="cell" data-title="Total Price">
-                                            $200
+                                           {{totalBill}}
                                         </div>
                                         <div class="cell" data-title="Status">
-                                            Waiting for Pickup
+                                            {{statusOrder}}
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="cell" data-title="ID">
-                                            2
-                                        </div>
-                                        <div class="cell" data-title="Date Sold">
-                                            03/15/2022
-                                        </div>
-                                        <div class="cell" data-title="Total Price">
-                                            $100
-                                        </div>
-                                        <div class="cell" data-title="Status">
-                                            Delivery
-                                        </div>
-                                    </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
