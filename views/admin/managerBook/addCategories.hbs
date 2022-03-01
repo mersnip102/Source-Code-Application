@@ -132,14 +132,18 @@
                     </div><!-- /.left_sidebar_box -->
 
                 </div><!-- /.left_sidebar -->
+
 	 <div class="content">
 	   <div class="content_box">
     <div class="container">
         <center><span style="font-weight: bold; color:red">{{notify}}</span></center>
-        <form action="/admin/addCategories" method="post">
+        <form action="addCategory" method="post">
         
         <div class="mb-3">
-            Add new Category:<input type="text" name="txtaddCategory" value="" class="form-control">
+            Add new Category:<input type="text" placeholder="name" name="txtName" value="" class="form-control">
+        </div>
+        <div class="mb-3">
+           <input type="text" name="txtDescription" placeholder="description" value="" class="form-control">
         </div>
         
        
@@ -151,7 +155,7 @@
    
     </div>
 
-    <h2 class="alert alert-danger">{{{error}}}</h2>
+    {{!-- <h2 class="alert alert-danger">{{{error}}}</h2> --}}
     <br>
 
     </div><!-- /.content_box -->

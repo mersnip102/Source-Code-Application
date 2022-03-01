@@ -94,6 +94,19 @@ router.post('/addProduct', async (req,res)=>{
 
     res.render('admin/managerBook/addProduct', {notify: notify})
     })
+
+router.post('/addCategory', async (req,res)=>{
+    const name = req.body.txtName
+    const description = req.body.txtDescription
+    const collectionName = 'Category'
+    
+    const newP = {name: name, description: description}
+        
+    await insertObjectToCollection(collectionName, newP);
+    const notify = "Add category successful"
+
+    res.render('admin/managerBook/addCategories', {notify: notify})
+    })
 // router.post('/addCategories',async (req,res)=>{
 //     const name = req.body.txtaddCategory
 //     const newC = {
