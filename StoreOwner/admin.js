@@ -143,7 +143,7 @@ router.get('/addCategories', (req,res)=> {
 })
 router.get('/viewCategories',async (_req,res)=> {
     const collectionName = 'Category'
-    const dbo = await getDatabase();
+    
     const category = await getAllDocumentsFromCollection(collectionName);
     res.render('admin/managerBook/viewCategories', {category: category })
 
