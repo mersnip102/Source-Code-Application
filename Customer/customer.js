@@ -115,6 +115,18 @@ router.post('/shoppingCart',requireAuth, async (req, res)=>{
     res.redirect('/user/proDetail?id='+idProduct);
 })
 
+
+router.get('/product', async (req, res) => {
+
+    const collectionName = 'Book'
+    
+    const books = await getAllDocumentsFromCollection(collectionName);
+    
+    // await changeIdToCategoryName(products, dbo);
+
+    res.render('userAllProduct', { books: books })
+})
+
 async function categories() {
     const collectionName = 'Category'
     const category = await getAllDocumentsFromCollection(collectionName)

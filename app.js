@@ -183,14 +183,15 @@ app.get('/register', async (req, res) => {
     res.render('register', { category: category, totalProduct:totalProduct })
 })
 
-app.get('/product', async (_req, res) => {
+app.get('/product', async (req, res) => {
 
-    const collectionName = 'Products'
-    const dbo = await getDatabase();
-    const products = await getAllDocumentsFromCollection(collectionName);
-    await changeIdToCategoryName(products, dbo);
+    const collectionName = 'Book'
+    
+    const books = await getAllDocumentsFromCollection(collectionName);
+    
+    // await changeIdToCategoryName(products, dbo);
 
-    res.render('product', { products: products })
+    res.render('product', { books: books })
 })
 
 app.get('/category', async (_req, res) => {
