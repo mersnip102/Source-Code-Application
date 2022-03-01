@@ -124,7 +124,7 @@ router.get('/product', async (req, res) => {
     
     // await changeIdToCategoryName(products, dbo);
 
-    res.render('userAllProduct', { books: books })
+    res.render('userAllProduct', { books: books, totalProduct:totalProduct })
 })
 
 async function categories() {
