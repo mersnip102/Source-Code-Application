@@ -52,7 +52,9 @@ router.get('/orderDetail', async (req,res)=>{
     res.render("admin/orderDetail", {books:books, totalBill: order.totalBill})
 })
 router.get('/allOrder', async (req,res)=>{
-    const orders = await getAllDocumentsFromCollection('Order')
+    const email = req.query.email
+    const dbo = await getDatabase();
+    const orders = await dbo.collection('Order').find({email: email}).toArray();
     res.render("admin/allOrder", {orders:orders})
 })
 router.get('/allOrder2', (req,res)=>{
