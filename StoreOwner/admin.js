@@ -32,13 +32,7 @@ router.get('/orderDetail', async (req,res)=>{
     const books2 = order.books
     
     var arrBook = new Array(books.length)
-    
-    // books.forEach(async (element) => {
-    //     var book = await dbo.collection('Book').findOne({_id: ObjectId(element.productId)})
-    //     await arrBook.push(book)
-        
     var book
-    // });
     for(var i =0;i<books.length;i++){
         book = await dbo.collection('Book').findOne({_id: ObjectId(books[i].productId)});
         books[i].productId = book;
@@ -57,11 +51,15 @@ router.get('/allOrder', async (req,res)=>{
     const orders = await dbo.collection('Order').find({email: email}).toArray();
     res.render("admin/allOrder", {orders:orders})
 })
-router.get('/allOrder2', (req,res)=>{
-    res.render("admin/allOrder2")
+router.get('/allOrder2', async (req,res)=>{
+    const email = req.query.email
+    const dbo = await getDatabase();
+    const orders = await dbo.collection('Order').find({email: email}).toArray();
+    res.render("admin/allOrder2", {orders:orders})
 })
 
 router.get('/idOrder', (req,res)=>{
+    
     res.render("admin/idOrder")
 })
 router.get('/idOrder2', (req,res)=>{
@@ -73,6 +71,7 @@ router.get('/listUser', (req,res)=>{
 })
 
 router.get('/feedbacks', (req, res) =>{
+    
     res.render('admin/feedbacks')
 })
 router.get('/updateProfile', (req, res) =>{
