@@ -59,7 +59,6 @@ router.get('/allOrder2', async (req,res)=>{
 })
 
 router.get('/idOrder', (req,res)=>{
-    
     res.render("admin/idOrder")
 })
 router.get('/idOrder2', (req,res)=>{
