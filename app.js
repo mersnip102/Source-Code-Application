@@ -302,28 +302,28 @@ app.get('/proDetail', async (req, res) => {
 
 // })
 
-app.get('/delete', async (req, res) => {
-    const id = req.query.id
-    const collectionName = 'Products'
-    const db = await getDatabase()
-    const result = await db.collection(collectionName).findOne({ _id: ObjectId(id) })
+// app.get('/delete', async (req, res) => {
+//     const id = req.query.id
+//     const collectionName = 'Products'
+//     const db = await getDatabase()
+//     const result = await db.collection(collectionName).findOne({ _id: ObjectId(id) })
 
-    const products = await getAllDocumentsFromCollection(collectionName);
-    await changeIdToCategoryName(products, dbo);
+//     const products = await getAllDocumentsFromCollection(collectionName);
+//     await changeIdToCategoryName(products, dbo);
 
-    console.log(result.price);
-    var err2 = "Product cannot be deleted when price is greater than 10"
-    if (result.price >= 10) {
-        console.log(result.price);
-        res.render("product", {err2: err2, products:products})
-        return
-    } else {
-        await deleteProduct(collectionName, id)
-        console.log("Id of Product to delete is:" + id)
-        res.redirect("/product")
-    }
+//     console.log(result.price);
+//     var err2 = "Product cannot be deleted when price is greater than 10"
+//     if (result.price >= 10) {
+//         console.log(result.price);
+//         res.render("product", {err2: err2, products:products})
+//         return
+//     } else {
+//         await deleteProduct(collectionName, id)
+//         console.log("Id of Product to delete is:" + id)
+//         res.redirect("/product")
+//     }
 
-})
+// })
 
 app.get('/deleteCategory', async (req, res) => {
     const id = req.query.id
