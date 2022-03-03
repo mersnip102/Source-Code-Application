@@ -65,6 +65,24 @@ router.get('/idOrder2', (req,res)=>{
     res.render("admin/idOrder2")
 })
 
+router.get('/deleteBook', async (req,res)=>{
+    const id = req.query.id
+    const collectionName = 'Book'
+    await deleteProduct(collectionName, id)
+    
+    res.redirect("/admin/viewProduct")
+
+})
+
+router.get('/editBook', async (req,res)=>{
+    const id = req.query.id
+    const collectionName = 'Book'
+    // await updateCollection(id, collectionName,)
+    
+    res.get("/admin/editProduct")
+
+})
+
 router.get('/listUser', (req,res)=>{
     res.render("admin/listUser")
 })
@@ -87,7 +105,7 @@ router.post('/addProduct', async (req,res)=>{
     const collectionName = 'Book'
     
     const newP = {
-        name: name, price: Number.parseFloat(price)}
+        name: name, price: Number.parseFloat(price), imgURL: picture, author: author, description: description, category: category}
         
     await insertObjectToCollection(collectionName, newP);
     const notify = "Add book successful"
