@@ -119,7 +119,7 @@ app.post('/login', async(req,res)=>{
     
     else {
         
-        await res.cookie('userId', user._id)
+        await res.cookie('userId', user.email)
         
         res.redirect('/user')
     }

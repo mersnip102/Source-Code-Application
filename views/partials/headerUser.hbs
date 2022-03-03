@@ -91,7 +91,8 @@
 
                     <div class="float-end cart mt-2">
                         <a href="/user/shoppingCart">
-                            <span class="number" style="border-radius: 100%; background: rgb(253, 53, 53); font-weight: bold">{{totalProduct}}</span>
+                            <span class="number"
+                                style="border-radius: 100%; background: rgb(253, 53, 53); font-weight: bold">{{totalProduct}}</span>
                             {{!-- <i class="fas fa-shopping-cart"></i> --}}
                             <img class="img-fluid" src="cartShop.png" style="height: 48px; width: 44px" alt="cart" />
 
@@ -105,8 +106,9 @@
 
                     <div>
                         {{!-- <div class="container"> --}}
-                            <div>
-                                <a href="/">
+                            <div class="dropdown">
+                                <a class="btn btn-primary dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="d-flex justify-content-center h-100">
                                         <div class="image_outer_container">
                                             <div class="green_icon"></div>
@@ -116,9 +118,19 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                 </a>
 
-
+                                <div class="dropdown-content">
+                                    
+                                    <a href="#">My profile</a>
+                                    <a href="/user/purchaseHistory?email={{email}}">My Order detail</a>
+                                    <a href="#">Cdmin</a>
+                                    <a href="#">Ddmin</a>
+                                    
+                                    
+                                </div>
                             </div>
 
                             {{!--
@@ -151,7 +163,7 @@
 
 <script type="text/javascript">
     function logout() {
-        window.location.replace('/') ;
+        window.location.replace('/');
     }
 
     function search() {

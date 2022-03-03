@@ -18,13 +18,25 @@ router.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 60000 }, saveUn
 var totalProduct = 0;
 
 router.get('/', requireAuth, async (req, res) => {
+    const email = req.cookies.userId
     const category = await categories()
     const collectionName = 'Book'
     const books = await getAllDocumentsFromCollection(collectionName)
     console.log(totalProduct)
-    res.render('user', { category: category, books:books, totalProduct:totalProduct })
+    res.render('user', { category: category, books:books, totalProduct:totalProduct, email: email })
 
 })
+
+router.get('/purchaseHistory', requireAuth, async (req, res) => {
+    const email = req.cookies.userId
+    const category = await categories()
+    const collectionName = 'Book'
+    const books = await getAllDocumentsFromCollection(collectionName)
+    console.log(totalProduct)
+    res.render('purchaseHistory', { category: category, books:books, totalProduct:totalProduct })
+
+})
+
 
 router.get('/proDetail', async (req, res) => {
     const id = req.query.id
@@ -150,15 +162,15 @@ async function CategoryProduct(category) {
 }
 
 async function requireAuth(req,res,next) {
-    var id = req.cookies.userId
-    console.log(id)
+    var email = req.cookies.userId
+    
     if(!req.cookies.userId) {
         res.redirect('/login');
         return;
     }
     const dbo = await getDatabase();
 
-    var user = await dbo.collection('Customer').findOne({_id: ObjectId(id)});
+    var user = await dbo.collection('Customer').findOne({email: email});
 
     if(!user){
         res.redirect('/login');
