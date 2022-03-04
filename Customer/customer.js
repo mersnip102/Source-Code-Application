@@ -19,11 +19,52 @@ var totalProduct = 0;
 
 router.get('/', requireAuth, async (req, res) => {
     const email = req.cookies.userId
+    var d = new Date();
+    var dformat = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
+    
+    console.log(dformat)
+    
     const category = await categories()
     const collectionName = 'Book'
-    const books = await getAllDocumentsFromCollection(collectionName)
+    const searchInput = req.query.txtSearch;
+
+    const feedbacks = await getAllDocumentsFromCollection('Feedback')
+    
+    if (searchInput){
+        const searchPrice = Number.parseFloat(searchInput);
+        const dbo = await getDatabase();
+        // const result = await dbo.collection(collectionName).find({$or:[{_id:ObjectId(searchInput)},{name: searchInput}, {category: }]});
+
+        const book = await dbo.collection(collectionName).find(
+            {
+                $or: [
+                    { _id: { $regex: searchInput, $options: "$i" } },
+                    { name: { $regex: searchInput, $options: "$i" } },
+                    { price: { $regex: searchInput, $options: "$i" } },
+                    { price: searchPrice },
+
+                ]
+            }
+
+        ).toArray();
+
+        console.log(book)
+        // await changeIdToCategoryName(products, dbo);
+        
+        
+        
+        res.render('user', { category: category, books:book, totalProduct:totalProduct, email: email, feedbacks: feedbacks})
+        
+
+    }
+
+    else{
+        const books = await getAllDocumentsFromCollection(collectionName)
+        res.render('user', { category: category, books:books, totalProduct:totalProduct, email:email, feedbacks: feedbacks })
+
+    }
     console.log(totalProduct)
-    res.render('user', { category: category, books:books, totalProduct:totalProduct, email: email })
+    // res.render('user', { category: category, books:books, totalProduct:totalProduct, email: email })
 
 })
 
