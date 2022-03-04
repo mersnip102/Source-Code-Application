@@ -94,7 +94,12 @@
                 <center>
                     <h2 style="font-weight: bold; color:orangered ">Hot book, best seller</h2>
                     <br>
-                    <a href="/product">See all</a>
+                    <center>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off"
+                            onclick="Redirect2();">
+                            See All Product
+                        </button>
+                    </center>
                 </center>
 
             </div>
@@ -138,8 +143,12 @@
         </div>
 </body>
 {{> footer}}
+<script>
+    function Redirect2() {
+        window.location.href = "/product"
+    }
 
-</html>
+</script>
 
 {{!-- su dung tac vu next/pre voi slider --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
