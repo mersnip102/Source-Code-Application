@@ -20,19 +20,19 @@
 
 #contact1 {
     position: absolute;
-    top: 1450px;
+    top: 10px;
     left: 825px;
 }
 
 #contact2 {
     position: absolute;
-    top: 1500px;
+    top: 70px;
     left: 730px;
 }
 
 #contact3 {
     position: absolute;
-    top: 1600px;
+    top: 150px;
     left: 730px;
     padding: 15px;
     background-color: white;
@@ -44,7 +44,7 @@
 
 #contact4 {
     position: absolute;
-    top: 1600px;
+    top: 150px;
     left: 1000px;
     padding: 15px;
     background-color: white;
