@@ -12,6 +12,7 @@ router.use(cookieParser())
 
 
 const session = require('express-session')
+const async = require('hbs/lib/async')
 router.use(session({ secret: '124447yd@@$%%#', cookie: { maxAge: 60000 }, saveUninitialized: false, resave: false }))
 // var requireAuth = require('../middlewares/auth_middleware')
 
@@ -93,7 +94,7 @@ router.get('/proDetail', async (req, res) => {
 
 })
 
-
+var totalBillAll = 0;
 router.get('/shoppingCart', requireAuth, async (req, res) => {
     const category = await categories();
 
@@ -116,6 +117,8 @@ router.get('/shoppingCart', requireAuth, async (req, res) => {
             let category = await CategoryProduct(book.categoryId)
             totalPro= book.price * dict[key]
             totalBill += totalPro
+
+            totalBillAll = totalBill
 
             purchasedProduct.push({name: book.name, category: category.name, img: book.imgURL, price: book.price, quantity: dict[key], totalProduct: totalPro})
          }
@@ -166,6 +169,32 @@ router.post('/shoppingCart',requireAuth, async (req, res)=>{
     
 
     res.redirect('/user/proDetail?id='+idProduct);
+})
+
+router.post('/order', async (req,res)=>{
+    const email = req.cookies.userId
+    var d = new Date();
+    const date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
+    const phone = req.body.txtPhone
+    const books = req.session["cart"]
+    const orderDetail = {
+        address: req.body.txtAddress,
+        discount: 0,
+        transportFee: 30000,
+        payment:  req.body.flexRadioDefault,
+        note: req.body.txtNote
+
+    }
+    const totalBill = totalBillAll 
+    const statusOrder = 'Processing'
+
+    const newOrder = {
+        email: email, date: date, books: books, phone: phone, orderDetail: orderDetail, totalBill:totalBill, statusOrder:statusOrder}
+    await insertObjectToCollection(collectionName, newOrder)
+    const status = 'Add order successful'
+    console.log(status)
+    res.redirect('/');
+    
 })
 
 
