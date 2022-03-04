@@ -40,9 +40,9 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul class="navbar-nav mx-auto navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                                    <li class="nav-item">
+                                    {{!-- <li class="nav-item">
                                         <a class="nav-link active" aria-current="page" href="/user">Home</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <div class="dropdown">
                                             <a class="nav-link dropbtn dropdown-toggle" href="#">Category List</a>
@@ -100,11 +100,11 @@
                         </a>
                     </div>
 
-                    <div class="float-end">
+                    {{!-- <div class="float-end">
                         <button type="button" class="btn btn-light mt-2 btn-sm" onclick="logout();">Log out</button>
-                    </div>
+                    </div> --}}
 
-                    <div>
+                    <div> 
                         {{!-- <div class="container"> --}}
                             <div class="dropdown">
                                 <a class="btn btn-primary dropdown-toggle" href="#" role="button"
@@ -127,7 +127,7 @@
                                     <a href="#">My profile</a>
                                     <a href="/user/purchaseHistory?email={{email}}">My Order detail</a>
                                     <a href="#">Cdmin</a>
-                                    <a href="#">Ddmin</a>
+                                    <a href="/">Log out</a>
                                     
                                     
                                 </div>
