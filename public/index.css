@@ -27,13 +27,13 @@
 #contact2 {
     position: absolute;
     top: 70px;
-    left: 40%;
+    left: 38%;
 }
 
 #contact3 {
     position: absolute;
     top: 150px;
-    left: 730px;
+    left: 38%;
     padding: 15px;
     background-color: white;
     font-weight: bold;
@@ -45,7 +45,7 @@
 #contact4 {
     position: absolute;
     top: 150px;
-    left: 1000px;
+    left: 54%;
     padding: 15px;
     background-color: white;
     font-weight: bold;
