@@ -18,6 +18,54 @@
     
 }
 
+#contact1 {
+    position: absolute;
+    top: 1450px;
+    left: 825px;
+}
+
+#contact2 {
+    position: absolute;
+    top: 1500px;
+    left: 730px;
+}
+
+#contact3 {
+    position: absolute;
+    top: 1600px;
+    left: 730px;
+    padding: 15px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+#contact4 {
+    position: absolute;
+    top: 1600px;
+    left: 1000px;
+    padding: 15px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+#contact3:hover {
+    
+    background-color: rgb(0, 4, 250);
+    
+}
+
+#contact4:hover {
+    
+    background-color: rgb(219, 22, 160);
+   
+}
+
 /* #index {
     
     background-repeat: no-repeat;
