@@ -158,58 +158,23 @@
                                     <table cellspacing="0">
                                         <tr>
                                             <th>Select</th>
-                                            <th>ID</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th width="230">Comments</th>
                                         </tr>
-
+                                        {{#each feedbacks}}
                                         <tr>
                                             <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>1
-                                            </td>
-                                            <td>Jane Doe</td>
+                                            <td>{{nameCustomer}}</td>
                                             <td>
                                                 <a href="/admin/allOrder2"
-                                                    style="text-decoration: none; font-size: 18px">quangnhgch190628@fpt.edu.vn</a>
+                                                    style="text-decoration: none; font-size: 18px">{{emailCustomer}}</a>
                                             </td>
-                                            <td>01 800 2000</td>
-                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </td>
+                                            <td>{{phoneNumber}}</td>
+                                            <td>{{feedback}}</td>
                                         </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>2
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>john.doe@foo.com</td>
-                                            <td>01 800 2000</td>
-                                            <td>Blanditiis, aliquid numquam iure voluptatibus ut maiores explicabo
-                                                ducimus
-                                                neque, nesciunt rerum perferendis, inventore.</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>3</td>
-                                            <td>Jane Smith</td>
-                                            <td>jane.smith@foo.com</td>
-                                            <td>01 800 2000</td>
-                                            <td> Culpa praesentium unde pariatur fugit eos recusandae voluptas.</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td><input name="Remove" type="checkbox" value="" /></td>
-                                            <td>4
-                                            </td>
-                                            <td>John Smith</td>
-                                            <td>john.smith@foo.com</td>
-                                            <td>01 800 2000</td>
-                                            <td>Aut voluptatum accusantium, eveniet, sapiente quaerat adipisci
-                                                consequatur
-                                                maxime temporibus quas, dolorem impedit.</td>
-                                        </tr>
+                                        {{/each}}
                                     </table>
                                 </div>
                             </div>

@@ -54,8 +54,8 @@ router.get('/allOrder', async (req,res)=>{
 router.get('/allOrder2', async (req,res)=>{
     const email = req.query.email
     const dbo = await getDatabase();
-    const orders = await dbo.collection('Order').find({email: email}).toArray();
-    res.render("admin/allOrder2", {orders:orders})
+    const orders2 = await dbo.collection('Order').find({email: email}).toArray();
+    res.render("admin/allOrder2", {orders2 :orders2})
 })
 
 router.get('/idOrder', (req,res)=>{
@@ -63,6 +63,12 @@ router.get('/idOrder', (req,res)=>{
 })
 router.get('/idOrder2', (req,res)=>{
     res.render("admin/idOrder2")
+})
+router.get('/feedbacks', async (req, res) =>{
+    const email = req.query.email
+    const dbo = await getDatabase();
+    const feedbacks = await dbo.collection('Feedback').find({email: email}).toArray();
+    res.render('admin/feedbacks', {feedbacks: feedbacks})
 })
 
 router.get('/deleteBook', async (req,res)=>{
@@ -87,10 +93,7 @@ router.get('/listUser', (req,res)=>{
     res.render("admin/listUser")
 })
 
-router.get('/feedbacks', (req, res) =>{
-    
-    res.render('admin/feedbacks')
-})
+
 router.get('/updateProfile', (req, res) =>{
     res.render('admin/managerBook/updateProfile')
 })
