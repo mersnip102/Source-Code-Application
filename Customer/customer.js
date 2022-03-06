@@ -60,7 +60,8 @@ router.get('/', requireAuth, async (req, res) => {
     }
 
     else{
-        const books = await getAllDocumentsFromCollection(collectionName)
+        const dbo = await getDatabase();
+        const books = await dbo.collection(collectionName).find({hot: 'true'}).toArray();
         res.render('user', { category: category, books:books, totalProduct:totalProduct, email:email, feedbacks: feedbacks })
 
     }

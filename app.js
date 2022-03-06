@@ -88,7 +88,9 @@ app.get('/', async (req, res) => {
     }
 
     else{
-        const books = await getAllDocumentsFromCollection(collectionName)
+        // const books = await getAllDocumentsFromCollection(collectionName)
+        const dbo = await getDatabase();
+        const books = await dbo.collection(collectionName).find({hot: 'true'}).toArray();
         res.render('index', { category: category, books:books, totalProduct:totalProduct, feedbacks: feedbacks })
 
     }
