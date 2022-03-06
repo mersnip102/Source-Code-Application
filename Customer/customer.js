@@ -86,8 +86,9 @@ router.get('/proDetail', async (req, res) => {
     const dbo = await getDatabase();
     const product = await dbo.collection('Book').findOne({_id: ObjectId(id)});
     
+    
     const categoryProduct = await CategoryProduct(product.categoryId);
-    console.log(categoryProduct)
+    
     const category = await categories()
     
     res.render('userProDetail', {category: category, product:product, categoryProduct: categoryProduct, totalProduct:totalProduct})
@@ -114,6 +115,7 @@ router.get('/shoppingCart', requireAuth, async (req, res) => {
         
         for(var key in dict) {
             let book = await dbo.collection(collectionName).findOne({_id: ObjectId(key)});
+            console.log(book)
             let category = await CategoryProduct(book.categoryId)
             totalPro= book.price * dict[key]
             totalBill += totalPro
@@ -138,7 +140,7 @@ router.post('/shoppingCart',requireAuth, async (req, res)=>{
     //lay gio hang trong session
     
     let cart = req.session["cart"]
-    
+    console.log(product)
     //chua co gio hang trong session, day se la sp dau tien
     if(!cart){
         let dict = {}
