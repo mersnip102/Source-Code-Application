@@ -124,7 +124,7 @@
 
                                     <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Shipping information</h3>
 
-                                    <form class="mb-5" method="post">
+                                    <form class="mb-5" method="post" action="order">
 
 
                                         <div class="row">
@@ -149,21 +149,21 @@
 
                                         <div class="form-outline mb-5">
                                             <input type="text" id="typeText" class="form-control form-control-lg"
-                                                siez="17" value="" placeholder="quyennxgch190732@fpt.edu.vn"
+                                                siez="17" name="email" value="" placeholder="quyennxgch190732@fpt.edu.vn"
                                                 minlength="19" maxlength="19" />
                                             <label class="form-label" for="typeText">Email</label>
                                         </div>
 
                                         <div class="form-outline mb-5">
-                                            <input type="text" id="typeName" class="form-control form-control-lg"
+                                            <input type="text" name="txtAddress" id="typeName" class="form-control form-control-lg"
                                                 siez="17" placeholder="Khai Thai - Phu Xuyen - Ha Noi" value="" />
                                             <label class="form-label" for="typeName">Address</label>
                                         </div>
 
                                         <div class="form-outline mb-5">
-                                            <input type="text" id="typeName" class="form-control form-control-lg"
+                                            <input type="text" name="txtNote" id="typeName" class="form-control form-control-lg"
                                                 siez="17" value=""
-                                                placeholder="(Example: delivery during office hours)" />
+                                                placeholder="(Example: Delivery during office hours)" />
                                             <label class="form-label" for="typeName">Extra notes</label>
                                         </div>
 

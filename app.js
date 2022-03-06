@@ -56,6 +56,8 @@ app.get('/', async (req, res) => {
     const collectionName = 'Book'
     
     const searchInput = req.query.txtSearch;
+
+    const feedbacks = await getAllDocumentsFromCollection('Feedback')
     
     if (searchInput){
         const searchPrice = Number.parseFloat(searchInput);
@@ -87,7 +89,7 @@ app.get('/', async (req, res) => {
 
     else{
         const books = await getAllDocumentsFromCollection(collectionName)
-        res.render('index', { category: category, books:books, totalProduct:totalProduct })
+        res.render('index', { category: category, books:books, totalProduct:totalProduct, feedbacks: feedbacks })
 
     }
       
