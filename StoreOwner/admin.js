@@ -115,7 +115,14 @@ router.get('/deleteBook', async (req,res)=>{
     res.redirect("/admin/viewProduct")
 
 })
+router.get('/deleteCategory', async (req,res)=>{
+    const id = req.query.id
+    const collectionName = 'Category'
+    await deleteProduct(collectionName, id)
+    
+    res.redirect("/admin/viewCategories")
 
+})
 router.get('/editBook', async (req,res)=>{
     const id = req.query.id
     const collectionName = 'Book'
@@ -164,16 +171,7 @@ router.post('/addCategory', async (req,res)=>{
 
     res.render('admin/managerBook/addCategories', {notify: notify})
     })
-// router.post('/addCategories',async (req,res)=>{
-//     const name = req.body.txtaddCategory
-//     const newC = {
-//         name: name, description: txt.parseFloat(description)
 
-//     }
-//     await insertObjectToCollection(collectionName, newC);
-// //     res.render('admin/managerBook/addCategories')
-// }
-//      )
 
 router.get('/insert',(req,res)=>{
         res.render('newProduct');
