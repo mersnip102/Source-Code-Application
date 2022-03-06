@@ -158,6 +158,7 @@
                                     <table cellspacing="0">
                                         <tr>
                                             <th>Select</th>
+                                            <th>ID Order</th>
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
@@ -166,9 +167,10 @@
                                         {{#each feedbacks}}
                                         <tr>
                                             <td><input name="Remove" type="checkbox" value="" /></td>
+                                            <td>{{idOrder}}</td>
                                             <td>{{nameCustomer}}</td>
                                             <td>
-                                                <a href="/admin/allOrder2"
+                                                <a href="/admin/allOrder2?email={{emailCustomer}}"
                                                     style="text-decoration: none; font-size: 18px">{{emailCustomer}}</a>
                                             </td>
                                             <td>{{phoneNumber}}</td>

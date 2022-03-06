@@ -39,10 +39,8 @@ router.get('/orderDetail', async (req,res)=>{
         books[i].statusOrder = order.statusOrder
         books[i].price = books[i].quantity * books[i].price
         books[i].date = order.date
-
     }
     console.log(books)
-    
     res.render("admin/orderDetail", {books:books, totalBill: order.totalBill})
 })
 router.get('/allOrder', async (req,res)=>{
@@ -53,16 +51,54 @@ router.get('/allOrder', async (req,res)=>{
 })
 router.get('/allOrder2', async (req,res)=>{
     const email = req.query.email
+    console.log(email)
     const dbo = await getDatabase();
-    const orders = await dbo.collection('Order').find({email: email}).toArray();
-    res.render("admin/allOrder2", {orders:orders})
+    const allorders = await dbo.collection('Order').find({email: email}).toArray();
+    console.log(allorders)
+    res.render("admin/allOrder2", {allorders:allorders})
 })
 
-router.get('/idOrder', (req,res)=>{
-    res.render("admin/idOrder")
+router.get('/idOrder', async (req,res)=>{
+    const idOrder = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    const order = await dbo.collection(collectionName).findOne({_id: ObjectId(idOrder)});
+    
+    const books = order.books
+    const books2 = order.books
+    
+    var arrBook = new Array(books.length)
+    var book
+    for(var i =0;i<books.length;i++){
+        book = await dbo.collection('Book').findOne({_id: ObjectId(books[i].productId)});
+        books[i].productId = book;
+        books[i].statusOrder = order.statusOrder
+        books[i].price = books[i].quantity * books[i].price
+        books[i].date = order.date
+    }
+    console.log(books)
+    res.render("admin/idOrder", {books:books, totalBill: order.totalBill, order: order})
 })
-router.get('/idOrder2', (req,res)=>{
-    res.render("admin/idOrder2")
+router.get('/idOrder2', async (req,res)=>{
+    const idOrder = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    const order = await dbo.collection(collectionName).findOne({_id: ObjectId(idOrder)});
+    
+    const books = order.books
+    const books2 = order.books
+    
+    var arrBook = new Array(books.length)
+    var book
+    for(var i =0;i<books.length;i++){
+        book = await dbo.collection('Book').findOne({_id: ObjectId(books[i].productId)});
+        books[i].productId = book;
+        books[i].statusOrder = order.statusOrder
+        books[i].price = books[i].quantity * books[i].price
+        books[i].date = order.date
+    }
+    console.log(books)
+    res.render("admin/idOrder2", {books:books, totalBill: order.totalBill, order: order})
 })
 router.get('/feedbacks', async (req, res) =>{
     const email = req.query.email
@@ -79,7 +115,14 @@ router.get('/deleteBook', async (req,res)=>{
     res.redirect("/admin/viewProduct")
 
 })
+router.get('/deleteCategory', async (req,res)=>{
+    const id = req.query.id
+    const collectionName = 'Category'
+    await deleteProduct(collectionName, id)
+    
+    res.redirect("/admin/viewCategories")
 
+})
 router.get('/editBook', async (req,res)=>{
     const id = req.query.id
     const collectionName = 'Book'
@@ -128,16 +171,7 @@ router.post('/addCategory', async (req,res)=>{
 
     res.render('admin/managerBook/addCategories', {notify: notify})
     })
-// router.post('/addCategories',async (req,res)=>{
-//     const name = req.body.txtaddCategory
-//     const newC = {
-//         name: name, description: txt.parseFloat(description)
 
-//     }
-//     await insertObjectToCollection(collectionName, newC);
-// //     res.render('admin/managerBook/addCategories')
-// }
-//      )
 
 router.get('/insert',(req,res)=>{
         res.render('newProduct');

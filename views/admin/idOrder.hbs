@@ -137,22 +137,19 @@
                         <div class="wrapper">
                             <nav>
                                 <ul>
-                                    <li><a href="/admin/allOrder"><i class="fas fa-reply" aria-hidden="true"></i></a>
+                                    <li><a href="/admin/allOrder?email={{order.email}}"><i class="fas fa-reply"
+                                                aria-hidden="true"></i></a>
                                     </li>
-                                    <li><a href=""><i class="fas fa-info-circle" aria-hidden="true"></i></a></li>
-                                    <li><a href=""><i class="fas fa-trash-alt" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
-                                    <li><a href="/admin/infor"><i class="fa fa-location-arrow" aria-hidden="true"></i></a></li>
+                                    <li><a href="/admin/infor"><i class="fa fa-location-arrow"
+                                                aria-hidden="true"></i></a></li>
                                 </ul>
                             </nav>
                             <br>
                             <!--Kết Thúc Navigation -->
                             <div class="table">
                                 <div class="row header green">
-                                    <div class="cell">
-                                        Select
-                                    </div>
                                     <div class="cell">
                                         Product
                                     </div>
@@ -174,38 +171,48 @@
                                     <div class="cell">
                                         Status
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="cell" data-title="Select">
-                                        <input name="Remove" type="checkbox" value="" />
+                                    <div class="cell">
+                                        Update
                                     </div>
+                                </div>
+                                {{#each books}}
+                                <div class="row">
                                     <div class="cell" data-title="Product">
-                                        <img src="http://3.bp.blogspot.com/-DB3zM-6DelI/U3sjxcTQahI/AAAAAAAAAWw/FQQyE2quoy8/s1600/doc+gia+thu+7+-+(28-4-204)-02.jpg"
-                                            style="width: 100px; height: 150px">
+                                        <img src={{productId.imgURL}} style="width: 100px; height: 150px">
                                     </div>
                                     <div class="cell" data-title="Name">
-                                        Doc Gia Thu 7
+                                        {{productId.name}}
                                     </div>
                                     <div class="cell" data-title="Price">
-                                        $20
+                                        {{productId.price}}
                                     </div>
                                     <div class="cell" data-title="Quantity">
-                                        5
+                                        {{quantity}}
                                     </div>
+
                                     <div class="cell" data-title="Date Sold">
-                                        03/15/2022
+                                        {{date}}
                                     </div>
                                     <div class="cell" data-title="Price">
-                                        $100
+                                        {{price}}
                                     </div>
                                     <div class="cell" data-title="Status">
-                                        Waiting for Pickup
+                                        {{statusOrder}}
+                                    </div>
+                                    <div class="cell" data-title="Update">
+                                        <button name="button" value="OK" type="button"><i class="fas fa-edit"></i></button>
+                                        <button name="button" value="OK" type="button"><i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </div>
+                                {{/each}}
                             </div>
                         </div>
                     </div><!-- /#products_box -->
+                    <div>
+                        <h1 style="font-weight:bold; font-size: 20px; margin-left: 800px; margin-bottom: 0px ">
+                            <i>Total Bill: {{totalBill}}</i>
+                        </h1>
+                    </div>
                 </div><!-- /#content_area -->
             </div>
             <!--body container-->
