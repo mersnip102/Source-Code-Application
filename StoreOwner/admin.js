@@ -52,15 +52,51 @@ router.get('/allOrder', async (req,res)=>{
 router.get('/allOrder2', async (req,res)=>{
     const email = req.query.email
     const dbo = await getDatabase();
-    const orders = await dbo.collection('Order').find({email: email}).toArray();
-    res.render("admin/allOrder2", {orders:orders})
+    const allorders = await dbo.collection('Order').find({email: email}).toArray();
+    res.render("admin/allOrder2", {allorders:allorders})
 })
 
-router.get('/idOrder', (req,res)=>{
-    res.render("admin/idOrder")
+router.get('/idOrder', async (req,res)=>{
+    const idOrder = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    const order = await dbo.collection(collectionName).findOne({_id: ObjectId(idOrder)});
+    
+    const books = order.books
+    const books2 = order.books
+    
+    var arrBook = new Array(books.length)
+    var book
+    for(var i =0;i<books.length;i++){
+        book = await dbo.collection('Book').findOne({_id: ObjectId(books[i].productId)});
+        books[i].productId = book;
+        books[i].statusOrder = order.statusOrder
+        books[i].price = books[i].quantity * books[i].price
+        books[i].date = order.date
+    }
+    console.log(books)
+    res.render("admin/idOrder", {books:books, totalBill: order.totalBill})
 })
-router.get('/idOrder2', (req,res)=>{
-    res.render("admin/idOrder2")
+router.get('/idOrder2', async (req,res)=>{
+    const idOrder = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    const order = await dbo.collection(collectionName).findOne({_id: ObjectId(idOrder)});
+    
+    const books = order.books
+    const books2 = order.books
+    
+    var arrBook = new Array(books.length)
+    var book
+    for(var i =0;i<books.length;i++){
+        book = await dbo.collection('Book').findOne({_id: ObjectId(books[i].productId)});
+        books[i].productId = book;
+        books[i].statusOrder = order.statusOrder
+        books[i].price = books[i].quantity * books[i].price
+        books[i].date = order.date
+    }
+    console.log(books)
+    res.render("admin/idOrder2", {books:books, totalBill: order.totalBill})
 })
 router.get('/feedbacks', async (req, res) =>{
     const email = req.query.email
