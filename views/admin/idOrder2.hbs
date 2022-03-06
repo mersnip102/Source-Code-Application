@@ -137,7 +137,7 @@
                         <div class="wrapper">
                             <nav>
                                 <ul>
-                                    <li><a href="/admin/allOrder2"><i class="fas fa-reply" aria-hidden="true"></i></a>
+                                    <li><a href="/admin/allOrder2?email={{order.email}}"><i class="fas fa-reply" aria-hidden="true"></i></a>
                                     </li>
                                     <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
@@ -149,9 +149,6 @@
                             <!--Kết Thúc Navigation -->
                             <div class="table">
                                 <div class="row header green">
-                                    <div class="cell">
-                                        Select
-                                    </div>
                                     <div class="cell">
                                         Product
                                     </div>
@@ -173,12 +170,12 @@
                                     <div class="cell">
                                         Status
                                     </div>
+                                    <div class="cell">
+                                        Update
+                                    </div>
                                 </div>
                                 {{#each books}}
                                 <div class="row">
-                                    <div class="cell" data-title="Select">
-                                        <input name="Remove" type="checkbox" value="" />
-                                    </div>
                                     <div class="cell" data-title="Product">
                                         <img src={{productId.imgURL}} style="width: 100px; height: 150px">
                                     </div>
@@ -201,8 +198,9 @@
                                     <div class="cell" data-title="Status">
                                         {{statusOrder}}
                                     </div>
-                                    <div class="cell" data-title="Update">
-
+                                     <div class="cell" data-title="Update">
+                                        <button name="button" value="OK" type="button"><i class="fas fa-edit"></i></button>
+                                        <button name="button" value="OK" type="button"><i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </div>
                                 {{/each}}

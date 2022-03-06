@@ -51,8 +51,10 @@ router.get('/allOrder', async (req,res)=>{
 })
 router.get('/allOrder2', async (req,res)=>{
     const email = req.query.email
+    console.log(email)
     const dbo = await getDatabase();
     const allorders = await dbo.collection('Order').find({email: email}).toArray();
+    console.log(allorders)
     res.render("admin/allOrder2", {allorders:allorders})
 })
 
@@ -75,7 +77,7 @@ router.get('/idOrder', async (req,res)=>{
         books[i].date = order.date
     }
     console.log(books)
-    res.render("admin/idOrder", {books:books, totalBill: order.totalBill})
+    res.render("admin/idOrder", {books:books, totalBill: order.totalBill, order: order})
 })
 router.get('/idOrder2', async (req,res)=>{
     const idOrder = req.query.id
@@ -96,7 +98,7 @@ router.get('/idOrder2', async (req,res)=>{
         books[i].date = order.date
     }
     console.log(books)
-    res.render("admin/idOrder2", {books:books, totalBill: order.totalBill})
+    res.render("admin/idOrder2", {books:books, totalBill: order.totalBill, order: order})
 })
 router.get('/feedbacks', async (req, res) =>{
     const email = req.query.email
