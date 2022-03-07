@@ -111,7 +111,6 @@ router.get('/deleteBook', async (req,res)=>{
     const id = req.query.id
     const collectionName = 'Book'
     await deleteProduct(collectionName, id)
-    
     res.redirect("/admin/viewProduct")
 
 })
@@ -203,7 +202,6 @@ router.get('/viewCategories',async (_req,res)=> {
     res.render('admin/managerBook/viewCategories', {category: category })
 
 })
-
 
 
 
