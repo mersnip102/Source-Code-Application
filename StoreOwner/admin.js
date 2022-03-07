@@ -130,7 +130,9 @@ router.get('/listUser', (req, res) => {
 router.get('/updateProfile', (req, res) => {
     res.render('admin/managerBook/updateProfile')
 })
-
+router.get('/addCategories', (req, res) => {
+    res.render('admin/managerBook/addCategories')
+})
 router.post('/addCategory', async (req, res) => {
     const name = req.body.txtName
     const description = req.body.txtDescription
