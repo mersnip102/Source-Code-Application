@@ -132,13 +132,14 @@
                     </div><!-- /.left_sidebar_box -->
 
                 </div><!-- /.left_sidebar -->
-                <div id="content_area">
-                    <div id="products_box">
+
+
+                <div class="content">
+                    <div class="content_box">
                         <div class="wrapper">
                             <nav>
                                 <ul>
-                                    <li><a href="/admin/managerCustomer"><i class="fas fa-reply"
-                                                aria-hidden="true"></i></a></li>
+                                    <li><a href="/admin/managerCustomer"><i class="fas fa-reply" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
                                     <li><a href="/admin/infor"><i class="fa fa-location-arrow"
@@ -147,79 +148,40 @@
                             </nav>
                             <br>
                             <!--Kết Thúc Navigation -->
-                            <div class="table">
-                                <div class="row header green">
-                                    <div class="cell">
-                                        Product
-                                    </div>
-                                    <div class="cell">
-                                        Name
-                                    </div>
-                                    <div class="cell">
-                                        Price
-                                    </div>
-                                    <div class="cell">
-                                        Quantity
-                                    </div>
-                                    <div class="cell">
-                                        Date
-                                    </div>
-                                    <div class="cell">
-                                        Total Price
-                                    </div>
-                                    <div class="cell">
-                                        Status
-                                    </div>
-                                    <div class="cell">
-                                        Update
-                                    </div>
-                                </div>
-                                {{#each books}}
-                                <div class="row">
-                                    <div class="cell" data-title="Product">
-                                        <img src={{productId.imgURL}} style="width: 100px; height: 150px">
-                                    </div>
-                                    <div class="cell" data-title="Name">
-                                        {{productId.name}}
-                                    </div>
-                                    <div class="cell" data-title="Price">
-                                        {{productId.price}}
-                                    </div>
-                                    <div class="cell" data-title="Quantity">
-                                        {{quantity}}
-                                    </div>
+                            <div>
+                                {{!-- enctype="multipart/form-data" --}}
+                                <form action="/edit" method="post" style="text-align: center;">
+                                    <fieldset
+                                        style="display: block; font-weight: bold; border: 1px solid #000; width: 80%; margin: 50px 125px">
+                                        <legend style="color: red; text-align:center; font-size:30px;">Edit Status Order
+                                        </legend>
+                                        <label for="name" style="margin-left:0%;">Input Quantity: </label>
+                                        <input type="text" name="txtQuantity" id="txtQuantity" value="">
+                                        <br><br>
+                                        <label for="category">Input Price (1 Order): </label>
+                                        <input type="text" name="txtPrice" id="txtPrice" value="">
+                                        <br><br>
+                                        <label for="category">Status Order: </label>
+                                        <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription"
+                                            value="">
+                                        <span style="color: red;"></span>
+                                        <br><br>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </fieldset>
 
-                                    <div class="cell" data-title="Date Sold">
-                                        {{date}}
-                                    </div>
-                                    <div class="cell" data-title="Price">
-                                        {{price}}
-                                    </div>
-                                    <div class="cell" data-title="Status">
-                                        {{statusOrder}}
-                                    </div>
-                                    <div class="cell" data-title="Update">
-                                        <button name="button" value="OK" type="button">
-                                            <a href="/admin/editOrder"><i class="fas fa-edit"></i></a></button>
-                                        <button>
-                                            <a href="/admin/deleteOrder?id={{_id}}" class="btn btn-info btn-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a></button>
-                                    </div>
-                                </div>
-                                {{/each}}
+                                </form>
+                                <br>
+                                <center>
+                                    <h4 style="color: red;"></h4>
+                                </center>
                             </div>
                         </div>
-                    </div><!-- /#products_box -->
-                    <div>
-                        <h1 style="font-weight:bold; font-size: 20px; margin-left: 800px; margin-bottom: 0px ">
-                            <i>Total Bill: {{totalBill}}</i>
-                        </h1>
-                    </div>
-                </div><!-- /#content_area -->
-            </div>
-            <!--body container-->
-        </div><!-- /.container-->
+                    </div><!-- /.content_box -->
+                </div><!-- /.content -->
+            </div><!-- /.body_container -->
+        </div><!-- /.left_sidebar -->
+        </div><!-- /.container -->
+
         <div>
             <footer>
                 <div class="footer_top">
@@ -235,7 +197,8 @@
                     <a href="https://www.facebook.com/Quangnhgch190628/" style="color: rgb(47, 0, 255);"><i
                             class="fab fa-facebook"> Facebook</i></a> <br>
                     <a href="https://www.instagram.com/rino_1409/" style="color: rgb(255, 0, 221);"><i
-                            class="fab fa-instagram"> Instagram</i></a> <br>
+                            class="fab fa-instagram">
+                            Instagram</i></a> <br>
                     <a href="#"><i class="fab fa-twitter-square" style="color: rgb(0, 119, 255);"> Twitter</i></a>
                     <br><br><br>
                 </div>
@@ -251,11 +214,19 @@
                     <i class="fa fa-cc-visa" style="font-size:38px;color:red"></i>
                     <i class="fa fa-cc-mastercard" style="font-size:38px;color:red"></i>
                     <i class="fa fa-paypal" style="font-size:38px;color:blue"></i>
-
                 </div>
             </footer>
-
         </div>
     </body>
 
 </html>
+
+<script type="text/javascript">
+    function login() {
+        window.location = '/login';
+    }
+
+    function search() {
+        window.location = '/search';
+    }
+</script>

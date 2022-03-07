@@ -43,6 +43,9 @@ router.get('/orderDetail', async (req, res) => {
     console.log(books)
     res.render("admin/orderDetail", { books: books, totalBill: order.totalBill })
 })
+router.get('/editOrder', (req, res) => {
+    res.render('admin/editOrder')
+})
 router.get('/allOrder', async (req, res) => {
     const email = req.query.email
     const dbo = await getDatabase();
