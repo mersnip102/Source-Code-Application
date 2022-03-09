@@ -151,7 +151,6 @@ router.get('/deleteBook', async (req, res) => {
     res.redirect("/admin/viewProduct")
 
 })
-<<<<<<< Updated upstream
 router.get('/deleteCategory', async (req, res) => {
     const id = req.query.id
     const collectionName = 'Category'
@@ -165,17 +164,6 @@ router.get('/listUser', async (req, res) => {
     const customer = await getAllDocumentsFromCollection(collectionName);
     res.render("admin/listUser", {customer:customer})
 })
-=======
-router.get('/deleteCategory', async (req,res)=>{
-    const id = req.query.id
-    const collectionName = 'Category'
-    await deleteProduct(collectionName, id)
-    
-    res.redirect("/admin/viewCategories")
-
-})
-
->>>>>>> Stashed changes
 
 
 router.get('/updateProfile', (req, res) => {
@@ -244,13 +232,8 @@ router.get('/editProduct', async (req, res) => {
     const categories = await getAllDocumentsFromCollection('Category');
     console.log(categories)
 
-<<<<<<< Updated upstream
     res.render('admin/managerBook/editProduct', {books:books, categories: categories})
 })
-=======
-    res.render('admin/managerBook/addCategories', {notify: notify})
-    })
->>>>>>> Stashed changes
 
 router.post('/editBook', async (req, res) => {
     const id = req.body.txtId
