@@ -24,17 +24,26 @@ router.get('/deleteOrder', async(req,res)=>{
 
 router.get('/editOrder', async(req,res)=>{
     const id = req.query.id
+    console.log(id)
     const dbo = await getDatabase();
     const collectionName = 'Order'
-    await deleteProduct(collectionName,id)
-    res.render('editOrder')
+    
+    res.render('admin/editOrder', {id: id})
 })
 
 router.post('/editOrder', async(req,res)=>{
-    const id = req.query.id
+    const id = req.body.idStatus
+    console.log(id)
+    const status = req.body.txtDescription
     const dbo = await getDatabase();
     const collectionName = 'Order'
-    await deleteProduct(collectionName,id)
+    const myquery = {_id: ObjectId(id)}
+    const newvalues = {
+        $set: { statusOrder:  status}
+
+    }
+    
+    await dbo.collection(collectionName).updateOne(myquery, newvalues)
     res.redirect('/admin/managerCustomer')
 })
 
