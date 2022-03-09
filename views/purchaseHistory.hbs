@@ -45,23 +45,22 @@
                     <tr class="table-primary">
 
                         <th scope="col">IdOrder</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Total Price</th>
                         <th scope="col">Status order</th>
 
 
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each categories}}
+                    {{#each orders}}
                     <tr>
-                        <td class="items">{{_id}}</td>
-                        <td class="items">{{name}}</td>
-                        <td class="items"> <img src="{{image}}" width="180px" height="200px"></td>
-                        <td>
+                        <td class="items"><a href="#">{{_id}}</a></td>
+                        <td class="items">{{date}}</td>
+                        <td class="items">{{totalBill}} VND</td>
+                        <td class="items">{{statusOrder}}</td>
+                        
+                        {{!-- <td>
                             <a href="/editCategory?id={{_id}}" class="btn btn-info btn-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
@@ -69,7 +68,7 @@
                                 href="/deleteCategory?id={{_id}}" class="btn btn-info btn-sm">
                                 <i class="fas fa-trash"></i> Trash
                             </a>
-                        </td>
+                        </td> --}}
                     </tr>
                     {{/each}}
                 </tbody>

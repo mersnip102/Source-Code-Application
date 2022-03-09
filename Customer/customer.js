@@ -72,11 +72,11 @@ router.get('/', requireAuth, async (req, res) => {
 
 router.get('/purchaseHistory', requireAuth, async (req, res) => {
     const email = req.cookies.userId
-    const category = await categories()
-    const collectionName = 'Book'
-    const books = await getAllDocumentsFromCollection(collectionName)
-    console.log(totalProduct)
-    res.render('purchaseHistory', { category: category, books:books, totalProduct:totalProduct })
+    
+    const collectionName = 'Order'
+    const orders = await getAllDocumentsFromCollection(collectionName)
+    
+    res.render('purchaseHistory', { orders:orders, totalProduct:totalProduct })
 
 })
 
