@@ -159,12 +159,16 @@ router.get('/deleteCategory', async (req, res) => {
     res.redirect("/admin/viewCategories")
 
 })
-router.get('/listUser', (req, res) => {
-    res.render("admin/listUser")
+router.get('/listUser', async (req, res) => {
+    const collectionName = 'Customer'
+    const customer = await getAllDocumentsFromCollection(collectionName);
+    res.render("admin/listUser", {customer:customer})
 })
 
 
 router.get('/updateProfile', (req, res) => {
+    const id = req.query.id
+    
     res.render('admin/managerBook/updateProfile')
 })
 router.get('/addCategories', (req, res) => {
@@ -219,9 +223,45 @@ router.post('/addProduct', async (req, res) => {
 
     res.render('admin/managerBook/addProduct', { notify: notify })
 })
-router.get('/editProduct', (req, res) => {
-    res.render('admin/managerBook/editProduct')
+router.get('/editProduct', async (req, res) => {
+    const id = req.query.id
+    const collectionName = 'Book'
+    
+    const books = await getDocumentById(collectionName, id)
+    
+    const categories = await getAllDocumentsFromCollection('Category');
+    console.log(categories)
+
+    res.render('admin/managerBook/editProduct', {books:books, categories: categories})
 })
+
+router.post('/editBook', async (req, res) => {
+    const id = req.body.txtId
+    const name = req.body.txtName
+    const price = req.body.txtPrice
+    const picture = req.body.txtImage
+    const category = req.body.txtCategory
+    const author = req.body.txtAuthor
+    const description = req.body.txtDescription
+    const collectionName = 'Book'
+
+    const newvalues = {
+        $set: {
+            name: name, category: category, price: Number.parseFloat(price),
+            description: description, imgURL: picture, author: author, category: category, hot: 'false'
+        }
+
+    }
+    await updateCollection(id, collectionName, newvalues);
+
+    
+    const notify = "Update book successful"
+
+    res.redirect('/admin/viewProduct')
+})
+
+
+
 router.get('/viewCategories', async (_req, res) => {
     const collectionName = 'Category'
 

@@ -133,27 +133,31 @@
           <div class="content_box">
             <div>
               {{!-- enctype="multipart/form-data" --}}
-              <form action="/edit" method="post" style="text-align: center;">
+              <form action="editBook" method="post" style="text-align: center;">
                 <fieldset
                   style="display: block; font-weight: bold; border: 1px solid #000; width: 80%; margin: 50px 125px; background-color: rgba(245, 245, 245, 0.336)">
                   <legend style="color: red; text-align:center; font-size:30px;">Edit Product</legend>
-                  <input type="hidden" name="txtId" value="">
-                  <label for="name">Input Product's Name: </label>
-                  <input type="text" name="txtName" id="txtName" value="">
+                  <input type="hidden" name="txtId" value="{{books._id}}">
+                  <label for="name">Input Book's name: </label>
+                  <input type="text" name="txtName" id="txtName" value="{{books.name}}">
                   <br><br>
                   <label for="category">Input Category: </label>
-                  <select name="category">
-
-                    <option value=""></option>
-
+                  <select name="txtCategory">
+                    {{#each categories}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/each}}
                   </select>
                   <br><br>
                   <label for="category">Input Price: </label>
-                  <input type="text" name="txtPrice" id="txtPrice" value="">
+                  <input type="text" name="txtPrice" id="txtPrice" value="{{books.price}}">
+                  <br><br>
+                  <label for="category">Author: </label>
+                  <input style="width: 40%;" type="text" name="txtAuthor" id="txtAuthor" value="{{books.author}}">
+                  <br><br>
                   <span style="color: red;"></span>
                   <br><br>
                   <label for="category">Description: </label>
-                  <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription" value="">
+                  <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription" value="{{books.description}}">
                   <br><br>
 
                   <label for="img">Input URL Image:</label>
@@ -162,7 +166,7 @@
                       <span style="width: 30%;" class="input-group-text" id="basic-addon3">Example:
                         https://example.com/users/</span>
                     </center>
-                    <input style="width: 35%;" type="text" name="txtImage" id="txtImage" value="">
+                    <input style="width: 35%;" type="text" name="txtImage" id="txtImage" value="{{books.imgURL}}">
                   </div>
                   <br>
                   <span style="color: red;"></span>
