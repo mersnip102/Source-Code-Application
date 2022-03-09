@@ -14,6 +14,31 @@ router.get('/infor', (req, res) => {
     res.render('admin/infor')
 })
 
+router.get('/deleteOrder', async(req,res)=>{
+    const id = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    await deleteProduct(collectionName,id)
+    res.redirect('/admin/managerCustomer')
+})
+
+router.get('/editOrder', async(req,res)=>{
+    const id = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    await deleteProduct(collectionName,id)
+    res.render('editOrder')
+})
+
+router.post('/editOrder', async(req,res)=>{
+    const id = req.query.id
+    const dbo = await getDatabase();
+    const collectionName = 'Order'
+    await deleteProduct(collectionName,id)
+    res.redirect('/admin/managerCustomer')
+})
+
+
 router.get('/addUser', (req, res) => {
     res.render('admin/addUser')
 })

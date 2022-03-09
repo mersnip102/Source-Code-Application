@@ -149,6 +149,9 @@
 									<div class="cell">
 										Status
 									</div>
+									<div class="cell">
+										Update 
+									</div>
 								</div>
 
 								{{#each orders}}
@@ -168,6 +171,14 @@
 									<div class="cell" data-title="Status">
 										{{statusOrder}}
 									</div>
+									  <div class="cell" data-title="Update">
+                                        <button name="button" value="OK" type="button">
+                                            <a href="/admin/editOrder?id={{_id}}"><i class="fas fa-edit"></i></a></button>
+                                        <button>
+                                            <a href="/admin/deleteOrder?id={{_id}}" class="btn btn-info btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </a></button>
+                                    </div>
 								</div>
 
 								{{/each}}
