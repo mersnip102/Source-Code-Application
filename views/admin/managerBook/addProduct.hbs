@@ -156,10 +156,15 @@
                                             style="margin-left: 60px;">
                                     </div>
                                     <br>
+                                   
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                        Category:<input type="text" name="txtCategory" value="" class="form-control"
-                                            style="margin-left: 25px;">
+                                        Category:<select name="txtCategory">
+                                            {{#each categories}}
+                                            <option value="{{name}}">{{name}}</option>
+                                            {{/each}}
+                                        </select>
                                     </div>
+                                    
                                     <br>
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
                                         Author:<input type="text" name="txtAuthor" value="" class="form-control"

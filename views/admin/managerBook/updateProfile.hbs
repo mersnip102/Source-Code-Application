@@ -141,26 +141,30 @@
                                 <div>
                                     <h1 style="font-size: 50px;">Update Profile</h1>
                                 </div>
-                                <form action="/admin/addProduct" method="post"
+                                <form action="updateProfile" method="post"
                                     style="margin-top: 3%; margin-left: 37%;">
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                        Name: <input type="text" name="txtName" value="" class="form-control"
+                                        Name: <input type="text" name="txtName" value="{{customer.fullName}}" class="form-control"
                                             style="margin-left: 50px;">
                                     </div>
                                     <br>
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                        Password:<input type="text" name="txtPassword" value="" class="form-control"
+                                        Password:<input type="password" name="txtPassword" value="{{customer.password}}" class="form-control"
                                             style="margin-left: 23px;">
                                     </div>
                                     <br>
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                        Email:<input type="text" name="txtEmail" value="" class="form-control"
+                                        Email:<input type="text" name="txtEmail" value="{{customer.email}}" class="form-control"
                                             style="margin-left: 55px;">
                                     </div>
                                     <br>
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                        Phone:<input type="text" name="txtCategory" value="" class="form-control"
+                                        Phone:<input type="text" name="txtPhone" value="{{customer.phoneNumber}}" class="form-control"
                                             style="margin-left: 55px;">
+                                    </div>
+                                    <div >
+                                        <input type="hidden" name="id" value="{{customer._id}}" class="form-control"
+                                            style="margin-left: 23px;">
                                     </div>
                                     <br>
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">

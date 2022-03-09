@@ -178,6 +178,35 @@ router.get('/updateProfile', async (req, res) => {
 router.get('/addCategories', (req, res) => {
     res.render('admin/managerBook/addCategories')
 })
+
+router.post('/updateProfile', async (req, res) => {
+    const id = req.body.id
+    console.log(id)
+    const name = req.body.txtName
+    const password = req.body.txtPassword
+    const email = req.body.txtEmail
+    const phone = req.body.txtPhone
+    const collectionName = 'Customer'
+
+    const newvalues = {
+        $set: {
+            fullName: name, password: password,
+            email: email, phone: phone
+        }
+
+    }
+    await updateCollection(id, collectionName, newvalues);
+
+    res.redirect('/admin/listUser')
+})
+
+router.get('/deleteCustomer', async (req, res) => {
+    const id = req.query.id
+    const collectionName = 'Customer'
+    await deleteProduct(collectionName, id)
+    res.redirect("/admin/listUser")
+})
+
 router.post('/addCategory', async (req, res) => {
     const name = req.body.txtName
     const description = req.body.txtDescription
@@ -206,8 +235,11 @@ router.get('/viewProduct', async (_req, res) => {
     res.render('admin/managerBook/viewProduct', { products: products })
 })
 
-router.get('/addProduct', (req, res) => {
-    res.render('admin/managerBook/addProduct');
+router.get('/addProduct', async (req, res) => {
+
+    const categories = await getAllDocumentsFromCollection('Category');
+    console.log(categories)
+    res.render('admin/managerBook/addProduct', {categories: categories});
 })
 router.post('/addProduct', async (req, res) => {
     const name = req.body.txtName
