@@ -34,7 +34,7 @@ router.get('/editOrder', async(req,res)=>{
 router.post('/editOrder', async(req,res)=>{
     const id = req.body.idStatus
     console.log(id)
-    const status = req.body.txtDescription
+    const status = req.body.statusOrder
     const dbo = await getDatabase();
     const collectionName = 'Order'
     const myquery = {_id: ObjectId(id)}

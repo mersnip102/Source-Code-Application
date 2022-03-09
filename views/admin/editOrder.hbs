@@ -155,10 +155,15 @@
                                         style="display: block; font-weight: bold; border: 1px solid #000; width: 80%; margin: 50px 125px">
                                         <legend style="color: red; text-align:center; font-size:30px;">Edit Status Order</legend>
                                         <br><br>
-                                        <label for="category">Status Order: </label>
-                                        <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription"
-                                            value="">
-                                        
+                                        <label for="Status Order">Status Order:</label>
+                                        <select style="width: 40%;" type="hidden" name="statusOrder" id="txtDescription">
+                                            <option value="Wait for confirmation">Wait for confirmation</option>
+                                            <option value="Successful pick up">Successful pick up</option>
+                                            <option value="Delivery">Delivery</option>
+                                            <option value="Successful Delivery">Successful Delivery</option>
+                                            <option value="Cancel order">Cancel order</option>
+                                            
+                                        </select>
                                         <input style="width: 40%;" type="hidden" name="idStatus" id="txtDescription"
                                             value="{{id}}">
 
