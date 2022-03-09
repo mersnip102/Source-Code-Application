@@ -132,51 +132,50 @@
         <div class="content">
           <div class="content_box">
             <div>
-            {{!-- enctype="multipart/form-data" --}}
-            <form action="/edit" method="post" style="text-align: center;">
-                <fieldset style="display: block; font-weight: bold; border: 1px solid #000; width: 80%; margin: 50px 125px">
-                    <legend style="color: red; text-align:center; font-size:30px;">Edit Product</legend>
-                    <input type="hidden" name="txtId" value="">
-                    <label for="name">Input Product's Name: </label>
-                    <input type="text" name="txtName" id="txtName" value="">
-                    <br><br>
-                    <label for="category">Input Category: </label>
-                    <select name="category">
-                       
-                            <option value=""></option>
-                       
-                    </select>
-                    <br><br>
-                    <label for="category">Input Price: </label>
-                    <input type="text" name="txtPrice" id="txtPrice" value="">
-                    <span style="color: red;"></span>
-                    <br><br>
-                    <label for="category">Description: </label>
-                    <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription"
-                        value="">
-                    <br><br>
+              {{!-- enctype="multipart/form-data" --}}
+              <form action="/edit" method="post" style="text-align: center;">
+                <fieldset
+                  style="display: block; font-weight: bold; border: 1px solid #000; width: 80%; margin: 50px 125px; background-color: rgba(245, 245, 245, 0.336)">
+                  <legend style="color: red; text-align:center; font-size:30px;">Edit Product</legend>
+                  <input type="hidden" name="txtId" value="">
+                  <label for="name">Input Product's Name: </label>
+                  <input type="text" name="txtName" id="txtName" value="">
+                  <br><br>
+                  <label for="category">Input Category: </label>
+                  <select name="category">
 
-                    <label for="img">Input URL Image:</label>
-                    <div style="display: inline;">
-                        <center>
-                            <span style="width: 30%;" class="input-group-text"
-                                id="basic-addon3">Example: https://example.com/users/</span>
-                        </center>
-                        <input style="width: 35%;" type="text" name="txtImage" id="txtImage"
-                            value="">
-                    </div>                   
-                    <br>
-                    <span style="color: red;"></span>
-                    <br><br>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <option value=""></option>
+
+                  </select>
+                  <br><br>
+                  <label for="category">Input Price: </label>
+                  <input type="text" name="txtPrice" id="txtPrice" value="">
+                  <span style="color: red;"></span>
+                  <br><br>
+                  <label for="category">Description: </label>
+                  <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription" value="">
+                  <br><br>
+
+                  <label for="img">Input URL Image:</label>
+                  <div style="display: inline;">
+                    <center>
+                      <span style="width: 30%;" class="input-group-text" id="basic-addon3">Example:
+                        https://example.com/users/</span>
+                    </center>
+                    <input style="width: 35%;" type="text" name="txtImage" id="txtImage" value="">
+                  </div>
+                  <br>
+                  <span style="color: red;"></span>
+                  <br><br>
+                  <button type="submit" class="btn btn-primary">Edit</button>
                 </fieldset>
 
-            </form>
-            <br>
-            <center>
+              </form>
+              <br>
+              <center>
                 <h4 style="color: red;"></h4>
-            </center>
-        </div>
+              </center>
+            </div>
           </div><!-- /.content_box -->
         </div><!-- /.content -->
       </div><!-- /.body_container -->

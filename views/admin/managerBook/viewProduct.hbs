@@ -134,59 +134,52 @@
                 </div><!-- /.left_sidebar -->
                 <div class="content">
                     <div class="content_box">
+                        <div class="wrapper">
+                            <div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
+                                <div class="force-overflow">
+                                    <table class="table table-hover table-bordered">
+                                        <thead style="background-color: yellow; color:black">
+                                            <tr class="table-primary">
 
-                        <div>
-
-
-                            <div>
-                                <div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
-                                    <div class="force-overflow">
-                                        <table class="table table-hover table-bordered">
-                                            <thead style="background-color: yellow; color:black">
-                                                <tr class="table-primary">
-
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Category</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Description</th>
-                                                    <th scope="col">Image</th>
-                                                    <th scope="col">Options</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Category</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Options</th>
 
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each products}}
-                                                <tr>
-                                                    <td class="items">{{_id}}</td>
-                                                    <td class="items">{{name}}</td>
-                                                    <td class="items">{{category}}</td>
-                                                    <td class="items">{{price}} VND</td>
-                                                    <td class="items">{{description}}</td>
-                                                    <td class="items"> <img src="{{imgURL}}" width="180px"
-                                                            height="200px"></td>
-                                                    <td>
-                                                        <button name="button" value="OK" type="button">
-                                                            <a href="/admin/editProduct" class="btn btn-info btn-sm">
-                                                                <i class="fas fa-edit"></i></a></button>
-                                                        <button name="button" value="OK" type="button"><a
-                                                                onclick="return confirm('Do you want to delete the product?')"
-                                                                href="/admin/deleteBook?id={{_id}}"
-                                                                class="btn btn-info btn-sm">
-                                                                <i class="fas fa-trash"></i>
-                                                            </a></button>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each products}}
+                                            <tr>
+                                                <td class="items">{{_id}}</td>
+                                                <td class="items">{{name}}</td>
+                                                <td class="items">{{category}}</td>
+                                                <td class="items">{{price}} VND</td>
+                                                <td class="items">{{description}}</td>
+                                                <td class="items"> <img src="{{imgURL}}" width="180px" height="200px">
+                                                </td>
+                                                <td>
+                                                    <button name="button" value="OK" type="button">
+                                                        <a href="/admin/editProduct" class="btn btn-info btn-sm">
+                                                            <i class="fas fa-edit"></i></a></button>
+                                                    <button name="button" value="OK" type="button"><a
+                                                            onclick="return confirm('Do you want to delete the product?')"
+                                                            href="/admin/deleteBook?id={{_id}}"
+                                                            class="btn btn-info btn-sm">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a></button>
 
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
-
                         </div>
 
                         <script type="text/javascript">

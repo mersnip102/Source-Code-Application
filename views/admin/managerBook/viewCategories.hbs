@@ -134,45 +134,40 @@
                 </div><!-- /.left_sidebar -->
                 <div class="content">
                     <div class="content_box">
+                        <div class="wrapper">
+                            <div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
+                                <div class="force-overflow">
+                                    <table class="table table-hover table-bordered">
+                                        <thead style="background-color: yellow; color:black">
+                                            <tr class="table-primary">
 
-                        <div>
-
-
-                            <div>
-                                <div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
-                                    <div class="force-overflow">
-                                        <table class="table table-hover table-bordered">
-                                            <thead style="background-color: yellow; color:black">
-                                                <tr class="table-primary">
-
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Category</th>
-                                                    {{!-- <th scope="col">Description</th> --}}
-                                                    <th scope="col">Options</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Category</th>
+                                                {{!-- <th scope="col">Description</th> --}}
+                                                <th scope="col">Options</th>
 
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {{#each category}}
-                                                <tr>
-                                                    <td class="items">{{_id}}</td>
-                                                    <td class="items">{{name}}</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each category}}
+                                            <tr>
+                                                <td class="items">{{_id}}</td>
+                                                <td class="items">{{name}}</td>
 
-                                                    {{!-- <td class="items">{{description}}</td> --}}
+                                                {{!-- <td class="items">{{description}}</td> --}}
 
-                                                    <td>
-                                                        <button name="button" value="OK" type="button"><a
-                                                                onclick="return confirm('Do you want to delete the category?')"
-                                                                href="/admin/deleteCategory?id={{_id}}">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </a></button>
-                                                    </td>
-                                                </tr>
-                                                {{/each}}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                <td>
+                                                    <button name="button" value="OK" type="button"><a
+                                                            onclick="return confirm('Do you want to delete the category?')"
+                                                            href="/admin/deleteCategory?id={{_id}}">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a></button>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
 
