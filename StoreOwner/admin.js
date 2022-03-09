@@ -166,10 +166,14 @@ router.get('/listUser', async (req, res) => {
 })
 
 
-router.get('/updateProfile', (req, res) => {
+router.get('/updateProfile', async (req, res) => {
     const id = req.query.id
+    const collectionName = 'Customer'
+    const customer = await getDocumentById(collectionName, id)
     
-    res.render('admin/managerBook/updateProfile')
+    console.log(customer)
+
+    res.render('admin/managerBook/updateProfile', {customer: customer})
 })
 router.get('/addCategories', (req, res) => {
     res.render('admin/managerBook/addCategories')
