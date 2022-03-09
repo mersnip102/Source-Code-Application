@@ -134,60 +134,59 @@
                 </div><!-- /.left_sidebar -->
                 <div class="content">
                     <div class="content_box">
-                        <div class="container" style="width: 1100px; height: 500px; background-color:rgba(240, 248, 255, 0.267)">
-                            <center ><span style="font-weight: bold; color:red">{{notify}}</span></center>
-                            <div><h1 style="font-size: 50px;">Add Product</h1></div>
-                            <form action="/admin/addProduct" method="post" style="margin-top: 3%; margin-left: 37%;">
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    Name: <input type="text" name="txtName" value="" class="form-control" style="margin-left: 50px;">
+                        <div class="wrapper">
+                            <div style="width: 1100px; height: 500px; background-color:rgba(240, 248, 255, 0.267)">
+                                <center><span style="font-weight: bold; color:red">{{notify}}</span></center>
+                                <div>
+                                    <h1 style="font-size: 50px;">Add Product</h1>
                                 </div>
-                                <br>
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    Picture:<input type="text" name="txtPicture" value="" class="form-control" style="margin-left: 43px;">
-                                </div>
-                                <br>
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    Price:<input type="text" name="txtPrice" value="" class="form-control" style="margin-left: 60px;">
-                                </div>
-                                <br>
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    Category:<input type="text" name="txtCategory" value="" class="form-control" style="margin-left: 25px;">
-                                </div>
-                                <br>
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    Author:<input type="text" name="txtAuthor" value="" class="form-control" style="margin-left: 42px;">
-                                </div>
-                                <br>
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    Description:<input type="text" name="txtDescription" value="" class="form-control" style="margin-left: 5px;">
-                                </div>
-                                <br><br>
-                                <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                    <input type="submit" value="add" class="form-control" style="margin-left: 160px;">
-                                </div>
-                            </form>
-                           
+                                <form action="/admin/addProduct" method="post"
+                                    style="margin-top: 3%; margin-left: 37%;">
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Name: <input type="text" name="txtName" value="" class="form-control"
+                                            style="margin-left: 50px;">
+                                    </div>
+                                    <br>
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Picture:<input type="text" name="txtPicture" value="" class="form-control"
+                                            style="margin-left: 43px;">
+                                    </div>
+                                    <br>
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Price:<input type="text" name="txtPrice" value="" class="form-control"
+                                            style="margin-left: 60px;">
+                                    </div>
+                                    <br>
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Category:<input type="text" name="txtCategory" value="" class="form-control"
+                                            style="margin-left: 25px;">
+                                    </div>
+                                    <br>
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Author:<input type="text" name="txtAuthor" value="" class="form-control"
+                                            style="margin-left: 42px;">
+                                    </div>
+                                    <br>
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Description:<input type="text" name="txtDescription" value=""
+                                            class="form-control" style="margin-left: 5px;">
+                                    </div>
+                                    <br><br>
+                                    <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        <input type="submit" value="add" class="form-control"
+                                            style="margin-left: 160px;">
+                                    </div>
+                                </form>
 
-                        </div> <!-- card.// --> 
+                            </div>
+                        </div>
 
-                     
-                </div>
-
-                <h2 class="alert alert-danger">{{{error}}}</h2>
-                <br>
-
-            </div><!-- /.content_box -->
-
-
-
-        </div><!-- /.content_box -->
-
-        </div><!-- /.content -->
-        </div><!-- /.body_container -->
-        </div><!-- /.left_sidebar -->
+                        <h2 class="alert alert-danger">{{{error}}}</h2>
+                        <br>
+                    </div><!-- /.content_box -->
+                </div><!-- /.content -->
+            </div><!-- /.body_container -->
         </div><!-- /.container -->
-
-
         <div>
 
 
@@ -204,8 +203,8 @@
                     <div class="footer_top">
                         <p style="font-weight: bold; font-size:20px; color:black">Support</p>
                         <p>For any questions and suggestions, please contact Facebook, Instagram and Twitter.</p>
-                        <a href="https://www.facebook.com/profile.php?id=100011463742103" style="color: rgb(47, 0, 255);"><i
-                                class="fab fa-facebook"> Facebook</i></a> <br>
+                        <a href="https://www.facebook.com/profile.php?id=100011463742103"
+                            style="color: rgb(47, 0, 255);"><i class="fab fa-facebook"> Facebook</i></a> <br>
                         <a href="https://www.instagram.com/_hyn_312/" style="color: rgb(255, 0, 221);"><i
                                 class="fab fa-instagram"> Instagram</i></a> <br>
                         <a href="#"><i class="fab fa-twitter-square" style="color: rgb(0, 119, 255);"> Twitter</i></a>

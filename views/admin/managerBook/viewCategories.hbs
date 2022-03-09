@@ -134,9 +134,8 @@
                 </div><!-- /.left_sidebar -->
                 <div class="content">
                     <div class="content_box">
-<<<<<<< Updated upstream
                         <div class="wrapper">
-                            <div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
+                            <div class="scrollbar" id="style-1" style="height: 550px;">
                                 <div class="force-overflow">
                                     <table class="table table-hover table-bordered">
                                         <thead style="background-color: yellow; color:black">
@@ -169,48 +168,6 @@
                                             {{/each}}
                                         </tbody>
                                     </table>
-=======
-                        
-                        <div>
-
-                           
-                            <div>
-                          	<div class="scrollbar" id="style-1" style="height: 630px; margin-left: 3%">
-                            <div class="force-overflow">
-                                <table class="table table-hover table-bordered">
-                                    <thead style="background-color: yellow; color:black">
-                                        <tr class="table-primary">
-
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Category</th>
-                                            {{!-- <th scope="col">Description</th> --}}
-                                            <th scope="col">Options</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {{#each category}}
-                                        <tr>
-                                            <td class="items">{{_id}}</td>
-                                            <td class="items">{{name}}</td>
-                                            
-                                            {{!-- <td class="items">{{description}}</td> --}}
-                                            
-                                            <td>
-                                                <a href="/edit?id={{_id}}" class="btn btn-info btn-sm">
-                                                    <i class="fas fa-edit"></i> Edit
-                                                </a>
-                                                <a onclick="return confirm('Do you want to delete the category?')"
-                                                    href="/admin/deleteCategory?id={{_id}}" class="btn btn-info btn-sm">
-                                                    <i class="fas fa-trash"></i> Trash
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        {{/each}}
-                                    </tbody>
-                                </table>
->>>>>>> Stashed changes
                                 </div>
                             </div>
 
