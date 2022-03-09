@@ -138,7 +138,8 @@
                         <div class="wrapper">
                             <nav>
                                 <ul>
-                                    <li><a href="/admin/managerCustomer"><i class="fas fa-reply" aria-hidden="true"></i></a></li>
+                                    <li><a href="/admin/managerCustomer"><i class="fas fa-reply"
+                                                aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye" aria-hidden="true"></i></a></li>
                                     <li><a href=""><i class="fas fa-eye-slash" aria-hidden="true"></i></a></li>
                                     <li><a href="/admin/infor"><i class="fa fa-location-arrow"
@@ -152,18 +153,20 @@
                                 <form action="editOrder" method="post" style="text-align: center;">
                                     <fieldset
                                         style="display: block; font-weight: bold; border: 1px solid #000; width: 80%; margin: 50px 125px">
-                                        <legend style="color: red; text-align:center; font-size:30px;">Edit Status Order
-                                        </legend>
+                                        <legend style="color: red; text-align:center; font-size:30px;">Edit Status Order</legend>
                                         <br><br>
                                         <label for="category">Status Order: </label>
                                         <input style="width: 40%;" type="text" name="txtDescription" id="txtDescription"
                                             value="">
+                                        
                                         <input style="width: 40%;" type="hidden" name="idStatus" id="txtDescription"
                                             value="{{id}}">
+
                                         <span style="color: red;"></span>
                                         <br><br>
                                         <button type="submit" class="btn btn-primary">Edit</button>
                                     </fieldset>
+                                    
 
                                 </form>
                                 <br>
