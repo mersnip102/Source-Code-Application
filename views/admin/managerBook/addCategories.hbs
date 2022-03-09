@@ -135,22 +135,20 @@
 
                 <div class="content">
                     <div class="content_box">
-                        <div class="container">
-                            <center><span style="font-weight: bold; color:red">{{notify}}</span></center>
+                        <div class="container" style="background-color: rgba(240, 248, 255, 0.267); height: 500px; width: 1100px;">
+                            <center style="font-size: 50px;"><span style="font-weight: bold; color:red">{{notify}}</span>Add Category</center>
                             <form action="addCategory" method="post">
 
-                                <div class="mb-3">
+                                <div class="mb-3" style="margin-left: 31%; margin-top: 3%; font-size: 20px; font-weight:bold">
                                     Add new Category:<input type="text" placeholder="name" name="txtName" value=""
-                                        class="form-control">
+                                        class="form-control" style="margin-left: 20px;">
                                 </div>
+                                <br>
                                 {{!-- <div class="mb-3">
                                     <input type="text" name="txtDescription" placeholder="description" value=""
                                         class="form-control">
                                 </div> --}}
-
-
-
-                                <div class="mb-3">
+                                <div class="mb-3" style="margin-left: 48.2%;">
                                     <input type="submit" value="Add Category" class="form-control">
                                 </div>
 
