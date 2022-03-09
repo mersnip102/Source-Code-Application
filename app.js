@@ -219,10 +219,10 @@ app.post('/register', async(req,res)=> {
     const newUser = {fullName: fullName, email: email, password:password, phoneNumber: phone,
     dateOfBirth: date, address:address}
 
-    var collectionName = 'Customer'
+    const collectionName = 'Customer'
     await insertObjectToCollection(collectionName, newUser)
 
-    res.redirect('/')
+    res.redirect('/login')
 
 })
 
