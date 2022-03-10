@@ -96,6 +96,81 @@ router.get('/proDetail', async (req, res) => {
 
 })
 
+router.get('/feedback', async (req, res) => {
+
+    
+    
+    const category = await categories()
+    
+    res.render('feedbackUser', {category: category, totalProduct:totalProduct})
+
+})
+
+router.post('/feedback', async (req, res) => {
+    
+    const id = req.query.id
+    console.log(id)
+    var d = new Date();
+    const date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
+    const dbo = await getDatabase();
+    const order = await dbo.collection('Order').findOne({_id: ObjectId(id)});
+    console.log(order)
+    const user = await dbo.collection('Customer').findOne({email: order.email});
+    
+    console.log( order.orderDetail.phoneNumber)
+
+    const collectionName = 'Feedback' 
+    const newOrder = {
+        nameCustomer: user.fullName,
+        date: date,
+        feedback: feedback,
+        emailCustomer: order.email,
+        idOrder: order._id.toHexString(),
+        phoneNumber: order.orderDetail.phoneNumber
+        
+    }
+    await insertObjectToCollection(collectionName, newOrder)
+
+    // const category = await categories()
+    var status = 'Feedback/Cancel order successful'
+    res.redirect('/user/purchaseHistory?email='+order.email)
+
+})
+
+
+router.get('/cancel', async (req, res) => {
+    
+    const id = req.query.id
+    console.log(id)
+    var d = new Date();
+    const date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
+    const dbo = await getDatabase();
+    const order = await dbo.collection('Order').findOne({_id: ObjectId(id)});
+    console.log(order)
+    const user = await dbo.collection('Customer').findOne({email: order.email});
+    
+    console.log( order.orderDetail.phoneNumber)
+
+    const collectionName = 'Feedback' 
+    const newOrder = {
+        nameCustomer: user.fullName,
+        date: date,
+        feedback: 'Cancel order',
+        emailCustomer: order.email,
+        idOrder: order._id.toHexString(),
+        phoneNumber: order.phoneNumber
+        
+    }
+    await insertObjectToCollection(collectionName, newOrder)
+
+    // const category = await categories()
+    var status = 'Feedback/Cancel order successful'
+    res.redirect('/user/purchaseHistory?email='+order.email)
+
+})
+
+
+
 var totalBillAll = 0;
 router.get('/shoppingCart', requireAuth, async (req, res) => {
     const category = await categories();
@@ -185,6 +260,7 @@ router.post('/order', async (req,res)=>{
     // books = books.toArray()
     const orderDetail = {
         address: req.body.txtAddress,
+        phoneNumber: req.body.phone,
         discount: 0,
         transportFee: 30000,
         payment:  req.body.flexRadioDefault,
