@@ -287,6 +287,7 @@ router.post('/order', async (req,res)=>{
     req.session["cart"] = null;
     const status = 'Order successful'
     totalBillAll = 0
+    totalProduct = 0
     console.log(status)
     res.render('shoppingCart', {category: category, totalProduct:totalProduct, status: status, totalBill: totalBillAll});
     
