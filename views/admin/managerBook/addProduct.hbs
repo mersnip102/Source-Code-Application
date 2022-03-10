@@ -143,13 +143,22 @@
                                     <br>
                                    
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
-                                        Category:<select name="txtCategory">
+                                        Category:<select name="txtCategory" style=" margin-left: 25px">
                                             {{#each categories}}
                                             <option value="{{name}}">{{name}}</option>
                                             {{/each}}
                                         </select>
                                     </div>
                                     
+                                    <br>
+                                      <div class="mb-3" style="font-size: 20px; font-weight:bold">
+                                        Hot book:<select name="txthot" style=" margin-left: 25px">
+                                            <option value="normal">normal</option>
+                                            <option value="hot">hot</option>
+                                        </select>
+                                         <input style="width: 40%;" type="hidden" name="hot" id="txtDescription"
+                                            value="{{hot}}">
+                                    </div>
                                     <br>
                                     <div class="mb-3" style="font-size: 20px; font-weight:bold">
                                         Author:<input type="text" name="txtAuthor" value="" class="form-control"
