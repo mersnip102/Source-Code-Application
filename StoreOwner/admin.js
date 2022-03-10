@@ -75,7 +75,8 @@ router.get('/orderDetail', async (req, res) => {
         books[i].date = order.date
     }
     console.log(books)
-    res.render("admin/orderDetail", { books: books, totalBill: order.totalBill })
+    var totalBill =  order.totalBill - 30000
+    res.render("admin/orderDetail", { books: books, totalBill: totalBill })
 })
 router.get('/editOrder', (req, res) => {
     res.render('admin/editOrder')
