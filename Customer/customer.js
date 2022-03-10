@@ -98,32 +98,34 @@ router.get('/proDetail', async (req, res) => {
 
 router.get('/feedback', async (req, res) => {
 
-    
+    const id = req.query.id
     
     const category = await categories()
     
-    res.render('feedbackUser', {category: category, totalProduct:totalProduct})
+    res.render('feedbackUser', {category: category, totalProduct:totalProduct, id:id})
 
 })
 
 router.post('/feedback', async (req, res) => {
     
-    const id = req.query.id
+    const fb = req.body.feedback
+    const id = req.body.id
     console.log(id)
     var d = new Date();
     const date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
     const dbo = await getDatabase();
+    
     const order = await dbo.collection('Order').findOne({_id: ObjectId(id)});
-    console.log(order)
+    
     const user = await dbo.collection('Customer').findOne({email: order.email});
     
-    console.log( order.orderDetail.phoneNumber)
+    
 
     const collectionName = 'Feedback' 
     const newOrder = {
         nameCustomer: user.fullName,
         date: date,
-        feedback: feedback,
+        feedback: fb,
         emailCustomer: order.email,
         idOrder: order._id.toHexString(),
         phoneNumber: order.orderDetail.phoneNumber
@@ -149,7 +151,7 @@ router.get('/cancel', async (req, res) => {
     console.log(order)
     const user = await dbo.collection('Customer').findOne({email: order.email});
     
-    console.log( order.orderDetail.phoneNumber)
+    console.log( order.phoneNumber)
 
     const collectionName = 'Feedback' 
     const newOrder = {
