@@ -35,11 +35,13 @@
                 <form class="d-flex" style="width: 50%;" action="feedback" method="post">
                     <center>
                         <div class="mb-3">
+                            <center><span style="color: red;">Feedback danh cho: {{email}}</span></center>
                             <label for="exampleInputEmail1" style="color: red; font-weight: bold"
                                 class="form-label">Feedback</label>
                             <input type="text" name="feedback" class="form-control" value="" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
-                            <input type="hidden" value="{{id}}">
+                            <input type="hidden" name="id" value="{{idOrder}}">
+                            <input type="hidden" name="email" value="{{email}}">
                         </div>
                         <br>
                         <button type="submit" class="btn btn-secondary">Submit</button>
