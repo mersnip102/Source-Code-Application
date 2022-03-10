@@ -247,12 +247,13 @@ router.post('/addProduct', async (req, res) => {
     const price = req.body.txtPrice
     const picture = req.body.txtPicture
     const category = req.body.txtCategory
+    const hot = req.body.txthot
     const author = req.body.txtAuthor
     const description = req.body.txtDescription
     const collectionName = 'Book'
 
     const newP = {
-        name: name, price: Number.parseFloat(price), imgURL: picture, author: author, description: description, category: category
+        name: name, price: Number.parseFloat(price), imgURL: picture, author: author, description: description, category: category, hot: hot
     }
 
     await insertObjectToCollection(collectionName, newP);
