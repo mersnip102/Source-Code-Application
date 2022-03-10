@@ -43,7 +43,7 @@ body{
 }
 /*Header left*/
 .navbar-header{
-  width:75%;
+  width:90%;
   float:left;
   float: top;
 }
@@ -56,46 +56,6 @@ a.admin_name{
   font-weight: bolder;
   font-size: xx-large;
 }
-
-/* Header Search Bar */
-.header-search input[type="text"] {
-  float: left;
-  padding: 10px 15px;
-  font-size: 12px;
-  border: none;
-  margin-top: 12px;
-  margin-left: 0%;
-}
-.header-search .input-group-addon button {
-  float: left;
-  color: rgb(255, 255, 255);
-  background: #0000002d;
-  padding: 10px 15px;
-  border: none;
-  font-size: 12px;
-  margin-top: 12px;
-}
-.select-style {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  vertical-align: middle;
-}
-.select-style select {
-  width: 100%;
-  background: #efefef;
-  color: #000;
-  height: 38px;
-  padding: 0px 9px;
-  border: none;
-  outline: none;
-}
-.select-style select option.topshow {
-  padding: 10px 0;
-  position: relative;
-  top: 15px;
-}
-/* End Header Search Bar */
 
 .navbar-right-header{
   width:8%;
