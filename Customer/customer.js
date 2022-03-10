@@ -99,9 +99,10 @@ router.get('/proDetail', async (req, res) => {
 var totalBillAll = 0;
 router.get('/shoppingCart', requireAuth, async (req, res) => {
     const category = await categories();
-
+    console.log(category)
     const cart = req.session["cart"]
-
+    console.log(cart)
+    
     const dbo = await getDatabase();
     const collectionName = 'Book'
     let totalBill = 0
@@ -117,18 +118,18 @@ router.get('/shoppingCart', requireAuth, async (req, res) => {
         for(var key in dict) {
             let book = await dbo.collection(collectionName).findOne({_id: ObjectId(key)});
             console.log(book)
-            let category = await CategoryProduct(book.categoryId)
+            let categoryName = await CategoryProduct(book.category)
             totalPro= book.price * dict[key]
             totalBill += totalPro
 
-            totalBillAll = totalBill
+            totalBillAll = totalBill + 30000
 
-            purchasedProduct.push({name: book.name, category: category.name, img: book.imgURL, price: book.price, quantity: dict[key], totalProduct: totalPro})
+            purchasedProduct.push({name: book.name, category: categoryName.name, img: book.imgURL, price: book.price, quantity: dict[key], totalProduct: totalPro})
          }
     
     }
     console.log(totalBill)
-    res.render('shoppingCart', {category: category, totalProduct:totalProduct, purchasedProduct: purchasedProduct, totalBill: totalBill})
+    res.render('shoppingCart', {category: category, totalProduct:totalProduct, purchasedProduct: purchasedProduct, totalBill: totalBillAll})
     
 
 })
@@ -177,9 +178,11 @@ router.post('/shoppingCart',requireAuth, async (req, res)=>{
 router.post('/order', async (req,res)=>{
     const email = req.cookies.userId
     var d = new Date();
+    const category = await categories()
     const date = [d.getDate(), d.getMonth() + 1, d.getFullYear()].join('/') + ' ' + [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
     const phone = req.body.txtPhone
-    const books = req.session["cart"]
+    var books = req.session["cart"]
+    // books = books.toArray()
     const orderDetail = {
         address: req.body.txtAddress,
         discount: 0,
@@ -188,15 +191,28 @@ router.post('/order', async (req,res)=>{
         note: req.body.txtNote
 
     }
-    const totalBill = totalBillAll 
-    const statusOrder = 'Processing'
+    var array = []
+    for(var key in books) {
+        const dbo = await getDatabase();
+        let book = await dbo.collection('Book').findOne({_id: ObjectId(key)});
+        console.log(book)
+        
+        let price= book.price * books[key]
 
+        array.push({productId: key, quantity: books[key], price})
+     }
+
+    const totalBill = totalBillAll 
+    const statusOrder = 'Wait for confirmation'
+    const collectionName = 'Order'
     const newOrder = {
-        email: email, date: date, books: books, phone: phone, orderDetail: orderDetail, totalBill:totalBill, statusOrder:statusOrder}
+        email: email, date: date, books: array, phone: phone, orderDetail: orderDetail, totalBill:totalBill, statusOrder:statusOrder}
     await insertObjectToCollection(collectionName, newOrder)
-    const status = 'Add order successful'
+    req.session["cart"] = null;
+    const status = 'Order successful'
+    totalBillAll = 0
     console.log(status)
-    res.redirect('/');
+    res.render('shoppingCart', {category: category, totalProduct:totalProduct, status: status, totalBill: totalBillAll});
     
 })
 

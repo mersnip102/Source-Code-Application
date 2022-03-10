@@ -48,6 +48,7 @@
                         <th scope="col">Date</th>
                         <th scope="col">Total Price</th>
                         <th scope="col">Status order</th>
+                        <th scope="col">Options</th>
 
 
                     </tr>
@@ -60,15 +61,15 @@
                         <td class="items">{{totalBill}} VND</td>
                         <td class="items">{{statusOrder}}</td>
                         
-                        {{!-- <td>
+                        <td>
                             <a href="/editCategory?id={{_id}}" class="btn btn-info btn-sm">
-                                <i class="fas fa-edit"></i> Edit
+                                Feedback
                             </a>
                             <a onclick="return confirm('Do you want to delete the category?')"
                                 href="/deleteCategory?id={{_id}}" class="btn btn-info btn-sm">
-                                <i class="fas fa-trash"></i> Trash
+                                Cancel order
                             </a>
-                        </td> --}}
+                        </td>
                     </tr>
                     {{/each}}
                 </tbody>
