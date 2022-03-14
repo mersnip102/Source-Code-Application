@@ -53,7 +53,7 @@ app.get('/', async (req, res) => {
     const category = await categories()
     await res.clearCookie('userId');
 
-    const collectionName = 'Book'
+    const collectionName = 'Book';
     
     const searchInput = req.query.txtSearch;
 
@@ -216,10 +216,22 @@ app.post('/register', async(req,res)=> {
     const address = req.body.txtAddress
     const date = req.body.txtDate.toString()
 
+    const category = await categories()
+    
+    const dbo = await getDatabase();
+    const collectionName = 'Customer'
+    var checkEmail = await dbo.collection(collectionName).findOne({ email: email });
+
+    if (checkEmail){
+        const err = 'Duplicate this email in the system. Please re-enter your email'
+        res.render('register', { category: category, totalProduct:totalProduct, err:err })
+        return;
+    }
+
     const newUser = {fullName: fullName, email: email, password:password, phoneNumber: phone,
     dateOfBirth: date, address:address}
 
-    const collectionName = 'Customer'
+    
     await insertObjectToCollection(collectionName, newUser)
 
     res.redirect('/login')
